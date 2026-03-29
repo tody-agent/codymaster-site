@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Security? — CodyMaster Security Guard</title>
+  <meta name="description"
+    content="Why security is the core of AI-assisted engineering. Move fast without leaking secrets.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="stylesheet" href="css/kit.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* ── Page-Specific Styles ── */
+    .why-hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 60px;
+      overflow: hidden;
+    }
+
+    .why-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 750px;
+    }
+
+    .why-hero__badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(196, 248, 42, 0.1);
+      border: 1px solid rgba(196, 248, 42, 0.2);
+      border-radius: 100px;
+      color: var(--accent-lime);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    .why-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .why-hero__title span {
+      background: linear-gradient(135deg, var(--accent-lime), var(--accent-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .why-hero__sub {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* ── Security Circuit ── */
+    .security-circuit {
+      position: relative;
+      max-width: 800px;
+      margin: 60px auto;
+      padding-left: 40px;
+    }
+
+    .circuit-path {
+      position: absolute;
+      left: 14px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-lime), var(--accent-green), transparent);
+      opacity: 0.3;
+    }
+
+    .circuit-gate {
+      position: relative;
+      margin-bottom: 80px;
+      padding-left: 40px;
+    }
+
+    .gate__node {
+      position: absolute;
+      left: -40px;
+      top: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--bg-card);
+      border: 2px solid var(--accent-lime);
+      color: var(--accent-lime);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 0 15px rgba(196, 248, 42, 0.3);
+      z-index: 2;
+    }
+
+    .gate__skill-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-lime);
+      background: rgba(196, 248, 42, 0.1);
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(196, 248, 42, 0.2);
+    }
+
+    .gate__title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .gate__desc {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-size: 1.1rem;
+    }
+
+    /* ── Terminal Style Proof ── */
+    .terminal-style {
+      background: #0d1117;
+      border-radius: 12px;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      margin-top: 15px;
+      max-width: 100%;
+    }
+
+    .terminal__header {
+      background: #161b22;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .red { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #27c93f; }
+    .terminal__title { color: #8b949e; font-size: 0.75rem; margin-left: 10px; opacity: 0.8; }
+
+    .terminal__body { padding: 18px; color: #c9d1d9; line-height: 1.6; }
+    .line { margin-bottom: 4px; display: flex; gap: 8px; }
+    .cmd { color: var(--accent-lime); font-weight: 700; }
+    .info { color: #58a6ff; }
+    .error { color: #ff7b72; font-weight: 700; }
+    .warning { color: #d29922; }
+    .success { color: #3fb950; font-weight: 700; }
+
+    /* ── Comparison Table ── */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .comparison-card {
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .comparison-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .comparison-card--bad { 
+      background: linear-gradient(180deg, rgba(255, 95, 86, 0.05) 0%, rgba(255, 95, 86, 0.01) 100%); 
+      border-color: rgba(255, 95, 86, 0.15); 
+    }
+    .comparison-card--good { 
+      background: linear-gradient(180deg, rgba(196, 248, 42, 0.05) 0%, rgba(196, 248, 42, 0.01) 100%); 
+      border-color: rgba(196, 248, 42, 0.15); 
+      box-shadow: 0 10px 30px rgba(196, 248, 42, 0.05);
+    }
+
+    .comparison-card__title { font-size: 1.5rem; margin-bottom: 24px; font-weight: 700; }
+    .comparison-card--bad .comparison-card__title { color: #ff7b72; }
+    .comparison-card--good .comparison-card__title { color: var(--accent-lime); }
+
+    .comparison-card__list { list-style: none; padding: 0; }
+    .comparison-card__list li {
+      margin-bottom: 20px;
+      padding-left: 32px;
+      position: relative;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-size: 1.05rem;
+    }
+
+    .comparison-card__list li svg {
+      position: absolute;
+      left: 0;
+      top: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+      .security-circuit { padding-left: 20px; }
+      .why-hero { padding-top: 100px; min-height: 40vh; }
+    }
+  </style>
+</head>
+
+<body class="why-page">
+
+  <!-- ================= HEADER (NAV) ================= -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-icon">⚡</span>
+      <span>CodyMaster</span>
+    </a>
+
+    <ul class="nav__links" id="navLinks">
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.whyUs">Why Us</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="why-cody-master.html" class="nav-dropdown__item"><span class="lang-flag">💡</span> <span data-i18n="nav.whyCodyMaster">Why Us</span></a>
+          <a href="why-security.html" class="nav-dropdown__item active"><span class="lang-flag">🛡️</span> <span data-i18n="nav.whySecurity">Why Security</span></a>
+          <a href="skills.html" class="nav-dropdown__item"><span class="lang-flag">🧠</span> <span data-i18n="nav.skills">Skills Library</span></a>
+          <a href="vs-others.html" class="nav-dropdown__item"><span class="lang-flag">🔄</span> <span data-i18n="nav.vsOthers">vs Others</span></a>
+        </div>
+      </li>
+      <li><a href="index.html#howItWorks" class="nav__link" data-i18n="nav.howItWorks">How It Works</a></li>
+      <li><a href="skills.html" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+      <li><a href="/docs/" class="nav__link" data-i18n="nav.docs">Docs</a></li>
+    </ul>
+
+    <div class="nav__controls">
+      <div class="lang-switcher" id="lang-switcher">
+        <button class="lang-btn" id="lang-toggle">
+          <span class="lang-btn-icon">🌍</span>
+          <span class="lang-btn-text" id="lang-btn-text">EN</span>
+          <span class="lang-btn-caret">▾</span>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <button class="lang-option" data-lang="en">
+            <span class="lang-flag">🇬🇧</span> <span class="lang-name">English</span>
+          </button>
+          <button class="lang-option" data-lang="vi">
+            <span class="lang-flag">🇻🇳</span> <span class="lang-name">Tiếng Việt</span>
+          </button>
+          <button class="lang-option" data-lang="zh">
+            <span class="lang-flag">🇨🇳</span> <span class="lang-name">中文</span>
+          </button>
+        </div>
+      </div>
+      <a href="start.html" class="btn btn--primary btn--sm" data-i18n="nav.getStarted">Get Started</a>
+      <div class="nav__hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="why-hero">
+    <div class="why-hero__content">
+      <span class="why-hero__badge" data-i18n="whySecurity.heroBadge">🛡️ Security First</span>
+      <h1 class="why-hero__title">
+        <span data-i18n="whySecurity.heroTitle1">Build Fast,</span><br>
+        <span data-i18n="whySecurity.heroTitle2">Stay Safe.</span>
+      </h1>
+      <p class="why-hero__sub" data-i18n="whySecurity.heroSub">In the age of AI, moving fast shouldn't mean leaving your secrets exposed. CodyMaster is built with a 'Security-First' mindset and semi-autonomous defenses.</p>
+    </div>
+  </header>
+
+  <main class="why-main">
+    <!-- Intro Section -->
+    <section class="section section--intro">
+      <div class="container container--narrow">
+        <p class="section__text section__text--large text-center">
+          <span data-i18n="whySecurity.introPrefix">AI can write code faster than humans, but it doesn't always understand the risks of a direct commit. </span>
+          <strong data-i18n="whySecurity.introStrong">CodyMaster acts as your digital shield.</strong>
+          <span data-i18n="whySecurity.introSuffix">Instead of unprotected deployments, we enforce a rigorous 5-layer autonomous defense circuit.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Security Circuit Section -->
+    <section class="section section--circuit gray-bg">
+      <div class="container">
+        <div class="section__header text-center">
+          <span class="badge" data-i18n="whySecurity.circuit.label">THE 5-LAYER SECURITY CIRCUIT</span>
+          <h2 class="section__title h1" data-i18n="whySecurity.circuit.title">Autonomous Defense in Action</h2>
+          <p class="section__subtitle" data-i18n="whySecurity.circuit.subtitle">Your code earned its way to production through 5 rigorous safety gates.</p>
+        </div>
+
+        <div class="security-circuit">
+          <div class="circuit-path"></div>
+
+          <!-- Gate 1: Sentinel -->
+          <article class="circuit-gate" data-aos="fade-up">
+            <div class="gate__node">1</div>
+            <div class="gate__content">
+              <span class="gate__skill-tag">cm-secret-shield</span>
+              <h3 class="gate__title" data-i18n="whySecurity.circuit.gates.0.title">The Sentinel</h3>
+              <p class="gate__desc" data-i18n="whySecurity.circuit.gates.0.desc">Automatically scans for API keys, tokens, and hardcoded secrets. Blocks leaks before they touch git history.</p>
+              
+              <div class="terminal-style">
+                <div class="terminal__header">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                  <span class="terminal__title">cm-secret-shield --scan</span>
+                </div>
+                <div class="terminal__body" data-terminal-gate="0">
+                  <div class="line"><span class="cmd">$</span> cm-secret-shield .</div>
+                  <!-- Dynamic lines -->
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Gate 2: Sandbox -->
+          <article class="circuit-gate" data-aos="fade-up">
+            <div class="gate__node">2</div>
+            <div class="gate__content">
+              <span class="gate__skill-tag">cm-git-worktrees</span>
+              <h3 class="gate__title" data-i18n="whySecurity.circuit.gates.1.title">The Sandbox</h3>
+              <p class="gate__desc" data-i18n="whySecurity.circuit.gates.1.desc">Executes every task in isolated git worktrees. Prevents cross-contamination and accidental file overrides.</p>
+            </div>
+          </article>
+
+          <!-- Gate 3: Enforcer -->
+          <article class="circuit-gate" data-aos="fade-up">
+            <div class="gate__node">3</div>
+            <div class="gate__content">
+              <span class="gate__skill-tag">cm-tdd</span>
+              <h3 class="gate__title" data-i18n="whySecurity.circuit.gates.2.title">The Enforcer</h3>
+              <p class="gate__desc" data-i18n="whySecurity.circuit.gates.2.desc">Enforces Test-Driven Development (TDD) protocols. No feature is deployed without corresponding unit and integration tests.</p>
+              
+              <div class="terminal-style">
+                <div class="terminal__header">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                  <span class="terminal__title">cm-tdd --verify</span>
+                </div>
+                <div class="terminal__body" data-terminal-gate="2">
+                  <div class="line"><span class="cmd">$</span> npm test -- --coverage</div>
+                  <!-- Dynamic lines -->
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Gate 4: Inspector -->
+          <article class="circuit-gate" data-aos="fade-up">
+            <div class="gate__node">4</div>
+            <div class="gate__content">
+              <span class="gate__skill-tag">cm-quality-gate</span>
+              <h3 class="gate__title" data-i18n="whySecurity.circuit.gates.3.title">The Inspector</h3>
+              <p class="gate__desc" data-i18n="whySecurity.circuit.gates.3.desc">Performs deep static analysis and logical audit trails to identify XSS, SQL injection, and architectural vulnerabilities.</p>
+            </div>
+          </article>
+
+          <!-- Gate 5: Vault -->
+          <article class="circuit-gate" data-aos="fade-up">
+            <div class="gate__node">5</div>
+            <div class="gate__content">
+              <span class="gate__skill-tag">cm-safe-deploy</span>
+              <h3 class="gate__title" data-i18n="whySecurity.circuit.gates.4.title">The Vault</h3>
+              <p class="gate__desc" data-i18n="whySecurity.circuit.gates.4.desc">Final 8-gate automated deployment pipeline. Verifies build integrity and environment health before switching traffic.</p>
+              
+              <div class="terminal-style">
+                <div class="terminal__header">
+                  <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                  <span class="terminal__title">cm-safe-deploy --production</span>
+                </div>
+                <div class="terminal__body" data-terminal-gate="4">
+                  <!-- Dynamic lines -->
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section section--comparison">
+      <div class="container">
+        <div class="section__header text-center">
+          <h2 class="section__title h1" data-i18n="whySecurity.comparison.title">Comparison Grid</h2>
+          <p class="section__subtitle" data-i18n="whySecurity.comparison.subtitle">Why industry leaders choose CodyMaster over generic AI extensions.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <!-- Standard AI -->
+          <div class="comparison-card comparison-card--bad" data-aos="fade-right">
+            <h3 class="comparison-card__title" data-i18n="whySecurity.comparison.left.title">Standard AI Tools</h3>
+            <ul class="comparison-card__list" id="bad-items">
+              <!-- Populate via JS -->
+            </ul>
+          </div>
+
+          <!-- CodyMaster -->
+          <div class="comparison-card comparison-card--good" data-aos="fade-left">
+            <h3 class="comparison-card__title" data-i18n="whySecurity.comparison.right.title">With CodyMaster</h3>
+            <ul class="comparison-card__list" id="good-items">
+              <!-- Populate via JS -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" id="siteFooter">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">⚡ CodyMaster Kit</span>
+        <p class="footer__tagline" data-i18n="footer.tagline">Turn Ideas into Products 10x Faster</p>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.product">Product</h4>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="skills.html" data-i18n="nav.skills">Skills Library</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.whyUs">Why Us</h4>
+        <a href="why-security.html" data-i18n="nav.whySecurity">Why Security</a>
+        <a href="vs-others.html" data-i18n="nav.vsOthers">vs Others</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p data-i18n="footer.copy">© 2026 CodyMaster Kit. Free & Open Source.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/sanitize.js"></script>
+  <script src="js/kit.js"></script>
+
+  <script>
+    // Initialize AOS and Lucide immediately
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.AOS) {
+        window.AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false
+        });
+      }
+      if (window.lucide) window.lucide.createIcons();
+    });
+
+    // Custom i18n handler for arrays in Comparison Grid
+    document.addEventListener('languageChanged', (e) => {
+        const { lang, translations } = e.detail;
+        if (!translations) return;
+
+        // Use I18n.resolve if available, otherwise manual resolution
+        const resolve = (obj, path) => {
+            return path.split('.').reduce((acc, key) => acc?.[key], obj);
+        };
+
+        const badItems = resolve(translations, 'whySecurity.comparison.left.items') || [];
+        const goodItems = resolve(translations, 'whySecurity.comparison.right.items') || [];
+
+        const badList = document.getElementById('bad-items');
+        const goodList = document.getElementById('good-items');
+        const terminalBodies = document.querySelectorAll('[data-terminal-gate]');
+
+        if (badList && Array.isArray(badItems)) {
+            badList.innerHTML = badItems.map(item => `
+                <li>
+                    <i data-lucide="x-circle" style="width:20px; height:20px; color:#ff7b72; flex-shrink:0;"></i>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+        }
+        
+        if (goodList && Array.isArray(goodItems)) {
+            goodList.innerHTML = goodItems.map(item => `
+                <li>
+                    <i data-lucide="check-circle" style="width:20px; height:20px; color:#c4f82a; flex-shrink:0;"></i>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+        }
+
+        // Localize Terminal Proofs
+        terminalBodies.forEach(body => {
+            const gateIdx = body.dataset.terminalGate;
+            const terminalLines = resolve(translations, `whySecurity.circuit.gates.${gateIdx}.terminal`) || [];
+            if (Array.isArray(terminalLines) && terminalLines.length > 0) {
+                // Keep the first line if it's a command (starts with $)
+                const firstLine = body.querySelector('.line:first-child');
+                const hasCommand = firstLine && firstLine.querySelector('.cmd');
+                
+                body.innerHTML = '';
+                if (hasCommand) body.appendChild(firstLine);
+
+                terminalLines.forEach(line => {
+                    const lineEl = document.createElement('div');
+                    lineEl.className = 'line';
+                    if (line.includes('[SENTINEL]') || line.includes('[DEPLOY]') || line.includes('[INSPECTOR]') || line.includes('PASS') || line.includes('Nguồn') || line.includes('Source')) lineEl.classList.add('info');
+                    if (line.includes('[DETECT]') || line.includes('Gate') || line.includes('Cổng')) lineEl.classList.add('warning');
+                    if (line.includes('[BLOCK]') || line.includes('FAIL')) lineEl.classList.add('error');
+                    if (line.includes('[SUCCESS]') || line.includes('[SAFE]') || line.includes('[VAULT]') || line.includes('thành công') || line.includes('LIVE')) lineEl.classList.add('success');
+                    
+                    lineEl.textContent = line;
+                    body.appendChild(lineEl);
+                });
+            }
+        });
+        
+        // Re-run Lucide and refresh AOS
+        if (window.lucide) window.lucide.createIcons();
+        if (window.AOS) window.AOS.refresh();
+    });
+  </script>
+</body>
+</html>

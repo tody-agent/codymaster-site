@@ -1,0 +1,99 @@
+{
+  "brain3d": {
+    "hero": {
+      "badge": "⚡ Interactive 3D Architecture",
+      "title": "Inside the <span>CodyMaster</span>",
+      "sub": "Explore the neural network that powers intelligent coding: 5 memory tiers, 34 specialized skills, automated workflows, and cloud-synced knowledge — all working together in one unified system.",
+      "scroll": "SCROLL TO EXPLORE"
+    },
+    "memory": {
+      "label": "Five-Tier Memory",
+      "title": "A brain that knows what to remember — and what to forget.",
+      "desc": "Inspired by neuroscience, CodyMaster operates on 5 distinct memory tiers. Each ring in the visualization represents a different persistence layer — from millisecond sensory data to permanent structural understanding.",
+      "tiers": {
+        "t1": { "name": "Sensory Memory", "desc": "Session variables — forgotten instantly after each command." },
+        "t2": { "name": "Working Memory", "desc": "CONTINUITY.md — 7-day active context. Your current task state." },
+        "t3": { "name": "Long-Term Memory", "desc": "learnings.json — lessons reinforced 2×+ persist 30–180 days." },
+        "t4": { "name": "Semantic Memory", "desc": "qmd / vector search — permanent deep search across docs." },
+        "t5": { "name": "Structural Memory", "desc": "CodeGraph / AST — real-time codebase architecture. 95% token compression." }
+      }
+    },
+    "skills": {
+      "label": "34 Specialized Skills",
+      "title": "Each node is a dedicated AI expert.",
+      "desc": "Skills are organized into 6 categories spanning the entire development lifecycle. Each glowing node you see represents a skill — hover them to discover what they do. Skills chain together automatically through workflow orchestration.",
+      "categories": {
+        "think": "Think",
+        "design": "Design",
+        "build": "Build",
+        "quality": "Quality",
+        "deploy": "Deploy",
+        "content": "Content"
+      },
+      "nodes": {
+        "cm-brainstorm-idea": { "name": "Brainstorm", "desc": "Strategic analysis gate for complex ideas." },
+        "cm-planning": { "name": "Planning", "desc": "Requirements and full implementation design." },
+        "cm-jtbd": { "name": "JTBD", "desc": "Jobs-To-Be-Done customer discovery." },
+        "cm-start": { "name": "Start", "desc": "Entry point for workflow orchestration." },
+        "cm-reactor": { "name": "Reactor", "desc": "Strategic codebase re-direction/pivot." },
+        "cm-ux-master": { "name": "UX Master", "desc": "UI/UX intelligence with 48 UX laws." },
+        "cm-ui-preview": { "name": "UI Preview", "desc": "AI-powered UI generation with Stitch." },
+        "cm-design-system": { "name": "Design System", "desc": "Scale and token management." },
+        "cm-cro-methodology": { "name": "CRO", "desc": "Conversion rate optimization audit." },
+        "cm-execution": { "name": "Execution", "desc": "Batch or parallel task implementation." },
+        "cm-tdd": { "name": "TDD", "desc": "Test-driven development workflow." },
+        "cm-debugging": { "name": "Debugging", "desc": "Root cause analysis and fix validation." },
+        "cm-terminal": { "name": "Terminal", "desc": "Safe command execution and logging." },
+        "cm-codeintell": { "name": "CodeIntell", "desc": "AST graph and skeleton intelligence." },
+        "cm-frappe-agent": { "name": "Frappe Agent", "desc": "Expert Frappe & ERPNext development." },
+        "cm-quality-gate": { "name": "Quality Gate", "desc": "Pre-deployment safety verification." },
+        "cm-code-review": { "name": "Code Review", "desc": "Rigorous technical feedback loop." },
+        "cm-clean-code": { "name": "Clean Code", "desc": "Hygiene and dead code elimination." },
+        "cm-test-gate": { "name": "Test Gate", "desc": "CI/CD test infrastructure setup." },
+        "cm-continuity": { "name": "Continuity", "desc": "Cross-session working memory." },
+        "cm-safe-deploy": { "name": "Safe Deploy", "desc": "Multi-gate deployment pipeline." },
+        "cm-identity-guard": { "name": "Identity Guard", "desc": "Account and permission verification." },
+        "cm-secret-shield": { "name": "Secret Shield", "desc": "Secret leak prevention system." },
+        "cm-git-worktrees": { "name": "Git Worktrees", "desc": "Isolated feature development." },
+        "cm-safe-i18n": { "name": "i18n Support", "desc": "Safe multilingual translation." },
+        "cm-content-factory": { "name": "Content Factory", "desc": "Multi-format content generation." },
+        "cm-notebooklm": { "name": "NotebookLM", "desc": "Cloud-based knowledge brain." },
+        "cm-dockit": { "name": "DocKit", "desc": "Knowledge systematization engine." },
+        "cm-deep-search": { "name": "Deep Search", "desc": "Local BM25 semantic search." },
+        "cm-readit": { "name": "ReadIt", "desc": "Audio and TTS experience." }
+      }
+    },
+    "workflow": {
+      "label": "Workflow Orchestration",
+      "title": "Skills chain together. Automatically.",
+      "desc": "The animated particle streams between nodes represent workflow chains. Each workflow is a pipeline of skills that fire in sequence — from idea to deployed product. No manual coordination needed.",
+      "pipeline": "TYPICAL PIPELINE",
+      "correction": "Skills auto-redirect when complexity is detected: cm-planning detects ambiguity → redirects to cm-brainstorm-idea. The brain self-corrects its workflow path."
+    },
+    "cloud": {
+      "label": "QMD Embedding + NotebookLM",
+      "title": "Local search meets cloud intelligence.",
+      "desc": "The outer sphere represents the knowledge layer. qmd (by Shopify’s Tobi) provides BM25 search across massive local docs — feeding the Semantic Memory tier. NotebookLM extends this to the cloud — syncing high-value knowledge across machines, generating podcasts, flashcards, and queryable endpoints.",
+      "features": {
+        "f1": "qmd: Local BM25 search over docs & code",
+        "f2": "NotebookLM: Cross-machine sync",
+        "f3": "Auto-podcast from codebase knowledge",
+        "f4": "Flashcards for human onboarding"
+      },
+      "flow": "Data flow: Local Brain → brain-sync.sh → Cloud NotebookLM → Podcast / Flashcards / Query API"
+    },
+    "cta": {
+      "title": "Give your AI a real brain.",
+      "desc": "34 skills. 5 memory tiers. Self-healing intelligence. Cloud-synced knowledge. Install CodyMaster on any AI agent and watch it truly think.",
+      "btn": "Experience Brain Now 🧠",
+      "back": "← Read the full Brain documentation"
+    },
+    "overlay": {
+      "close": "Close",
+      "category": "Category",
+      "use_case": "Use Case",
+      "complexity": "Complexity",
+      "view_docs": "View Full Documentation"
+    }
+  }
+}

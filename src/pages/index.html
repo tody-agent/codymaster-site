@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodyMaster | Your AI Agent is smart. CodyMaster makes it wise.</title>
+  <meta name="description"
+    content="68+ AI Agent Skills that handle design, code, testing, deployment, and content. You just chat. Free &amp; open source.">
+  <meta property="og:title" content="CodyMaster - The OS for Your AI Agent">
+  <meta property="og:description"
+    content="Turn your chaotic AI into a disciplined, 68-skill senior engineering team. No random UI. No broken deploys. Just working products.">
+  <meta property="og:type" content="website">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="css/kit.css">
+  <link rel="stylesheet" href="css/brain-3d.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js Import Map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.164.1/build/three.module.js"
+    }
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCHYEW645C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-JCHYEW645C');
+  </script>
+</head>
+
+<body class="b3d-page">
+
+  <!-- ═══════ PROGRESS BAR ═══════ -->
+  <div class="b3d-progress" id="b3dProgress"></div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-icon">⚡</span>
+      <span>CodyMaster</span>
+    </a>
+
+    <ul class="nav__links" id="navLinks">
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.whyUs">Why Us</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="why-cody-master.html" class="nav-dropdown__item"><span class="lang-flag">💡</span> <span
+              data-i18n="nav.whyCodyMaster">Why CodyMaster</span></a>
+          <a href="index.html" class="nav-dropdown__item"><span class="lang-flag">🧠</span> <span
+              data-i18n="nav.brain">Brain</span></a>
+          <a href="skills.html" class="nav-dropdown__item"><span class="lang-flag">🧠</span> <span
+              data-i18n="nav.skills">Skills</span></a>
+          <a href="vs-scrum.html" class="nav-dropdown__item"><span class="lang-flag">🤺</span> <span
+              data-i18n="nav.vsScrum">vs Scrum</span></a>
+          <a href="vs-others.html" class="nav-dropdown__item"><span class="lang-flag">🔄</span> <span
+              data-i18n="nav.vsOthers">vs Others</span></a>
+          <a href="story.html" class="nav-dropdown__item"><span class="lang-flag">📖</span> <span
+              data-i18n="nav.story">Our Story</span></a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.how">How</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="vibe-coding.html" class="nav-dropdown__item"><span class="lang-flag">🎨</span> <span
+              data-i18n="nav.vibeCoding">Vibe Coding</span></a>
+          <a href="playbook.html" class="nav-dropdown__item"><span class="lang-flag">📖</span> <span
+              data-i18n="nav.useCases">Use Cases</span></a>
+          <a href="parallel-coding.html" class="nav-dropdown__item"><span class="lang-flag">⚡</span> <span
+              data-i18n="nav.parallelCoding">Parallel Coding</span></a>
+          <a href="cli.html" class="nav-dropdown__item"><span class="lang-flag">⌨️</span> <span
+              data-i18n="nav.cli">CLI</span></a>
+        </div>
+      </li>
+      <li><a href="/docs/" class="nav__link" data-i18n="nav.docs">Docs</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.personas">For You</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="for-founders.html" class="nav-dropdown__item"><span class="lang-flag">🚀</span> <span
+              data-i18n="personas.cards.0.title">For Founders</span></a>
+          <a href="for-cmos.html" class="nav-dropdown__item"><span class="lang-flag">📢</span> <span
+              data-i18n="personas.cards.1.title">For CMOs</span></a>
+          <a href="for-pms.html" class="nav-dropdown__item"><span class="lang-flag">📋</span> <span
+              data-i18n="personas.cards.2.title">For PMs</span></a>
+          <a href="for-tech-teams.html" class="nav-dropdown__item"><span class="lang-flag">💻</span> <span
+              data-i18n="personas.cards.3.title">For Tech Teams</span></a>
+          <a href="for-designers.html" class="nav-dropdown__item"><span class="lang-flag">🎨</span> <span
+              data-i18n="personas.cards.4.title">For Designers</span></a>
+          <a href="for-claw-family.html" class="nav-dropdown__item"><span class="lang-flag">🦞</span> <span
+              data-i18n="personas.cards.5.title">For Claw Family</span></a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav__controls">
+      <div class="lang-switcher" id="lang-switcher">
+        <button class="lang-btn" id="lang-toggle" aria-label="Select language" aria-expanded="false">
+          <span class="lang-btn-icon">🌍</span>
+          <span class="lang-btn-text" id="lang-btn-text">EN</span>
+          <span class="lang-btn-caret">▾</span>
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          <button class="lang-option" data-lang="en">
+            <span class="lang-flag">🇬🇧</span> <span class="lang-name">English</span>
+          </button>
+          <button class="lang-option" data-lang="vi">
+            <span class="lang-flag">🇻🇳</span> <span class="lang-name">Tiếng Việt</span>
+          </button>
+          <button class="lang-option" data-lang="zh">
+            <span class="lang-flag">🇨🇳</span> <span class="lang-name">中文</span>
+          </button>
+          <button class="lang-option" data-lang="ru">
+            <span class="lang-flag">🇷🇺</span> <span class="lang-name">Русский</span>
+          </button>
+          <button class="lang-option" data-lang="ko">
+            <span class="lang-flag">🇰🇷</span> <span class="lang-name">한국어</span>
+          </button>
+          <button class="lang-option" data-lang="hi">
+            <span class="lang-flag">🇮🇳</span> <span class="lang-name">हिन्दी</span>
+          </button>
+        </div>
+      </div>
+      <a href="start.html" class="nav__cta" data-i18n="nav.getStarted">Get Started</a>
+      <div class="nav__hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════ THREE.JS CANVAS ═══════ -->
+  <canvas id="brain3dCanvas"></canvas>
+
+  <!-- ═══════ TOOLTIP ═══════ -->
+  <div class="b3d-tooltip" id="b3dTooltip">
+    <div class="b3d-tooltip__name"></div>
+    <div class="b3d-tooltip__desc"></div>
+  </div>
+
+  <!-- ═══════ SCROLL CONTENT ═══════ -->
+  <div class="b3d-scroll">
+
+    <!-- ──── 1. HERO ──── -->
+    <section class="b3d-section b3d-section--hero" data-camera="hero">
+      <div class="b3d-hero">
+        <div class="b3d-hero__badge">⚡ The OS for Your AI Agent (v4.4+)</div>
+        <h1 class="b3d-hero__title">
+          Inside the <span>CodyMaster Brain</span>
+        </h1>
+        <p class="b3d-hero__sub">
+          Explore the neural network that powers intelligent coding: 5 memory tiers, 68+ specialized skills across 8 domains,
+          automated workflows, self-healing architecture, and cloud-synced knowledge — all working together in one unified system.
+        </p>
+        <div class="b3d-hero__scroll">
+          <div class="b3d-hero__scroll-line"></div>
+          SCROLL TO EXPLORE
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── 2. FIVE-TIER MEMORY ──── -->
+    <section class="b3d-section" data-camera="memory">
+      <div class="b3d-panel b3d-panel--left reveal">
+        <span class="b3d-label b3d-label--purple">Five-Tier Memory</span>
+        <h2 class="b3d-title">A brain that knows what to remember &mdash; and what to forget.</h2>
+        <p class="b3d-desc">
+          Inspired by neuroscience, CodyMaster operates on 5 distinct memory tiers.
+          Each ring in the visualization represents a different persistence layer
+          — from millisecond sensory data to permanent structural understanding.
+        </p>
+        <div class="b3d-tiers">
+          <div class="b3d-tier">
+            <div class="b3d-tier__icon" style="background:rgba(250,204,21,0.15);color:#facc15;">⚡</div>
+            <div class="b3d-tier__info">
+              <h4>Sensory Memory</h4>
+              <p>Session variables — forgotten instantly after each command.</p>
+            </div>
+          </div>
+          <div class="b3d-tier">
+            <div class="b3d-tier__icon" style="background:rgba(251,146,60,0.15);color:#fb923c;">📋</div>
+            <div class="b3d-tier__info">
+              <h4>Working Memory</h4>
+              <p>CONTINUITY.md — 7-day active context. Your current task state.</p>
+            </div>
+          </div>
+          <div class="b3d-tier">
+            <div class="b3d-tier__icon" style="background:rgba(244,114,182,0.15);color:#f472b6;">🧠</div>
+            <div class="b3d-tier__info">
+              <h4>Long-Term Memory</h4>
+              <p>learnings.json — lessons reinforced 2×+ persist 30–180 days.</p>
+            </div>
+          </div>
+          <div class="b3d-tier">
+            <div class="b3d-tier__icon" style="background:rgba(96,165,250,0.15);color:#60a5fa;">🔍</div>
+            <div class="b3d-tier__info">
+              <h4>Semantic Memory</h4>
+              <p>qmd / vector search — permanent deep search across docs.</p>
+            </div>
+          </div>
+          <div class="b3d-tier">
+            <div class="b3d-tier__icon" style="background:rgba(192,132,252,0.15);color:#c084fc;">🏗️</div>
+            <div class="b3d-tier__info">
+              <h4>Structural Memory</h4>
+              <p>CodeGraph / AST — real-time codebase architecture. 95% token compression.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── 3. SKILL CONSTELLATION ──── -->
+    <section class="b3d-section" data-camera="skills">
+      <div class="b3d-panel b3d-panel--right reveal">
+        <span class="b3d-label b3d-label--cyan">68+ Specialized Skills</span>
+        <h2 class="b3d-title">Each node is a dedicated AI expert.</h2>
+        <p class="b3d-desc">
+          Skills are organized into 8 domains spanning the entire product lifecycle.
+          Each glowing node represents a highly cohesive skill. The system clusters them logically
+          so the Agent always knows what to invoke next.
+        </p>
+        <div class="b3d-skills-grid">
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">🧠</div>
+            <div class="b3d-skill-cat__name" style="color:#a855f7;">Think</div>
+            <div class="b3d-skill-cat__count">10+ skills</div>
+          </div>
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">🎨</div>
+            <div class="b3d-skill-cat__name" style="color:#ec4899;">Design</div>
+            <div class="b3d-skill-cat__count">8+ skills</div>
+          </div>
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">💻</div>
+            <div class="b3d-skill-cat__name" style="color:#22d3ee;">Build</div>
+            <div class="b3d-skill-cat__count">12+ skills</div>
+          </div>
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">🛡️</div>
+            <div class="b3d-skill-cat__name" style="color:#22c55e;">Quality</div>
+            <div class="b3d-skill-cat__count">8+ skills</div>
+          </div>
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">🚀</div>
+            <div class="b3d-skill-cat__name" style="color:#f97316;">Deploy</div>
+            <div class="b3d-skill-cat__count">10+ skills</div>
+          </div>
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">📝</div>
+            <div class="b3d-skill-cat__name" style="color:#C4F82A;">Content</div>
+            <div class="b3d-skill-cat__count">6+ skills</div>
+          </div>
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">🏥</div>
+            <div class="b3d-skill-cat__name" style="color:#ef4444;">Healing</div>
+            <div class="b3d-skill-cat__count">6+ skills</div>
+          </div>
+          <div class="b3d-skill-cat">
+            <div class="b3d-skill-cat__icon">🏭</div>
+            <div class="b3d-skill-cat__name" style="color:#0ea5e9;">Enterprise</div>
+            <div class="b3d-skill-cat__count">8+ skills</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── 3.5 SELF-HEALING AI ──── -->
+    <section class="b3d-section" data-camera="healing">
+      <div class="b3d-panel b3d-panel--left reveal">
+        <span class="b3d-label b3d-label--red">Self-Healing AI</span>
+        <h2 class="b3d-title">An immune system for your logic.</h2>
+        <p class="b3d-desc">
+          When a skill fails or encounters unknown parameters, the system doesn't just crash. It invokes <code style="color:#ef4444;">cm-skill-health</code> to diagnose the failure, and <code style="color:#ef4444;">cm-skill-evolution</code> to automatically generate a mutated, fixed version of the skill.
+          Over time, your AI becomes perfectly adapted to your specific codebase.
+        </p>
+      </div>
+    </section>
+
+    <!-- ──── 4. WORKFLOW CHAINS ──── -->
+    <section class="b3d-section" data-camera="workflow">
+      <div class="b3d-panel b3d-panel--left reveal">
+        <span class="b3d-label b3d-label--lime">Workflow Orchestration</span>
+        <h2 class="b3d-title">Skills chain together. Automatically.</h2>
+        <p class="b3d-desc">
+          The animated particle streams between nodes represent workflow chains.
+          Each workflow is a pipeline of skills that fire in sequence — from idea to deployed product.
+          No manual coordination needed.
+        </p>
+
+        <h4 style="font-size:13px;color:var(--text-muted);margin-bottom:10px;letter-spacing:1px;">TYPICAL PIPELINE</h4>
+        <div class="b3d-flow">
+          <span class="b3d-flow__step">cm-start</span>
+          <span class="b3d-flow__arrow">→</span>
+          <span class="b3d-flow__step">brainstorm</span>
+          <span class="b3d-flow__arrow">→</span>
+          <span class="b3d-flow__step">planning</span>
+          <span class="b3d-flow__arrow">→</span>
+          <span class="b3d-flow__step">execution</span>
+          <span class="b3d-flow__arrow">→</span>
+          <span class="b3d-flow__step">quality-gate</span>
+          <span class="b3d-flow__arrow">→</span>
+          <span class="b3d-flow__step">safe-deploy</span>
+        </div>
+
+        <p class="b3d-desc" style="margin-top:20px;">
+          Skills auto-redirect when complexity is detected: <code style="color:#C4F82A;">cm-planning</code>
+          detects ambiguity → redirects to <code style="color:#a855f7;">cm-brainstorm-idea</code>.
+          The brain self-corrects its workflow path.
+        </p>
+      </div>
+    </section>
+
+    <!-- ──── 5. QMD + NOTEBOOKLM ──── -->
+    <section class="b3d-section" data-camera="cloud">
+      <div class="b3d-panel b3d-panel--right reveal">
+        <span class="b3d-label b3d-label--blue">QMD Embedding + NotebookLM</span>
+        <h2 class="b3d-title">Local search meets cloud intelligence.</h2>
+        <p class="b3d-desc">
+          The outer sphere represents the knowledge layer. <strong>qmd</strong> (by Shopify&rsquo;s Tobi) provides BM25 search across
+          massive local docs — feeding the <em>Semantic Memory</em> tier. <strong>NotebookLM</strong> extends this to the cloud
+          — syncing high-value knowledge across machines, generating podcasts, flashcards, and queryable endpoints.
+        </p>
+
+        <div class="b3d-cloud-features">
+          <div class="b3d-cloud-feat">
+            <span class="b3d-cloud-feat__icon">🔍</span>
+            <span class="b3d-cloud-feat__text">qmd: Local BM25 search over docs & code</span>
+          </div>
+          <div class="b3d-cloud-feat">
+            <span class="b3d-cloud-feat__icon">☁️</span>
+            <span class="b3d-cloud-feat__text">NotebookLM: Cross-machine sync</span>
+          </div>
+          <div class="b3d-cloud-feat">
+            <span class="b3d-cloud-feat__icon">🎙️</span>
+            <span class="b3d-cloud-feat__text">Auto-podcast from codebase knowledge</span>
+          </div>
+          <div class="b3d-cloud-feat">
+            <span class="b3d-cloud-feat__icon">📇</span>
+            <span class="b3d-cloud-feat__text">Flashcards for human onboarding</span>
+          </div>
+        </div>
+
+        <p class="b3d-desc" style="margin-top:16px;font-size:13px;">
+          Data flow: <code style="color:#60a5fa;">Local Brain</code> → <code style="color:#c084fc;">brain-sync.sh</code>
+          → <code style="color:#a855f7;">Cloud NotebookLM</code> → Podcast / Flashcards / Query API
+        </p>
+      </div>
+    </section>
+
+    <!-- ──── 6. CTA / INSTALL ──── -->
+    <section class="b3d-section" data-camera="cta">
+      <div class="b3d-panel b3d-panel--center reveal" style="max-width: 720px;">
+        <div class="b3d-cta">
+          <h2 class="b3d-title" style="font-size: 2.5rem;">Give your AI a real brain.</h2>
+          <p class="b3d-desc" style="text-align:center; max-width: 600px; margin: 0 auto 30px;">
+            68+ skills. 5 memory tiers. Self-healing intelligence.
+            Install CodyMaster and watch your AI truly think.
+          </p>
+
+          <!-- INSTALL TABS (Segmented Control style) -->
+          <div class="b3d-tabs-wrapper">
+            <div class="b3d-tabs">
+              <button class="b3d-tab active" data-target="global" data-i18n="install.tabGlobal">Global Install</button>
+              <button class="b3d-tab" data-target="manual" data-i18n="install.tabManual">Manual Setup</button>
+              <div class="b3d-tab-glider"></div>
+            </div>
+          </div>
+
+          <!-- GLOBAL INSTALL -->
+          <div class="home-install-content active" id="install-global">
+            <div class="b3d-code-box">
+              <div class="b3d-code-header">
+                <div class="b3d-code-dots"><span></span><span></span><span></span></div>
+                <span class="b3d-code-label">Terminal</span>
+              </div>
+              <div class="b3d-code-body">
+                <code>bash &lt;(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all</code>
+                <button class="b3d-copy-btn" onclick="navigator.clipboard.writeText('bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all')" title="Copy Command">
+                  <i data-lucide="copy"></i>
+                </button>
+              </div>
+            </div>
+            <p class="b3d-install-note" data-i18n="install.globalDesc">Automatically connects CodyMaster to all detected IDEs and CLI agents.</p>
+          </div>
+
+          <!-- MANUAL SETUP -->
+          <div class="home-install-content" id="install-manual">
+            <div class="b3d-ide-grid">
+              <div class="b3d-ide-card" data-ide="Antigravity"><i data-lucide="rocket"></i><span>Antigravity</span></div>
+              <div class="b3d-ide-card" data-ide="Cursor"><i data-lucide="terminal-square"></i><span>Cursor</span></div>
+              <div class="b3d-ide-card" data-ide="OpenCode"><i data-lucide="code-xml"></i><span>OpenCode</span></div>
+              <div class="b3d-ide-card" data-ide="RooCode"><i data-lucide="zap"></i><span>RooCode</span></div>
+              <div class="b3d-ide-card" data-ide="Claude"><i data-lucide="bot"></i><span>Claude</span></div>
+              <div class="b3d-ide-card" data-ide="Windsurf"><i data-lucide="code-2"></i><span>Windsurf</span></div>
+              <div class="b3d-ide-card" data-ide="CLI"><i data-lucide="command"></i><span>CLI</span></div>
+            </div>
+            <div id="ide-instructions-container"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer" id="siteFooter">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">⚡ CodyMaster Kit</span>
+        <p class="footer__tagline" data-i18n="footer.tagline">Turn Ideas into Products 10x Faster</p>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.product">Product</h4>
+        <a href="brain.html" data-i18n="nav.brain">Brain</a>
+        <a href="skills.html" data-i18n="nav.skills">Skills</a>
+        <a href="start.html" data-i18n="nav.getStarted">Get Started</a>
+        <a href="/docs/" data-i18n="nav.docs">Docs</a>
+        <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.whyUs">Why Us</h4>
+        <a href="why-cody-master.html" data-i18n="nav.whyCodyMaster">Why CodyMaster</a>
+        <a href="vs-others.html" data-i18n="nav.vsOthers">vs Others</a>
+        <a href="story.html" data-i18n="nav.story">Our Story</a>
+        <a href="cli.html" data-i18n="nav.cli">CLI</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.community">Community</h4>
+        <a href="https://github.com/tody-agent/codymaster" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Discord</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p data-i18n="footer.copy">© 2026 CodyMaster Kit. Free & Open Source.</p>
+      <p class="footer__made" data-i18n="footer.madeWith">Made with ❤️ and AI</p>
+    </div>
+  </footer>
+
+  <script src="js/sanitize.js"></script>
+  <script src="js/kit.js"></script>
+  <script src="js/brain-3d.js" type="module"></script>
+  <script src="js/brain-page.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Icons
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+
+      // 2. Tab & Glider Logic
+      const tabs = document.querySelectorAll('.b3d-tab');
+      const glider = document.querySelector('.b3d-tab-glider');
+      const contents = document.querySelectorAll('.home-install-content');
+
+      function updateGlider(tab) {
+        if (!glider || !tab) return;
+        glider.style.width = tab.offsetWidth + 'px';
+        glider.style.left = tab.offsetLeft + 'px';
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          updateGlider(tab);
+
+          const target = tab.dataset.target;
+          contents.forEach(c => {
+            c.classList.remove('active');
+            if (c.id === `install-${target}`) c.classList.add('active');
+          });
+        });
+      });
+
+      // Init glider
+      const initialTab = document.querySelector('.b3d-tab.active');
+      if (initialTab) setTimeout(() => updateGlider(initialTab), 300);
+
+      // 3. IDE Instructions
+      const ideData = {
+        'Antigravity': {
+          title: '🚀 Antigravity / Gemini CLI',
+          steps: [
+            { label: 'Register as skill', code: 'antigravity skill add ~/.cody-master/skills/cm-skill-index' },
+            { label: 'Run auto-install', code: 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --antigravity' }
+          ]
+        },
+        'Cursor': {
+          title: '🖥️ Cursor IDE',
+          steps: [
+            { label: 'Copy skills', code: 'cp -r ~/.cody-master/skills .cursor/skills/' },
+            { label: 'Setup rules', code: 'cp ~/.cody-master/.cursorrules .cursorrules' }
+          ]
+        },
+        'CLI': {
+          title: '⌨️ CLI (Global)',
+          steps: [
+            { label: 'Install globally', code: 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all' }
+          ]
+        }
+      };
+
+      const ideCards = document.querySelectorAll('.b3d-ide-card');
+      const container = document.getElementById('ide-instructions-container');
+
+      ideCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const id = card.dataset.ide;
+          const info = ideData[id] || ideData['CLI'];
+
+          ideCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+
+          let html = `
+            <div class="b3d-instruction-panel reveal visible" style="margin-top:24px; text-align:left;">
+              <h3 style="margin-bottom:16px; color:var(--text-primary); font-size:1.2rem;">${info.title}</h3>
+              <div class="b3d-steps" style="display:grid; gap:16px;">
+          `;
+
+          info.steps.forEach((s, i) => {
+            html += `
+              <div class="b3d-step" style="display:flex; gap:12px;">
+                <span style="background:var(--accent-purple); color:white; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:11px; font-weight:bold;">${i + 1}</span>
+                <div style="flex:1;">
+                  <p style="font-size:13px; margin-bottom:6px; opacity:0.8;">${s.label}</p>
+                  <div style="position:relative;">
+                    <code style="background:rgba(0,0,0,0.4); padding:10px 14px; border-radius:8px; display:block; font-size:12px; border:1px solid rgba(255,255,255,0.1); white-space:pre-wrap; word-break:break-all;">${s.code}</code>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+
+          html += `</div></div>`;
+          container.innerHTML = html;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

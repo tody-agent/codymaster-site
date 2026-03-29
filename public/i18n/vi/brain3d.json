@@ -1,0 +1,99 @@
+{
+  "brain3d": {
+    "hero": {
+      "badge": "⚡ Kiến trúc 3D Tương tác",
+      "title": "Bên trong <span>CodyMaster</span>",
+      "sub": "Khám phá mạng lưới thần kinh vận hành lập trình thông minh: 5 tầng bộ nhớ, 34 kỹ năng chuyên biệt, quy trình tự động và tri thức đồng bộ đám mây — tất cả phối hợp trong một hệ thống thống nhất.",
+      "scroll": "CUỘN ĐỂ KHÁM PHÁ"
+    },
+    "memory": {
+      "label": "Bộ nhớ 5 Tầng",
+      "title": "Một bộ não biết cái gì cần ghi nhớ — và cái gì cần quên.",
+      "desc": "Lấy cảm hứng từ khoa học thần kinh, CodyMaster vận hành trên 5 tầng bộ nhớ riêng biệt. Mỗi vòng tròn trong phối cảnh đại diện cho một lớp lưu trữ khác nhau — từ dữ liệu cảm biến mili giây đến sự hiểu biết cấu trúc vĩnh viễn.",
+      "tiers": {
+        "t1": { "name": "Bộ nhớ Cảm biến", "desc": "Các biến phiên làm việc — bị xóa ngay lập tức sau mỗi lệnh." },
+        "t2": { "name": "Bộ nhớ Làm việc", "desc": "CONTINUITY.md — ngữ cảnh hoạt động trong 7 ngày. Trạng thái tác vụ hiện tại của bạn." },
+        "t3": { "name": "Bộ nhớ Dài hạn", "desc": "learnings.json — các bài học được củng cố 2 lần trở lên sẽ tồn tại 30–180 ngày." },
+        "t4": { "name": "Bộ nhớ Ngữ nghĩa", "desc": "Phần mềm qmd / tìm kiếm vector — tìm kiếm sâu vĩnh viễn trên toàn bộ tài liệu." },
+        "t5": { "name": "Bộ nhớ Cấu trúc", "desc": "CodeGraph / AST — kiến trúc mã nguồn thời gian thực. Nén token đến 95%." }
+      }
+    },
+    "skills": {
+      "label": "34 Kỹ năng Chuyên biệt",
+      "title": "Mỗi nút là một chuyên gia AI tận tâm.",
+      "desc": "Các kỹ năng được tổ chức thành 6 danh mục bao quát toàn bộ vòng đời phát triển. Mỗi nút phát sáng bạn thấy đại diện cho một kỹ năng — di chuột để khám phá chức năng. Các kỹ năng tự động liên kết thông qua điều phối quy trình.",
+      "categories": {
+        "think": "Tư duy",
+        "design": "Thiết kế",
+        "build": "Xây dựng",
+        "quality": "Chất lượng",
+        "deploy": "Triển khai",
+        "content": "Nội dung"
+      },
+      "nodes": {
+        "cm-brainstorm-idea": { "name": "Brainstorm", "desc": "Cổng phân tích chiến lược cho các ý tưởng phức tạp." },
+        "cm-planning": { "name": "Lập kế hoạch", "desc": "Thiết kế yêu cầu và kiến trúc triển khai." },
+        "cm-jtbd": { "name": "JTBD", "desc": "Khám phá nhu cầu khách hàng Jobs-To-Be-Done." },
+        "cm-start": { "name": "Bắt đầu", "desc": "Điểm khởi đầu cho điều phối workflow." },
+        "cm-reactor": { "name": "Reactor", "desc": "Protocol chuyển hướng/pivot codebase chiến lược." },
+        "cm-ux-master": { "name": "UX Master", "desc": "Trí tuệ UI/UX với 48 quy luật UX." },
+        "cm-ui-preview": { "name": "UI Preview", "desc": "Tạo giao diện AI với Stitch." },
+        "cm-design-system": { "name": "Design System", "desc": "Quản lý token và mở rộng quy mô." },
+        "cm-cro-methodology": { "name": "CRO", "desc": "Audit tối ưu hóa tỷ lệ chuyển đổi." },
+        "cm-execution": { "name": "Thực thi", "desc": "Triển khai tác vụ hàng loạt hoặc song song." },
+        "cm-tdd": { "name": "TDD", "desc": "Workflow phát triển hướng kiểm thử." },
+        "cm-debugging": { "name": "Debugging", "desc": "Phân tích nguyên nhân gốc và xác minh bản vá." },
+        "cm-terminal": { "name": "Terminal", "desc": "Thực thi lệnh và log an toàn." },
+        "cm-codeintell": { "name": "CodeIntell", "desc": "Trí tuệ đồ thị AST và skeleton." },
+        "cm-frappe-agent": { "name": "Frappe Agent", "desc": "Chuyên gia phát triển Frappe & ERPNext." },
+        "cm-quality-gate": { "name": "Cổng chất lượng", "desc": "Xác minh an toàn trước khi deploy." },
+        "cm-code-review": { "name": "Review Code", "desc": "Vòng lặp phản hồi kỹ thuật nghiêm ngặt." },
+        "cm-clean-code": { "name": "Code sạch", "desc": "Vệ sinh code và loại bỏ code rác/thừa." },
+        "cm-test-gate": { "name": "Hàng rào Test", "desc": "Thiết lập hạ tầng kiểm thử CI/CD." },
+        "cm-continuity": { "name": "Tính liên tục", "desc": "Bộ nhớ làm việc xuyên suốt các phiên." },
+        "cm-safe-deploy": { "name": "Deploy an toàn", "desc": "Pipeline triển khai đa tầng." },
+        "cm-identity-guard": { "name": "Identity Guard", "desc": "Xác minh tài khoản và quyền hạn." },
+        "cm-secret-shield": { "name": "Secret Shield", "desc": "Hệ thống ngăn chặn rò rỉ secret." },
+        "cm-git-worktrees": { "name": "Git Worktrees", "desc": "Phát triển tính năng trong môi trường cô lập." },
+        "cm-safe-i18n": { "name": "Hỗ trợ đa ngôn ngữ", "desc": "Dịch thuật đa ngôn ngữ an toàn." },
+        "cm-content-factory": { "name": "Xưởng nội dung", "desc": "Tạo nội dung đa định dạng." },
+        "cm-notebooklm": { "name": "NotebookLM", "desc": "Bộ não tri thức đám mây." },
+        "cm-dockit": { "name": "DocKit", "desc": "Engine hệ thống hóa tri thức." },
+        "cm-deep-search": { "name": "Tìm kiếm sâu", "desc": "Tìm kiếm ngữ nghĩa BM25 cục bộ." },
+        "cm-readit": { "name": "ReadIt", "desc": "Trải nghiệm âm thanh và TTS." }
+      }
+    },
+    "workflow": {
+      "label": "Điều phối Quy trình",
+      "title": "Các kỹ năng liên kết với nhau. Tự động.",
+      "desc": "Các luồng hạt chuyển động giữa các nút đại diện cho chuỗi quy trình công việc. Mỗi quy trình là một đường ống các kỹ năng thực thi theo trình tự — từ ý tưởng đến sản phẩm hoàn thiện. Không cần điều phối thủ công.",
+      "pipeline": "ĐƯỜNG ỐNG ĐIỂN HÌNH",
+      "correction": "Các kỹ năng tự động chuyển hướng khi phát hiện sự phức tạp: cm-planning phát hiện mơ hồ → chuyển hướng đến cm-brainstorm-idea. Bộ não tự sửa lỗi lộ trình quy trình."
+    },
+    "cloud": {
+      "label": "QMD Embedding + NotebookLM",
+      "title": "Tìm kiếm cục bộ kết hợp trí tuệ đám mây.",
+      "desc": "Vòng ngoài đại diện cho lớp tri thức. qmd (bởi Tobi của Shopify) cung cấp tìm kiếm BM25 trên khối lượng lớn tài liệu cục bộ — cung cấp dữ liệu cho tầng Bộ nhớ Ngữ nghĩa. NotebookLM mở rộng điều này lên đám mây — đồng bộ tri thức giá trị cao giữa các máy, tạo podcast, thẻ ghi nhớ và các điểm cuối có thể truy vấn.",
+      "features": {
+        "f1": "qmd: Tìm kiếm BM25 cục bộ trên tài liệu và code",
+        "f2": "NotebookLM: Đồng bộ hóa xuyên thiết bị",
+        "f3": "Tự động tạo podcast từ tri thức mã nguồn",
+        "f4": "Thẻ ghi nhớ (Flashcards) để đào tạo nhân sự"
+      },
+      "flow": "Luồng dữ liệu: Não Cục bộ → brain-sync.sh → Cloud NotebookLM → Podcast / Flashcards / Truy vấn API"
+    },
+    "cta": {
+      "title": "Cung cấp cho AI một bộ não thực thụ.",
+      "desc": "34 kỹ năng. 5 tầng bộ nhớ. Trí tuệ tự phục hồi. Tri thức đồng bộ đám mây. Cài đặt CodyMaster cho bất kỳ tác nhân AI nào và chứng kiến nó thực sự suy nghĩ.",
+      "btn": "Trải nghiệm Bộ não Ngay 🧠",
+      "back": "← Đọc tài liệu đầy đủ về Bộ não"
+    },
+    "overlay": {
+      "close": "Đóng",
+      "category": "Danh mục",
+      "use_case": "Trường hợp sử dụng",
+      "complexity": "Độ phức tạp",
+      "view_docs": "Xem Tài liệu Đầy đủ"
+    }
+  }
+}

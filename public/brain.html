@@ -1,0 +1,538 @@
+<!DOCTYPE html><html lang="en" data-lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain — CodyMaster Smart Memory System</title>
+  <meta name="description" content="CodyMaster Brain: The only AI with neuroscience-inspired smart memory. Learns from mistakes, forgets the irrelevant, self-heals when wrong.">
+  <meta property="og:title" content="CodyMaster Brain — Smart Memory System">
+  <meta property="og:description" content="AI that remembers, learns, and self-heals. Not a goldfish brain.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="stylesheet" href="css/kit.css">
+  <link rel="stylesheet" href="css/brain.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JCHYEW645C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JCHYEW645C');
+</script>
+
+</head>
+<body>
+
+  <!-- ═══════════╗ NAVIGATION ╔═══════════ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-icon">⚡</span>
+      <span>CodyMaster</span>
+    </a>
+
+    <ul class="nav__links" id="navLinks">
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.whyUs">Why Us</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="why-cody-master.html" class="nav-dropdown__item"><span class="lang-flag">💡</span> <span data-i18n="nav.whyCodyMaster">Why CodyMaster</span></a>
+          <a href="brain.html" class="nav-dropdown__item"><span class="lang-flag">🧠</span> <span data-i18n="nav.brain">Brain</span></a>
+          <a href="skills.html" class="nav-dropdown__item"><span class="lang-flag">🧠</span> <span data-i18n="nav.skills">Skills</span></a>
+          <a href="vs-scrum.html" class="nav-dropdown__item"><span class="lang-flag">🤺</span> <span data-i18n="nav.vsScrum">vs Scrum</span></a>
+          <a href="vs-others.html" class="nav-dropdown__item"><span class="lang-flag">🔄</span> <span data-i18n="nav.vsOthers">vs Others</span></a>
+          <a href="story.html" class="nav-dropdown__item"><span class="lang-flag">📖</span> <span data-i18n="nav.story">Our Story</span></a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.how">How</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="vibe-coding.html" class="nav-dropdown__item"><span class="lang-flag">🎨</span> <span data-i18n="nav.vibeCoding">Vibe Coding</span></a>
+          <a href="playbook.html" class="nav-dropdown__item"><span class="lang-flag">📖</span> <span data-i18n="nav.useCases">Use Cases</span></a>
+          <a href="parallel-coding.html" class="nav-dropdown__item"><span class="lang-flag">⚡</span> <span data-i18n="nav.parallelCoding">Parallel Coding</span></a>
+          <a href="cli.html" class="nav-dropdown__item"><span class="lang-flag">⌨️</span> <span data-i18n="nav.cli">CLI</span></a>
+        </div>
+      </li>
+      <li><a href="/docs/" class="nav__link" data-i18n="nav.docs">Docs</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.personas">For You</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="for-founders.html" class="nav-dropdown__item"><span class="lang-flag">🚀</span> <span data-i18n="personas.cards.0.title">For Founders</span></a>
+          <a href="for-cmos.html" class="nav-dropdown__item"><span class="lang-flag">📢</span> <span data-i18n="personas.cards.1.title">For CMOs</span></a>
+          <a href="for-pms.html" class="nav-dropdown__item"><span class="lang-flag">📋</span> <span data-i18n="personas.cards.2.title">For PMs</span></a>
+          <a href="for-tech-teams.html" class="nav-dropdown__item"><span class="lang-flag">💻</span> <span data-i18n="personas.cards.3.title">For Tech Teams</span></a>
+          <a href="for-designers.html" class="nav-dropdown__item"><span class="lang-flag">🎨</span> <span data-i18n="personas.cards.4.title">For Designers</span></a>
+          <a href="for-claw-family.html" class="nav-dropdown__item"><span class="lang-flag">🦞</span> <span data-i18n="personas.cards.5.title">For Claw Family</span></a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav__controls">
+        <div class="lang-switcher" id="lang-switcher">
+          <button class="lang-btn" id="lang-toggle" aria-label="Select language" aria-expanded="false">
+            <span class="lang-btn-icon">🌍</span>
+            <span class="lang-btn-text" id="lang-btn-text">EN</span>
+            <span class="lang-btn-caret">▾</span>
+          </button>
+          <div class="lang-menu" id="lang-menu">
+            <button class="lang-option" data-lang="en">
+              <span class="lang-flag">🇬🇧</span> <span class="lang-name">English</span>
+            </button>
+            <button class="lang-option" data-lang="vi">
+              <span class="lang-flag">🇻🇳</span> <span class="lang-name">Tiếng Việt</span>
+            </button>
+            <button class="lang-option" data-lang="zh">
+              <span class="lang-flag">🇨🇳</span> <span class="lang-name">中文</span>
+            </button>
+            <button class="lang-option" data-lang="ru">
+              <span class="lang-flag">🇷🇺</span> <span class="lang-name">Русский</span>
+            </button>
+            <button class="lang-option" data-lang="ko">
+              <span class="lang-flag">🇰🇷</span> <span class="lang-name">한국어</span>
+            </button>
+            <button class="lang-option" data-lang="hi">
+              <span class="lang-flag">🇮🇳</span> <span class="lang-name">हिन्दी</span>
+            </button>
+          </div>
+        </div>
+        <a href="start.html" class="nav__cta" data-i18n="nav.getStarted">Get Started</a>
+        <div class="nav__hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+      </div>
+  </nav>
+
+  <!-- ═══════════╗ HERO ╔═══════════ -->
+  <section class="brain-hero" id="brainHero">
+    <div class="brain-hero__orbs">
+      <div class="brain-hero__orb brain-hero__orb--purple"></div>
+      <div class="brain-hero__orb brain-hero__orb--blue"></div>
+    </div>
+
+    <div class="brain-hero__content">
+      <div class="brain-hero__badge">
+        <i data-lucide="sparkles" class="brain-hero__badge-icon"></i>
+        <span class="brain-hero__badge-text" data-i18n="brainPage.hero.badge">Neuroscience × AI Engineering</span>
+      </div>
+
+      <h1 class="brain-hero__title" data-i18n="brainPage.hero.title">
+        Smart brain, <span class="brain-hero__highlight">self-learning.</span>
+        Not a <span class="brain-hero__strike">goldfish brain.</span>
+      </h1>
+
+      <p class="brain-hero__subtitle" data-i18n="brainPage.hero.subtitle">
+        CodyMaster is the only AI with <strong>smart memory</strong> inspired by neuroscience. Remembers past mistakes, forgets what's irrelevant, self-repairs when memory causes bugs. No repeating errors. No losing context. Doesn't get dumber over time.
+      </p>
+
+      <!-- Brain Visualization -->
+      <div class="brain-viz">
+        <div class="brain-viz__core">
+          <i data-lucide="brain" class="brain-viz__icon"></i>
+        </div>
+        <div class="brain-viz__dot brain-viz__dot--top"></div>
+        <div class="brain-viz__dot brain-viz__dot--right"></div>
+        <div class="brain-viz__dot brain-viz__dot--bottom"></div>
+        <div class="brain-viz__dot brain-viz__dot--left"></div>
+        <span class="brain-viz__label brain-viz__label--top" data-i18n="pages.brain_auto_16">Long-term</span>
+        <span class="brain-viz__label brain-viz__label--right" data-i18n="pages.brain_auto_17">Working</span>
+        <span class="brain-viz__label brain-viz__label--bottom" data-i18n="pages.brain_auto_18">Sensory</span>
+        <span class="brain-viz__label brain-viz__label--left" data-i18n="pages.brain_auto_19">Audit</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════╗ THE PROBLEM ╔═══════════ -->
+  <section class="section" id="brainProblem">
+    <div class="section__header reveal">
+      <p class="section__label" style="color: var(--accent-red);" data-i18n="brainPage.problem.label">THE PROBLEM</p>
+      <h2 class="section__title" data-i18n="brainPage.problem.title">AI Without Memory = Disaster</h2>
+    </div>
+
+    <div class="brain-problem__stat reveal">
+      <div class="brain-problem__stat-number">100%</div>
+      <div class="brain-problem__stat-label">context lost every session</div>
+      <p class="brain-problem__stat-desc">
+        Every AI coding tool — Cursor, Copilot, Claude Code — starts each session with <strong>zero memory</strong>. 
+        Same bugs. Same explanations. Same wasted tokens. Over and over.
+      </p>
+      <div class="brain-problem__stat-pills">
+        <span class="brain-problem__pill brain-problem__pill--red"><i data-lucide="repeat" style="width:14px;height:14px;"></i> Repeats mistakes</span>
+        <span class="brain-problem__pill brain-problem__pill--red"><i data-lucide="git-branch" style="width:14px;height:14px;"></i> Contradicts itself</span>
+        <span class="brain-problem__pill brain-problem__pill--red"><i data-lucide="flame" style="width:14px;height:14px;"></i> Burns tokens</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════╗ 5-TIER MEMORY ╔═══════════ -->
+  <section class="section" id="brainTiers">
+    <div class="section__header reveal">
+      <p class="section__label" data-i18n="brainPage.tiers.label">FIVE-TIER MEMORY</p>
+      <h2 class="section__title" data-i18n="brainPage.tiers.title">Our brain knows what to remember,\nwhat to forget, and what to keep forever.</h2>
+      <p class="section__subtitle" data-i18n="brainPage.tiers.subtitle">Inspired by neuroscience: different memories have different lifespans.</p>
+    </div>
+
+    <div class="brain-tiers__grid">
+      <!-- Sensory -->
+      <div class="brain-tier reveal reveal-delay-1">
+        <div class="brain-tier__icon brain-tier__icon--sensory">
+          <i data-lucide="zap"></i>
+        </div>
+        <h3 class="brain-tier__title" data-i18n="brainPage.tiers.cards.0.title">Sensory Memory</h3>
+        <span class="brain-tier__meta" data-i18n="brainPage.tiers.cards.0.meta">⏱ Seconds — Not stored</span>
+        <p class="brain-tier__desc" data-i18n="brainPage.tiers.cards.0.desc">Temporary info within 1 command: "file X has 200 lines." Forgotten immediately after because nobody needs this.</p>
+        <p class="brain-tier__analogy" data-i18n="brainPage.tiers.cards.0.analogy">🧠 Like hearing a phone number once — gone instantly</p>
+      </div>
+
+      <!-- Working -->
+      <div class="brain-tier reveal reveal-delay-2">
+        <div class="brain-tier__icon brain-tier__icon--working">
+          <i data-lucide="clipboard-list"></i>
+        </div>
+        <h3 class="brain-tier__title" data-i18n="brainPage.tiers.cards.1.title">Working Memory</h3>
+        <span class="brain-tier__meta" data-i18n="brainPage.tiers.cards.1.meta">⏱ 7 days — CONTINUITY.md</span>
+        <p class="brain-tier__desc" data-i18n="brainPage.tiers.cards.1.desc">"Currently fixing auth, goal is deploy, just finished API routes." Remembers what you're thinking and doing.</p>
+        <p class="brain-tier__analogy" data-i18n="brainPage.tiers.cards.1.analogy">🧠 Like your grocery list today — needed now</p>
+      </div>
+
+      <!-- Long-Term -->
+      <div class="brain-tier reveal reveal-delay-3">
+        <div class="brain-tier__icon brain-tier__icon--longterm">
+          <i data-lucide="database"></i>
+        </div>
+        <h3 class="brain-tier__title" data-i18n="brainPage.tiers.cards.2.title">Long-Term Memory</h3>
+        <span class="brain-tier__meta" data-i18n="brainPage.tiers.cards.2.meta">⏱ 30–180 days — learnings.json</span>
+        <p class="brain-tier__desc" data-i18n="brainPage.tiers.cards.2.desc">"CORS error due to missing proxy config." Lasting lessons — kept only if reinforced ≥ 2 times.</p>
+        <p class="brain-tier__analogy" data-i18n="brainPage.tiers.cards.2.analogy">🧠 Like riding a bike — never forgotten</p>
+      </div>
+
+      <!-- Semantic -->
+      <div class="brain-tier reveal reveal-delay-4">
+        <div class="brain-tier__icon" style="color: var(--accent-blue); background: rgba(59,130,246,0.1);">
+          <i data-lucide="search"></i>
+        </div>
+        <h3 class="brain-tier__title" data-i18n="brainPage.tiers.cards.3.title">Semantic Memory</h3>
+        <span class="brain-tier__meta" data-i18n="brainPage.tiers.cards.3.meta">⏱ Permanent — qmd / Local Vector</span>
+        <p class="brain-tier__desc" data-i18n="brainPage.tiers.cards.3.desc">Deep search across massive docs without token limits. Finds concepts and patterns hidden in text.</p>
+        <p class="brain-tier__analogy" data-i18n="brainPage.tiers.cards.3.analogy">🧠 Like a photographic reading memory</p>
+      </div>
+
+      <!-- Structural -->
+      <div class="brain-tier reveal reveal-delay-5">
+        <div class="brain-tier__icon" style="color: var(--accent-magenta); background: rgba(219,39,119,0.1);">
+          <i data-lucide="code-2"></i>
+        </div>
+        <h3 class="brain-tier__title" data-i18n="brainPage.tiers.cards.4.title">Structural Memory</h3>
+        <span class="brain-tier__meta" data-i18n="brainPage.tiers.cards.4.meta">⏱ Real-time — CodeGraph / AST</span>
+        <p class="brain-tier__desc" data-i18n="brainPage.tiers.cards.4.desc">Understands your codebase architecture. 95% token compression by reading AST, not raw code.</p>
+        <p class="brain-tier__analogy" data-i18n="brainPage.tiers.cards.4.analogy">🧠 Like an innate sense of spatial awareness</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════╗ HOW TO USE ╔═══════════ -->
+  <section class="section" id="brainHowToUse">
+    <div class="section__header reveal">
+      <p class="section__label" style="color: var(--accent-cyan);">HOW IT WORKS</p>
+      <h2 class="section__title">3 steps. Zero configuration.\nBrain works automatically.</h2>
+      <p class="section__subtitle">You just chat. Brain handles memory behind the scenes — loading, learning, filtering, forgetting.</p>
+    </div>
+
+    <div class="brain-usage__grid">
+      <!-- Step 1 -->
+      <div class="brain-usage__step reveal reveal-delay-1">
+        <div class="brain-usage__step-num brain-usage__step-num--1">1</div>
+        <div class="brain-usage__step-icon brain-usage__step-icon--1">
+          <i data-lucide="power" style="width:28px;height:28px;stroke:white;"></i>
+        </div>
+        <h3 class="brain-usage__step-title">Start Session</h3>
+        <p class="brain-usage__step-desc"><code>cm-continuity</code> auto-loads CONTINUITY.md — your entire working context from the last session. No re-explaining. No lost progress.</p>
+        <div class="brain-usage__step-terminal">
+          <span class="accent">→ Loading CONTINUITY.md...</span><br>
+          <span class="highlight">✓ Task: fixing auth middleware</span><br>
+          <span class="highlight">✓ Progress: 3/5 tests passing</span><br>
+          <span class="highlight">✓ 2 relevant learnings loaded</span>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="brain-usage__step reveal reveal-delay-2">
+        <div class="brain-usage__step-num brain-usage__step-num--2">2</div>
+        <div class="brain-usage__step-icon brain-usage__step-icon--2">
+          <i data-lucide="brain-circuit" style="width:28px;height:28px;stroke:white;"></i>
+        </div>
+        <h3 class="brain-usage__step-title">Work & Learn</h3>
+        <p class="brain-usage__step-desc">As you code, Brain <strong>records learnings</strong> from bugs fixed, patterns discovered, and decisions made. Scope-tagged by module for instant retrieval.</p>
+        <div class="brain-usage__step-terminal">
+          <span class="accent">→ Bug fixed: CORS proxy config</span><br>
+          <span class="highlight">✓ Learning saved: module:api</span><br>
+          <span class="dimmed">  scope: global | ttl: 30d</span><br>
+          <span class="dimmed">  reinforced: 0× (new)</span>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="brain-usage__step reveal reveal-delay-3">
+        <div class="brain-usage__step-num brain-usage__step-num--3">3</div>
+        <div class="brain-usage__step-icon brain-usage__step-icon--3">
+          <i data-lucide="save" style="width:28px;height:28px;stroke:white;"></i>
+        </div>
+        <h3 class="brain-usage__step-title">End Session</h3>
+        <p class="brain-usage__step-desc">Brain auto-saves progress to CONTINUITY.md, decays stale knowledge, and promotes reinforced learnings. Next session starts <strong>exactly where you left off</strong>.</p>
+        <div class="brain-usage__step-terminal">
+          <span class="accent">→ Saving session state...</span><br>
+          <span class="highlight">✓ CONTINUITY.md updated</span><br>
+          <span class="dimmed">  ✗ 3 stale learnings decayed</span><br>
+          <span class="result">✓ 1 learning promoted (2× → 60d TTL)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════╗ VS NATIVE AI CODE ╔═══════════ -->
+  <section class="section section-alt" id="brainVsNative">
+    <div class="section__header reveal">
+      <p class="section__label" style="color: var(--accent-blue);">VS NATIVE AI CODE</p>
+      <h2 class="section__title">Every AI codes.\nOnly CodyMaster remembers.</h2>
+      <p class="section__subtitle">Native AI coding tools reset every session. CodyMaster Brain gives your AI a real memory that persists, learns, and self-heals.</p>
+    </div>
+
+    <div class="brain-vs-native__wrapper reveal">
+      <table class="brain-vs-native__table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th class="brain-vs-native__th--cm">🧠 CodyMaster Brain</th>
+            <th>Cursor</th>
+            <th>GitHub Copilot</th>
+            <th>Claude Code</th>
+            <th>Windsurf</th>
+            <th>Cline / Roo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="brain-vs-native__feature">Cross-session memory</td>
+            <td class="brain-vs-native__yes">✅ CONTINUITY.md<br><small>auto read/write</small></td>
+            <td class="brain-vs-native__no">❌ Reset every session</td>
+            <td class="brain-vs-native__no">❌ No memory</td>
+            <td class="brain-vs-native__partial">⚠️ CLAUDE.md<br><small>manual only</small></td>
+            <td class="brain-vs-native__partial">⚠️ Cascade<br><small>limited context</small></td>
+            <td class="brain-vs-native__no">❌ No memory</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-native__feature">Learn from mistakes</td>
+            <td class="brain-vs-native__yes">✅ Self-healing loops</td>
+            <td class="brain-vs-native__no">❌ Repeats errors</td>
+            <td class="brain-vs-native__no">❌ Repeats errors</td>
+            <td class="brain-vs-native__no">❌ No learning</td>
+            <td class="brain-vs-native__no">❌ No learning</td>
+            <td class="brain-vs-native__no">❌ No learning</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-native__feature">Smart forgetting</td>
+            <td class="brain-vs-native__yes">✅ Ebbinghaus curve<br><small>30d → 180d TTL</small></td>
+            <td class="brain-vs-native__no">❌ N/A</td>
+            <td class="brain-vs-native__no">❌ N/A</td>
+            <td class="brain-vs-native__no">❌ N/A</td>
+            <td class="brain-vs-native__no">❌ N/A</td>
+            <td class="brain-vs-native__no">❌ N/A</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-native__feature">Scope filtering</td>
+            <td class="brain-vs-native__yes">✅ Module-level<br><small>loads only relevant</small></td>
+            <td class="brain-vs-native__no">❌ All or nothing</td>
+            <td class="brain-vs-native__no">❌ No filtering</td>
+            <td class="brain-vs-native__no">❌ No filtering</td>
+            <td class="brain-vs-native__partial">⚠️ Basic rules</td>
+            <td class="brain-vs-native__no">❌ No filtering</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-native__feature">Multi-project brain</td>
+            <td class="brain-vs-native__yes">✅ NotebookLM<br><small>master + project brains</small></td>
+            <td class="brain-vs-native__no">❌ Single project</td>
+            <td class="brain-vs-native__no">❌ Single project</td>
+            <td class="brain-vs-native__no">❌ Single project</td>
+            <td class="brain-vs-native__no">❌ Single project</td>
+            <td class="brain-vs-native__no">❌ Single project</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-native__feature">Works with</td>
+            <td class="brain-vs-native__yes">✅ 10+ agents/IDEs</td>
+            <td class="brain-vs-native__partial">Cursor only</td>
+            <td class="brain-vs-native__partial">VS Code only</td>
+            <td class="brain-vs-native__partial">Claude terminal</td>
+            <td class="brain-vs-native__partial">Windsurf only</td>
+            <td class="brain-vs-native__partial">VS Code ext</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="brain-vs-native__note reveal">
+      <i data-lucide="info" style="width:16px;height:16px;display:inline;vertical-align:-3px;"></i>
+      CodyMaster Brain works <strong>alongside</strong> any of these tools — not as a replacement. Install CodyMaster on Cursor, Copilot, Claude, or any agent, and they gain a brain.
+    </p>
+  </section>
+
+  <!-- ═══════════╗ VS MEMORY SOLUTIONS ╔═══════════ -->
+  <section class="section" id="brainVsMemory">
+    <div class="section__header reveal">
+      <p class="section__label" style="color: var(--brain-400);">VS MEMORY SOLUTIONS</p>
+      <h2 class="section__title">Purpose-built for coding.\nNot a generic chat memory.</h2>
+      <p class="section__subtitle">Standalone AI memory services exist, but they're designed for chatbots — not for engineering workflows that need scope-aware, self-healing knowledge.</p>
+    </div>
+
+    <div class="brain-vs-memory__wrapper reveal">
+      <table class="brain-vs-memory__table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="brain-vs-memory__th--cm">🧠 CodyMaster Brain</th>
+            <th>Mem0</th>
+            <th>Zep</th>
+            <th>LangMem</th>
+            <th>Custom RAG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="brain-vs-memory__feature">Type</td>
+            <td class="brain-vs-memory__yes">Integrated skill<br><small>zero setup</small></td>
+            <td>External API</td>
+            <td>Hosted service<br><small>$$$/month</small></td>
+            <td>Framework<br><small>LangChain only</small></td>
+            <td>DIY<br><small>weeks of dev</small></td>
+          </tr>
+          <tr>
+            <td class="brain-vs-memory__feature">Setup effort</td>
+            <td class="brain-vs-memory__yes">0 mins<br><small>already included</small></td>
+            <td class="brain-vs-memory__partial">1-2 hours<br><small>API key + SDK</small></td>
+            <td class="brain-vs-memory__partial">2-4 hours<br><small>hosted setup</small></td>
+            <td class="brain-vs-memory__no">Days<br><small>code integration</small></td>
+            <td class="brain-vs-memory__no">Weeks<br><small>vector DB + pipeline</small></td>
+          </tr>
+          <tr>
+            <td class="brain-vs-memory__feature">Coding-specific</td>
+            <td class="brain-vs-memory__yes">✅ Built for engineering</td>
+            <td class="brain-vs-memory__no">❌ General purpose</td>
+            <td class="brain-vs-memory__no">❌ Chat-focused</td>
+            <td class="brain-vs-memory__no">❌ Generic memory</td>
+            <td class="brain-vs-memory__partial">⚠️ Depends on impl</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-memory__feature">Self-healing</td>
+            <td class="brain-vs-memory__yes">✅ Auto-detects & fixes</td>
+            <td class="brain-vs-memory__no">❌ No</td>
+            <td class="brain-vs-memory__no">❌ No</td>
+            <td class="brain-vs-memory__no">❌ No</td>
+            <td class="brain-vs-memory__no">❌ Must build</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-memory__feature">Smart decay</td>
+            <td class="brain-vs-memory__yes">✅ Ebbinghaus curve</td>
+            <td class="brain-vs-memory__no">❌ No TTL</td>
+            <td class="brain-vs-memory__partial">⚠️ Basic TTL</td>
+            <td class="brain-vs-memory__no">❌ No decay</td>
+            <td class="brain-vs-memory__no">❌ Must build</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-memory__feature">Platform support</td>
+            <td class="brain-vs-memory__yes">✅ 10+ agents/IDEs</td>
+            <td class="brain-vs-memory__partial">API only</td>
+            <td class="brain-vs-memory__partial">API only</td>
+            <td class="brain-vs-memory__no">LangChain only</td>
+            <td class="brain-vs-memory__partial">Varies</td>
+          </tr>
+          <tr>
+            <td class="brain-vs-memory__feature">Cost</td>
+            <td class="brain-vs-memory__yes">Free & open source</td>
+            <td class="brain-vs-memory__partial">Free tier + paid</td>
+            <td class="brain-vs-memory__no">$49-299/mo</td>
+            <td class="brain-vs-memory__yes">Free (OSS)</td>
+            <td class="brain-vs-memory__no">Infra costs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════╗ BRAIN CTA ╔═══════════ -->
+  <section class="brain-cta reveal" id="brainCta">
+    <h2 class="brain-cta__title" data-i18n="brainPage.cta.title">Give your AI a real brain.</h2>
+    <p class="brain-cta__subtitle" data-i18n="brainPage.cta.subtitle">AI without memory = goldfish that talks. CodyMaster Brain turns AI into a colleague who remembers, learns fast, and never repeats the same mistakes.</p>
+    <a href="start.html" class="btn btn--brain btn--large">
+      <span data-i18n="brainPage.cta.button">Experience Brain Now</span>
+      <i data-lucide="brain" style="width:20px;height:20px"></i>
+    </a>
+    <div class="brain-cta__links">
+      <a href="index.html" class="brain-cta__link">
+        <i data-lucide="rotate-3d" style="width:16px;height:16px"></i>
+        <span>Explore Brain in 3D</span>
+      </a>
+      <span class="brain-cta__divider">·</span>
+      <a href="credits.html" class="brain-cta__link">
+        <i data-lucide="heart" style="width:16px;height:16px"></i>
+        <span>Credits & Acknowledgments</span>
+      </a>
+      <span class="brain-cta__divider">·</span>
+      <a href="index.html" class="brain-cta__link" data-i18n="brainPage.cta.backHome">
+        <i data-lucide="arrow-left" style="width:16px;height:16px"></i>
+        <span>Back to Home</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════╗ FOOTER ╔═══════════ -->
+  <footer class="footer" id="siteFooter">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">⚡ CodyMaster Kit</span>
+        <p class="footer__tagline" data-i18n="footer.tagline">Turn Ideas into Products 10x Faster</p>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.product">Product</h4>
+        <a href="brain.html" data-i18n="nav.brain">Brain</a>
+        <a href="skills.html" data-i18n="nav.skills">Skills</a>
+        <a href="start.html" data-i18n="nav.getStarted">Get Started</a>
+        <a href="/docs/" data-i18n="nav.docs">Docs</a>
+        <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.whyUs">Why Us</h4>
+        <a href="why-cody-master.html" data-i18n="nav.whyCodyMaster">Why CodyMaster</a>
+        <a href="vs-others.html" data-i18n="nav.vsOthers">vs Others</a>
+        <a href="story.html" data-i18n="nav.story">Our Story</a>
+        <a href="cli.html" data-i18n="nav.cli">CLI</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.community">Community</h4>
+        <a href="https://github.com/tody-agent/codymaster" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Discord</a>
+        <a href="credits.html">Credits 🙏</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p data-i18n="footer.copy">© 2026 CodyMaster Kit. Free & Open Source.</p>
+      <p class="footer__made" data-i18n="footer.madeWith">Made with ❤️ and AI</p>
+    </div>
+  </footer>
+
+  <script src="js/sanitize.js"></script>
+  <script src="js/kit.js"></script>
+  <script src="js/brain-page.js"></script>
+
+
+<script src="js/ga-events.js"></script>
+</body></html>

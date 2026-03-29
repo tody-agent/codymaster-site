@@ -1,0 +1,720 @@
+/* ============================================
+   Brain 3D — Three.js Visualization Page
+   Mobile-First · Glassmorphism Overlays
+   ============================================ */
+
+/* --- Canvas --- */
+#brain3dCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+  touch-action: pan-y; /* Fix Scroll Hijacking — Allow native scroll over canvas */
+}
+
+/* --- Scroll Container --- */
+.b3d-scroll {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.b3d-scroll > * {
+  pointer-events: auto;
+}
+
+/* --- Sections --- */
+.b3d-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  position: relative;
+}
+
+.b3d-section--hero {
+  min-height: 100vh;
+  padding-top: 120px;
+}
+
+/* --- Overlay Panels --- */
+.b3d-panel {
+  max-width: 560px;
+  width: 100%;
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.b3d-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.b3d-panel--right {
+  margin-left: auto;
+  margin-right: 5%;
+}
+
+.b3d-panel--left {
+  margin-right: auto;
+  margin-left: 5%;
+}
+
+.b3d-panel--center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* --- Hero Content --- */
+.b3d-hero {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.b3d-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(196, 248, 42, 0.2);
+  background: rgba(196, 248, 42, 0.06);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-lime, #C4F82A);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  animation: b3dFadeInUp 0.8s ease-out 0.2s both;
+}
+
+.b3d-hero__title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: clamp(32px, 6vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  animation: b3dFadeInUp 0.8s ease-out 0.4s both;
+}
+
+.b3d-hero__title span {
+  background: linear-gradient(135deg, #C4F82A, #06D6A0, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.b3d-hero__sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-secondary, #A1A1AA);
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 0 auto 32px;
+  animation: b3dFadeInUp 0.8s ease-out 0.6s both;
+}
+
+.b3d-hero__scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted, #71717A);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: b3dFadeInUp 0.8s ease-out 0.8s both;
+}
+
+.b3d-hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent-lime, #C4F82A), transparent);
+  animation: b3dScrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes b3dScrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+@keyframes b3dFadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Panel Typography --- */
+.b3d-label {
+  display: inline-block;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.b3d-label--purple {
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.b3d-label--cyan {
+  color: #22d3ee;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.b3d-label--lime {
+  color: #C4F82A;
+  background: rgba(196, 248, 42, 0.1);
+  border: 1px solid rgba(196, 248, 42, 0.2);
+}
+
+.b3d-label--orange {
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.b3d-label--blue {
+  color: #60a5fa;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.b3d-title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.b3d-desc {
+  font-size: 15px;
+  color: var(--text-secondary, #A1A1AA);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* --- Tier Cards --- */
+.b3d-tiers {
+  display: grid;
+  gap: 12px;
+}
+
+.b3d-tier {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.b3d-tier:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.b3d-tier__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.b3d-tier__info h4 {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.b3d-tier__info p {
+  font-size: 12px;
+  color: var(--text-muted, #71717A);
+  line-height: 1.5;
+}
+
+/* --- Skill Category Grid --- */
+.b3d-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.b3d-skill-cat {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.b3d-skill-cat:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.b3d-skill-cat__icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.b3d-skill-cat__name {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.b3d-skill-cat__count {
+  font-size: 11px;
+  color: var(--text-muted, #71717A);
+}
+
+/* --- Workflow Flow --- */
+.b3d-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.b3d-flow__step {
+  padding: 12px 18px; /* UX Master Directive 1: Minimum 44px total height */
+  border-radius: 8px;
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.b3d-flow__step:active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-lime);
+}
+
+.b3d-flow__arrow {
+  color: var(--accent-lime, #C4F82A);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* --- Cloud Brain Icons --- */
+.b3d-cloud-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.b3d-cloud-feat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+}
+
+.b3d-cloud-feat__icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.b3d-cloud-feat__text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary, #A1A1AA);
+}
+
+/* --- CTA Section --- */
+.b3d-cta {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.b3d-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 48px;
+  border-radius: 12px;
+  background: var(--accent-lime, #C4F82A);
+  color: #0A0A0F;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(196, 248, 42, 0.25);
+}
+
+.b3d-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(196, 248, 42, 0.4);
+}
+
+.b3d-cta__back {
+  display: block;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-muted, #71717A);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.b3d-cta__back:hover {
+  color: var(--text-secondary, #A1A1AA);
+}
+
+/* --- Node Tooltip --- */
+.b3d-tooltip {
+  position: fixed;
+  padding: 18px 22px;
+  background: rgba(20, 20, 32, 0.85); /* Premium glassmorphism */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  min-width: 200px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 
+              0 0 20px rgba(139, 92, 246, 0.2); /* Subtle purple glow */
+}
+
+.b3d-tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.b3d-tooltip__name {
+  display: block;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent-lime);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.b3d-tooltip__desc {
+  display: block;
+  font-size: 13px;
+  color: #CBD5E1;
+  line-height: 1.5;
+}
+
+/* --- Scroll Progress --- */
+.b3d-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-lime, #C4F82A), var(--accent-cyan, #06B6D4));
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* --- Responsive — Mobile First --- */
+@media (max-width: 767px) {
+  .b3d-section {
+    padding: 60px 16px;
+    align-items: flex-end;
+    padding-bottom: 60px; /* UX Master Directive 1: Thumb Zone clearance */
+  }
+
+  .b3d-section--hero {
+    padding-top: 100px;
+    align-items: center;
+  }
+
+  .b3d-panel {
+    max-width: 100%;
+    padding: 24px 20px;
+    border-radius: 16px;
+    margin: 0 !important;
+  }
+
+  .b3d-hero__title {
+    font-size: 28px;
+  }
+
+  .b3d-skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .b3d-cloud-features {
+    grid-template-columns: 1fr;
+  }
+
+  .b3d-flow {
+    justify-content: center;
+  }
+
+  .b3d-cta__btn {
+    padding: 20px 48px; /* UX Master Directive 1: Better mobile tap target */
+    font-size: 16px;
+    width: 100%; /* Full width for easier thumb access */
+    justify-content: center;
+    transition: transform 0.1s, background 0.2s, box-shadow 0.2s;
+  }
+
+  .b3d-cta__btn:active {
+    transform: scale(0.97); /* Tactile feedback on tap */
+    filter: brightness(1.2);
+    box-shadow: 0 0 30px var(--accent-lime);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .b3d-panel {
+    max-width: 480px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .b3d-section {
+    padding: 100px 60px;
+  }
+
+  .b3d-panel {
+    max-width: 520px;
+  }
+
+  .b3d-skills-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* --- Nav override for transparent bg --- */
+body.b3d-page .nav {
+  background: rgba(10, 10, 15, 0.5);
+}
+
+/* --- Redesigned CTA & Install --- */
+.b3d-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.b3d-tabs {
+  position: relative;
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.b3d-tab {
+  position: relative;
+  z-index: 2;
+  padding: 10px 24px;
+  border: none;
+  background: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.b3d-tab.active {
+  color: #fff;
+}
+
+.b3d-tab-glider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* --- Code Box --- */
+.b3d-code-box {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.b3d-code-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.b3d-code-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.b3d-code-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.b3d-code-dots span:nth-child(1) { background: #ff5f56; }
+.b3d-code-dots span:nth-child(2) { background: #ffbd2e; }
+.b3d-code-dots span:nth-child(3) { background: #27c93f; }
+
+.b3d-code-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.b3d-code-body {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.b3d-code-body code {
+  color: #67e8f9;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 14px;
+  flex: 1;
+  word-break: break-all;
+}
+
+.b3d-copy-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.b3d-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.b3d-install-note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* --- IDE Grid --- */
+.b3d-ide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.b3d-ide-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.b3d-ide-card i {
+  color: rgba(255, 255, 255, 0.4);
+  width: 24px;
+  height: 24px;
+}
+
+.b3d-ide-card span {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  text-align: center;
+}
+
+.b3d-ide-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.b3d-ide-card.active {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: #a78bfa;
+}
+
+.b3d-ide-card.active i {
+  color: #a78bfa;
+}
+
+.b3d-ide-card.active span {
+  color: #fff;
+}
