@@ -11,6 +11,101 @@ All notable changes to this project will be documented in this file.
 
 Categories: 🚀 **Improvements** | 🐛 **Bug Fixes** | 🔒 **Security**
 
+## [5.0.0] - 2026-04-02 (CodyMaster Founders Edition)
+
+### 🚀 Kỷ Nguyên Mới: The "Neural Spine" Upgrade
+
+CodyMaster chính thức bước qua thời kỳ "Content Factory" để lột xác thành một **AI-Native Engineering Workspace** đúng nghĩa. Khắc phục triệt để căn bệnh "AI học vẹt, mất trí nhớ, ảo giác code" với lõi kiến trúc mới tích hợp từ sức mạnh của **OpenSpace** và **OpenViking**!
+
+---
+
+### ⚙️ Kiến Trúc Mới & Luồng Thực Thi (Execution Flow)
+
+**1. Tích hợp OpenViking (Bộ Não Vector & AST Semantics):**
+Hệ thống RAG (Retrieval Augmented Generation) lạc hậu đã bị thay thế hoàn toàn:
+- **Cấu trúc L0/L1/L2:** OpenViking đọc và lập bản đồ AST (Abstract Syntax Tree) của toàn bộ hệ thống dự án. Khi AI cần ngữ cảnh cho một module, nó chỉ quét đúng phần ngọn (Interface Signature - L1) thay vì copy-paste mù quáng hàng nghìn dòng code chi tiết (L2).
+- **Kết quả:** Trí nhớ mạch lạc xuyên suốt toàn dự án. Hoàn toàn xóa xổ các lỗi "hallucination", quên mất import hay sai param khi gọi chéo file. Tốn ít chi phí token hơn 10 lần.
+
+**2. Tích hợp OpenSpace (Lồng Cách Ly & Khả Năng Tự Sửa Lỗi):**
+Bạn không còn cần phải tự copy/paste lỗi đưa về môi trường để AI biết đang hỏng gì!
+- **Autonomous Terminal:** Agent được tự động cấp quyền môi trường sandbox để tự run test (`npm run test:gate`, `ts-node`, `git log`) một cách cô lập.
+- **Vòng lặp Self-Healing Loop:** Nếu code do AI viết vướng lỗi Syntax hoặc Unit Test trượt, *OpenSpace* hứng toàn bộ luồng báo lỗi (Stderr) và ném trực tiếp lại mặt AI. AI sẽ tự chẩn đoán và viết lại mã vá lỗi trước khi gửi kết quả hoàn chỉnh tới mắt bạn.
+
+#### 📊 Biểu đồ Luồng Thực Thi Hoàn Chỉnh
+
+```mermaid
+graph TD
+    User([User Prompt: "Refactor Authentication"]) ==> Router
+    
+    subgraph "Phase 1: Knowledge Gathering"
+        Router[Task Router] --> OViking{OpenViking Engine}
+        OViking --> L0[L0: Skeleton Directory Map]
+        OViking --> L1[L1: Symbol Headers]
+        OViking --> L2[L2: Semantic Vectors]
+        L0 --> Compiler[Context Builder]
+        L1 --> Compiler
+        L2 --> Compiler
+    end
+
+    Compiler ==> SubAgent
+    
+    subgraph "Phase 2: Execution (OpenSpace)"
+        SubAgent[AI Sub-Agent] --> Coding[Writes Code / Logic]
+        Coding --> Sandbox[OpenSpace Container]
+        Sandbox --> Bash[Excecutes Terminal/Tests]
+        Bash -- "Fails ❌" --> Feedback[Stderr Log Reader]
+        Feedback --> SubAgent
+    end
+    
+    Bash -- "Passes ✅" --> Review[Frontend Integrity Gate]
+    Review --> Ship((Complete: Ready to Deploy))
+    
+    style User fill:#3b82f6,stroke:#fff,stroke-width:2px,color:#fff
+    style Ship fill:#10b981,stroke:#fff,stroke-width:2px,color:#fff
+    style OViking fill:#8b5cf6,stroke:#fff,stroke-width:2px,color:#fff
+    style Sandbox fill:#f59e0b,stroke:#fff,stroke-width:2px,color:#111
+```
+
+> **Ghi chú trải nghiệm:** Với thiết kế Neural Spine này, thay vì hoạt động như công cụ sinh chữ (Typer), CodyMaster v5 vận hành giống một Kỹ Sư Máy (Senior Engineer) thực thụ từ bước đọc hiểu context, tự build, tự test cho tới lúc sẵn sàng ship lên môi trường Deploy.
+
+
+## [4.4.5] - 2026-03-30
+
+### 🔒 Security
+
+- **Security Checkpoints Upgraded** — Deployed unified security updates across `cm-security-gate`, `cm-quality-gate`, `cm-safe-deploy`, and `cm-test-gate`.
+
+## [4.4.4] - 2026-03-29
+
+### 🐛 Bug Fixes
+
+- **Version Bump** — Minor bug fixes and dependency updates.
+
+## [4.4.3] - 2026-03-29
+
+### 🚀 Improvements — The Self-Healing Update
+
+- **68+ Skill Milestone** — CodyMaster arsenal grows from 60+ to 68+ battle-tested skills with 8 new capabilities.
+- **🧬 Self-Healing AI Pipeline** — Skills now monitor, score, and auto-repair themselves:
+  - `cm-skill-health` — Real-time quality monitoring with SQLite-backed metrics dashboard (invocations, success rate, token usage, health scores).
+  - `cm-skill-evolution` — 3-mode evolution engine (FIX/DERIVED/CAPTURED) with version DAG and lineage tracking. Auto-patches degraded skills.
+  - `cm-skill-search` — BM25 + health-score ranking for intelligent skill discovery.
+  - `cm-skill-share` — Export/import skills across teams and machines with version integrity.
+- **🏢 cm-frappe-agent** — Full-stack Frappe/ERPNext development agent with 7-layer architecture: doctypes, workflows, REST APIs, permissions, fixtures, performance optimization, and production deploys.
+- **🚀 Growth Hacking Engine** — `cm-growth-hacking` generates complete conversion systems (Bottom Sheet + Calendar CTA + Tracking) with industry auto-detection.
+- **cm-auto-publisher** — Publishing automation bridge: AI agents → Content Factory Router → any Astro site.
+- **cm-clean-code** — TRIZ-powered code hygiene gate: dead code detection, duplicate elimination, naming analysis.
+- **cm-reactor** — Strategic codebase re-direction when requirements change or tech debt blocks progress.
+- **Documentation Overhaul** — README (all 6 languages), CHANGELOG, and new Self-Healing AI deep-dive doc updated.
+
+## [4.4.2] - 2026-03-29
+
+### 🚀 Improvements
+
+- **cm-brainstorm-idea Phase 4.5 (UI Preview)** — Now integrates with `cm-ui-preview` to automatically generate visual mockups (via Google Stitch or Pencil MCP) *after* recommending an approach but *before* detailed planning begins. Provides instant visual validation of ideas.
+- **OpenSpec Protocol Upgrade** — Enhanced integration with Fission-AI OpenSpec format (`openspec/changes/[initiative]/proposal.md`) for seamless context handoffs to downstream skills (`cm-planning` & `cm-execution`).
+- **Skill Evolution Engine** — Successfully executed automated self-healing mechanisms (Mode: FIX) for `cm-tdd` and `cm-debugging` after health monitor alerts.
+
 ## [4.3.0] - 2026-03-27
 
 ### 🚀 Improvements
