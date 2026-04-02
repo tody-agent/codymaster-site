@@ -270,5 +270,101 @@
   "indexWindowTitle": "仪表盘",
   "faqHeroBadge": "❓ 帮助中心",
   "faqHeroTitle": "常见问题",
-  "faqHeroSub": "关于 CodyMaster 套件的所有信息，从安装到高级工作流程。"
+  "faqHeroSub": "关于 CodyMaster 套件的所有信息，从安装到高级工作流程。",
+  "v4": {
+    "hero": {
+      "badges": {
+        "skills": "🧠 60 技能",
+        "platforms": "⚡ 11+ 平台",
+        "opensource": "🌍 开源"
+      },
+      "title": "不替代你的 AI。<br>它<em>升级</em>你的 AI。",
+      "subtitle": "CodyMaster 是一个<strong>超级助手</strong>，直接集成到你的 AI 工具中。它为你的 AI 提供5层记忆，8层免疫系统，和60个专家技能。让新手变成自我学习和修复的专家。",
+      "cta": "🧬 立即安装 — 60秒",
+      "github": "在 GitHub 上查看",
+      "micro": "免费 · 开源 · Cursor, Claude Code, Gemini, Windsurf, Kiro, Copilot 等更多"
+    },
+    "diagnose": {
+      "label": "🩺 诊断",
+      "title": "你的 AI Agent 生病了。<br>悬停查看 CodyMaster 的治疗方案。",
+      "sub": "每个 AI 编码助手都患有相同的 6 种绝症。翻转卡片查看共生体如何治愈它们。",
+      "cards": [
+        {
+          "name": "Amnesia",
+          "latin": "失忆症",
+          "desc": "每次会话都是空白。忘记上下文，重复旧错误。",
+          "cureTitle": "5层记忆",
+          "cureDesc": "CONTINUITY.md + NotebookLM + CodeGraph — 记住一切，跨越会话。"
+        },
+        {
+          "name": "Identity Disorder",
+          "latin": "品牌认同障碍",
+          "desc": "1 个品牌，3 种不同风格。没有设计系统，没有一致性。",
+          "cureTitle": "设计系统智能",
+          "cureDesc": "扫描品牌 → 提取令牌 → 应用 48 条 UX 定律 → 各页面保持一致。"
+        },
+        {
+          "name": "Autoimmune Collapse",
+          "latin": "自身免疫崩溃",
+          "desc": "修复 1 个 bug，破坏 5 个其他地方。没有测试，没有关卡。",
+          "cureTitle": "8 Gate Immune System",
+          "cureDesc": "TDD → 质量关卡 → 秘密盾牌 → 安全部署。没有漏网之鱼。"
+        },
+        {
+          "name": "Immune Deficiency",
+          "latin": "安全免疫缺陷",
+          "desc": "硬编码API密钥，将机密推送到GitHub。第二天早上收到10,000美元的AWS账单。",
+          "cureTitle": "Secret Shield + Identity Guard",
+          "cureDesc": "提交前扫描，Gitleaks，令牌生命周期。在推送前进行扫描。"
+        },
+        {
+          "name": "Metabolic Failure",
+          "latin": "令牌代谢衰竭",
+          "desc": "每轮燃烧 140,000+ 个令牌。缓慢、昂贵、浪费。",
+          "cureTitle": "Progressive Disclosure",
+          "cureDesc": "三层加载：索引 → 摘要 → 完整。节省 95.5% 的令牌。"
+        },
+        {
+          "name": "Genetic Instability",
+          "latin": "输出遗传不稳定性",
+          "desc": "同样的提示，不同的一天，完全不同的输出。部署全靠祈祷。",
+          "cureTitle": "Structured Methodology",
+          "cureDesc": "SKILL.md标准化输出。TRIZ、设计思维、JTBD——没有随机性。"
+        }
+      ],
+      "hint": "💡 悬停或点击卡片，查看 CodyMaster 的治疗方案"
+    },
+    "anatomy": {
+      "label": "🧬 解剖结构",
+      "title": "5个器官。一个生物。<br>探索共生体的解剖结构。",
+      "sub": "点击每个器官，以了解 CodyMaster 在您的 AI 代理中如何运作。",
+      "organs": [
+        {
+          "btnText": "大脑 — 阅读和理解源码",
+          "title": "大脑 — 阅读和理解源代码",
+          "desc": "结合后，共生体会阅读整个源代码——AST、依赖图、架构模式。它比您自己更了解主机。通过结构化内存实现 95% 令牌压缩。它不猜测——它<em>知道</em>。"
+        },
+        {
+          "btnText": "免疫系统 — 多层保护",
+          "title": "免疫系统 — 多层保护",
+          "desc": "就像人类的免疫系统一样：多层重叠的防御。部署前的8道门检查。盲审——审查员不知道上下文。反阿谀奉承——魔鬼代言人捕捉隐藏的漏洞。Secret Shield 预提交扫描。"
+        },
+        {
+          "btnText": "自我进化 — 学习、适应",
+          "title": "自我进化 — 学习、适应、不重复",
+          "desc": "每一个错误修复都会变成抗体。错误记录在 <code>learnings.json</code> 中，遵循艾宾浩斯遗忘曲线——重要知识被巩固，不重要的自动遗忘。强化 ≥ 2次 → 晋升为长期记忆。"
+        },
+        {
+          "btnText": "眼前绘制 — UI/UX",
+          "title": "眼前绘制 — 批准后编码",
+          "desc": "应用 48 条 UX 原则，扫描当前品牌，提取设计令牌，创建设计系统。向您展示预览——您批准——它进行像素级完美编码。不需要 Figma。您指示，它执行。"
+        },
+        {
+          "btnText": "非凡的学习 — 技能差距",
+          "title": "非凡的学习 — 不知道？它会学。",
+          "desc": "遇到未知技能？通过 Skill Gap Detector 自动检测差距，从设计思维、TRIZ 9 窗口、JTBD 自动研究。涵盖数十种世界领先方法的 60 项技能。"
+        }
+      ]
+    }
+  }
 }

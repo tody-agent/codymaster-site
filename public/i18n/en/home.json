@@ -373,5 +373,101 @@
         }
       ]
     }
+  },
+  "v4": {
+    "hero": {
+      "badges": {
+        "skills": "🧠 60 Skills",
+        "platforms": "⚡ 11+ Platforms",
+        "opensource": "�� Open Source"
+      },
+      "title": "It doesn't replace your AI.<br>It <em>upgrades</em> it.",
+      "subtitle": "CodyMaster is a <strong>super assistant</strong> that integrates straight into your AI tool. It grants your AI a 5-tier memory, 8-layer immune system, and 60 expert skills. Turning a novice into a self-learning, self-healing expert.",
+      "cta": "🧬 Install Now — 60 seconds",
+      "github": "View on GitHub",
+      "micro": "Free · Open Source · Cursor, Claude Code, Gemini, Windsurf, Kiro, Copilot & more"
+    },
+    "diagnose": {
+      "label": "�� Diagnose",
+      "title": "Your AI Agent is sick.<br>Hover to see the cure.",
+      "sub": "Every AI coding agent suffers from the same 6 terminal diseases. Flip the cards to see how the symbiont cures each.",
+      "cards": [
+        {
+          "name": "Amnesia",
+          "latin": "Memory Loss Syndrome",
+          "desc": "Every session is a blank slate. Forgets context, repeating old mistakes.",
+          "cureTitle": "5-Tier Memory",
+          "cureDesc": "CONTINUITY.md + NotebookLM + CodeGraph — remembers everything, across sessions."
+        },
+        {
+          "name": "Identity Disorder",
+          "latin": "Brand Identity Disorder",
+          "desc": "1 brand, 3 different styles. No design system, no consistency.",
+          "cureTitle": "Design System Intelligence",
+          "cureDesc": "Scan brand → extract tokens → apply 48 UX Laws → consistent universally."
+        },
+        {
+          "name": "Autoimmune Collapse",
+          "latin": "Autoimmune Collapse",
+          "desc": "Fix 1 bug, break 5 other places. No tests, no gates.",
+          "cureTitle": "8 Gate Immune System",
+          "cureDesc": "TDD → Quality Gate → Secret Shield → Safe Deploy. Nothing slips through."
+        },
+        {
+          "name": "Immune Deficiency",
+          "latin": "Security Immune Deficiency",
+          "desc": "Hardcoded API keys, pushed secrets to GitHub. $10,000 AWS bill the next morning.",
+          "cureTitle": "Secret Shield + Identity Guard",
+          "cureDesc": "Pre-commit scan, Gitleaks, token lifecycle. Scans before push."
+        },
+        {
+          "name": "Metabolic Failure",
+          "latin": "Token Metabolic Failure",
+          "desc": "Burning 140,000+ tokens per turn. Slow, expensive, wasteful.",
+          "cureTitle": "Progressive Disclosure",
+          "cureDesc": "3-layer loading: index → summary → full. Saves 95.5% tokens."
+        },
+        {
+          "name": "Genetic Instability",
+          "latin": "Output Genetic Instability",
+          "desc": "Same prompt, different day, totally different output. Deploying is praying.",
+          "cureTitle": "Structured Methodology",
+          "cureDesc": "SKILL.md standardizes output. TRIZ, Design Thinking, JTBD — no randomness."
+        }
+      ],
+      "hint": "💡 Hover or tap the card to see how CodyMaster cures it"
+    },
+    "anatomy": {
+      "label": "🧬 Anatomy",
+      "title": "5 Organs. One Organism.<br>Explore Symbiont Anatomy.",
+      "sub": "Click each organ to understand how CodyMaster operates inside your AI agent.",
+      "organs": [
+        {
+          "btnText": "THE BRAIN — Read & Understand Code",
+          "title": "THE BRAIN — Read & Understand Source Code",
+          "desc": "Upon bonding, the symbiont reads the entire source code — AST, dependency graph, architecture patterns. It understands the host deeper than you understand your own project. 95% token compression via Structural Memory. It doesn't guess — it <em>knows</em>."
+        },
+        {
+          "btnText": "IMMUNE SYSTEM — Multi-layer Defense",
+          "title": "IMMUNE SYSTEM — Multi-layer Protection",
+          "desc": "Like the human immune system: multiple overlapping layers of defense. 8 gates check before deploy. Blind Review — reviewer doesn't know context. Anti-Sycophancy — Devil's Advocate hunts hidden bugs. Secret Shield scans pre-commit."
+        },
+        {
+          "btnText": "SELF-EVOLUTION — Learn, Adapt",
+          "title": "SELF-EVOLUTION — Learn, Adapt, Don't Repeat",
+          "desc": "Every bug fix becomes an antibody. Mistakes are logged in <code>learnings.json</code> with the Ebbinghaus decay curve — important knowledge is reinforced, unneeded things self-forget. Reinforced ≥2 times → promoted to long-term."
+        },
+        {
+          "btnText": "DRAW BEFORE YOUR EYES — UI/UX",
+          "title": "DRAW BEFORE YOUR EYES — Approve then Code",
+          "desc": "Applies 48 UX Laws, scans current brand, extracts design tokens, creates design system. Shows you a preview — you approve — it codes pixel-perfectly. No Figma needed. You direct, it executes."
+        },
+        {
+          "btnText": "EXTRAORDINARY LEARNING — Skill Gap",
+          "title": "EXTRAORDINARY LEARNING — Doesn't know? It learns.",
+          "desc": "Encountered an unknown skill? Auto-detects gaps via Skill Gap Detector, auto-researches from Design Thinking, TRIZ 9 Windows, JTBD. 60 skills distilled from dozens of world-leading methodologies."
+        }
+      ]
+    }
   }
 }

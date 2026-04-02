@@ -270,5 +270,102 @@
   "indexWindowTitle": "대시보드",
   "faqHeroBadge": "❓ 헬프 센터",
   "faqHeroTitle": "자주 묻는 질문",
-  "faqHeroSub": "CodyMaster Kit 설치부터 고급 워크플로우까지 필요한 모든 정보를 확인하세요."
+  "faqHeroSub": "CodyMaster Kit 설치부터 고급 워크플로우까지 필요한 모든 정보를 확인하세요.",
+  "v4": {
+    "hero": {
+      "badges": {
+        "skills": "🧠 60개 스킬",
+        "platforms": "⚡ 11개 이상 플랫폼",
+        "opensource": "🌍 오픈소스"
+      },
+      "title": "AI를 대체하지 않습니다.<br>AI를 <em>업그레이드</em>합니다.",
+      "subtitle": "CodyMaster는 AI 도구에 직접 통합되는 <strong>슈퍼 어시스턴트</strong>입니다. AI에게 5계층 메모리, 8계층 면역 시스템, 60개의 전문가 기술을 제공합니다.",
+      "cta": "🧬 지금 설치 — 60초 소요",
+      "github": "GitHub에서 보기",
+      "micro": "무료 · 오픈소스 · Cursor, Claude Code, Gemini, Windsurf, Kiro, Copilot 등"
+    },
+    "diagnose": {
+      "label": "🩺 진단",
+      "title": "당신의 AI 에이전트가 아픕니다.<br>치료법을 보려면 커서를 올리세요.",
+      "sub": "모든 AI 에이전트는 같은 6가지 불치병을 앓고 있습니다. 카드를 뒤집어 확인하세요.",
+      "cards": [
+        {
+          "name": "Amnesia",
+          "latin": "기억 상실증",
+          "desc": "매 세션마다 초기화됩니다. 문맥을 잊고 같은 실수를 반복합니다.",
+          "cureTitle": "5계층 메모리",
+          "cureDesc": "CONTINUITY.md + NotebookLM + CodeGraph — 모든 것을 기억합니다."
+        },
+        {
+          "name": "Identity Disorder",
+          "latin": "정체성 장애",
+          "desc": "1개의 브랜드, 3가지 스타일. 디자인 시스템도, 일관성도 없습니다.",
+          "cureTitle": "디자인 시스템 인텔리전스",
+          "cureDesc": "브랜드 스캔 → 48가지 UX 규칙 적용 → 완벽한 일관성."
+        },
+        {
+          "name": "Autoimmune Collapse",
+          "latin": "자가면역 붕괴",
+          "desc": "버그 1개를 고치면 5개가 망가집니다. 테스트도, 방어막도 없습니다.",
+          "cureTitle": "8계층 면역 시스템",
+          "cureDesc": "TDD → Quality Gate → Secret Shield → Safe Deploy."
+        },
+        {
+          "name": "Immune Deficiency",
+          "latin": "보안 면역 결핍증",
+          "desc": "하드코딩된 API 키, GitHub에 유출. 다음 날 $10,000 AWS 청구서.",
+          "cureTitle": "Secret Shield + Identity Guard",
+          "일": "푸시 전 스캔, Gitleaks, 토큰 수명 주기 관리.",
+          "cureDesc": "Pre-commit 스캔, Gitleaks, 토큰 생명주기 관리."
+        },
+        {
+          "name": "Metabolic Failure",
+          "latin": "토큰 대사 장애",
+          "desc": "턴당 140,000+ 토큰 소모. 느리고 비싸고 낭비.",
+          "cureTitle": "Progressive Disclosure",
+          "cureDesc": "3계층 로딩: 인덱스 → 요약 → 전체. 토큰 95.5% 절약."
+        },
+        {
+          "name": "Genetic Instability",
+          "latin": "출력 유전적 불안정성",
+          "desc": "같은 프롬프트, 다른 날, 완전히 다른 출력. 배포는 기도에 가깝습니다.",
+          "cureTitle": "Structured Methodology",
+          "cureDesc": "SKILL.md가 출력을 표준화합니다. 무작위성 없음."
+        }
+      ],
+      "hint": "💡 카드를 호버하거나 탭하여 CodyMaster의 치료법 확인하기"
+    },
+    "anatomy": {
+      "label": "🧬 해부학",
+      "title": "5개의 기관. 하나의 생물.<br>심비온트의 해부학 탐구.",
+      "sub": "각 기관을 클릭하여 CodyMaster가 AI 에이전트 내에서 어떻게 작동하는지 확인하세요.",
+      "organs": [
+        {
+          "btnText": "THE BRAIN — 코드 읽기 및 이해",
+          "title": "THE BRAIN — 소스 코드 읽기 및 이해",
+          "desc": "결합 시, 심비온트는 전체 소스 코드(AST, 종속성 그래프, 아키텍처 패턴)를 읽습니다. 구조적 메모리를 통해 95% 토큰 압축. 짐작하는 것이 아니라 <em>알고</em> 있습니다."
+        },
+        {
+          "btnText": "면역 시스템 — 다계층 보호",
+          "title": "면역 시스템 — 다계층 방어",
+          "desc": "인간의 면역 시스템처럼 겹치는 방어 층. 배포 전 8개의 게이트 확인. 블라인드 리뷰 — 컨텍스트를 모르는 리뷰어. 악마의 대변인이 숨겨진 버그를 찾습니다. Secret Shield 사전 커밋 스캔."
+        },
+        {
+          "btnText": "자가 진화 — 학습, 적응",
+          "title": "자가 진화 — 학습, 적응, 반복하지 않음",
+          "desc": "모든 버그 수정은 항체가 됩니다. 실수는 에빙하우스 망각 곡선과 함께 <code>learnings.json</code>에 기록됩니다. 중요한 지식은 강화되고, 불필요한 것은 잊혀집니다."
+        },
+        {
+          "btnText": "눈 앞에서 그리기 — UI/UX",
+          "title": "눈 앞에서 그리기 — 승인 후 코딩",
+          "desc": "48가지 UX 법칙 적용, 브랜드 스캔, 디자인 토큰 추출. 미리보기를 보여주고 승인하면 픽셀 퍼펙트하게 코딩합니다. Figma가 필요 없습니다."
+        },
+        {
+          "btnText": "경이로운 학습 — 스킬 갭",
+          "title": "경이로운 학습 — 모른다고요? 배웁니다.",
+          "desc": "알 수 없는 스킬? Skill Gap Detector로 자동으로 감지하고 디자인 씽킹, TRIZ 9 윈도우, JTBD로 연구합니다. 60가지 스킬 탑재."
+        }
+      ]
+    }
+  }
 }

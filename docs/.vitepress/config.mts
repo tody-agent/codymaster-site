@@ -39,7 +39,7 @@ export default withMermaid(defineConfig({
   },
   
   themeConfig: {
-    logo: '/img/logo.svg',
+    logo: '/favicon.svg',
     siteTitle: 'Cody Master',
     
     nav: [
@@ -76,28 +76,37 @@ export default withMermaid(defineConfig({
     sidebar: {
       '/': [
         {
-          text: 'Getting Started',
+          text: '🚀 Getting Started',
           items: [
             { text: 'Introduction', link: '/' },
             { text: 'How It Works', link: '/how-it-work' },
-            { text: 'Codebase Analysis', link: '/analysis' },
-            { text: 'Changelog', link: '/changelog' },
-            { text: 'Open Source Credits', link: '/open-source' },
+            { text: 'Vibe Coding Guide', link: '/vibe-coding-guide' },
+            { text: 'Installation', link: '/sop/installation' },
           ]
         },
         {
-          text: 'Architecture',
+          text: '🧠 Core Architecture',
           items: [
             { text: 'System Architecture', link: '/architecture' },
             { text: 'CodyMaster Brain', link: '/brain' },
             { text: 'Data Flow', link: '/data-flow' },
             { text: 'TRIZ-Parallel Engine', link: '/triz-parallel' },
-            { text: 'Deployment', link: '/deployment' },
-            { text: 'Security', link: '/security' },
           ]
         },
         {
-          text: 'Skills Library',
+          text: '🛠️ Operations & Guides',
+          items: [
+            { text: 'Using Skills', link: '/sop/skills-usage' },
+            { text: 'Dashboard', link: '/sop/dashboard' },
+            { text: 'Working Memory', link: '/sop/working-memory' },
+            { text: 'Codebase Analysis', link: '/analysis' },
+            { text: 'Deployment', link: '/deployment' },
+            { text: 'Security Overview', link: '/security' },
+            { text: 'Vulnerability Management', link: '/vulnerability-management' },
+          ]
+        },
+        {
+          text: '⚡ Skills Library',
           collapsed: false,
           items: [
             { text: '📚 All Skills', link: '/skills/' },
@@ -177,34 +186,13 @@ export default withMermaid(defineConfig({
           ]
         },
         {
-          text: 'User Guides',
+          text: '📖 Resources',
           items: [
-            { text: 'Overview', link: '/sop/' },
-            { text: 'Installation', link: '/sop/installation' },
-            { text: 'Using Skills', link: '/sop/skills-usage' },
-            { text: 'Dashboard', link: '/sop/dashboard' },
-            { text: 'Working Memory', link: '/sop/working-memory' },
-          ]
-        },
-        {
-          text: 'Use Cases',
-          items: [
-            { text: 'Overview', link: '/use-cases/' },
-            { text: 'Refactor Project', link: '/use-cases/refactor-existing-project' },
-            { text: 'AI Onboarding', link: '/use-cases/ai-onboarding-existing-project' },
-            { text: 'Vibe Code from Scratch', link: '/use-cases/vibe-coding-from-scratch' },
-            { text: 'PM: Spec Docs', link: '/use-cases/pm-spec-doc-agent-driven' },
-            { text: 'PM: Design Concept', link: '/use-cases/pm-design-concept-stitch' },
-            { text: 'Designer: Redesign', link: '/use-cases/designer-redesign-pencil' },
-            { text: 'Designer: Prototype', link: '/use-cases/designer-prototype-design-system' },
-          ]
-        },
-        {
-          text: 'API Reference',
-          items: [
-            { text: 'Overview', link: '/api/' },
-            { text: 'REST API', link: '/api/dashboard-api' },
-            { text: 'CLI Commands', link: '/api/cli-reference' },
+            { text: 'Use Cases', link: '/use-cases/' },
+            { text: 'API Reference', link: '/api/' },
+            { text: 'Showcase', link: '/showcase' },
+            { text: 'Changelog', link: '/changelog' },
+            { text: 'Open Source Credits', link: '/open-source' },
           ]
         },
       ],

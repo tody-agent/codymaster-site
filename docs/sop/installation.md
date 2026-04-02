@@ -32,7 +32,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/i
 If you want the visual Kanban dashboard and the terminal-first productivity tool, install the global npm package:
 
 ```bash
-npm install -g codymaster
+bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all
 ```
 
 ### Commands available:

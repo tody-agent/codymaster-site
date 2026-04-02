@@ -10,7 +10,7 @@ robots: "index, follow"
 > **Quick Reference**
 > - **Node.js**: 18+ required
 > - **Skills Install**: `bash <(curl ...) --all`
-> - **CLI/Dashboard**: `npm install -g codymaster`
+> - **CLI/Dashboard**: `bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all`
 > - **Dashboard Port**: 48120 (default)
 > - **Hosting**: Cloudflare Pages (landing page)
 
@@ -29,7 +29,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/i
 Install the global CLI for localized task management and the Mission Control UI.
 
 ```bash
-npm install -g codymaster
+bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all
 ```
 
 After installation, the following commands are available:

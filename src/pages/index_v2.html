@@ -1,0 +1,3128 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodyMaster — Siêu Trợ Lý Nâng Cấp Năng Lực Cho AI Agent Của Bạn</title>
+  <meta name="description"
+    content="CodyMaster tích hợp sâu vào AI coding agent, trao cho nó bộ nhớ 5 tầng, hệ thống bảo vệ 8 cổng, và 60 kỹ năng chuyên biệt. Tự học. Tự sửa lỗi. Miễn phí &amp; mã nguồn mở.">
+  <meta property="og:title" content="CodyMaster — The Symbiont for AI Agents">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="/css/kit.css">
+  <link rel="stylesheet" href="/css/brain-3d.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* ═══════════════════════════════════════
+   PAGE-SPECIFIC OVERRIDES — Landing Page
+   Legacy aliases for v2 content compatibility.
+   ═══════════════════════════════════════ */
+    :root {
+      /* Aliases: v2 names → kit.css tokens */
+      --bg-primary: var(--bg-page);
+      --bg-secondary: #0c0c14;
+      --border-card: var(--border-subtle);
+      --border-card-hover: var(--border-hover);
+      --accent-green: var(--accent-lime);
+      --accent-green-dim: rgba(196, 248, 42, 0.15);
+      --accent-purple-light: #a855f7;
+      --accent-amber: var(--cta-orange);
+      --text-dim: var(--text-muted);
+      --font-sans: var(--font-body);
+    }
+
+    /* Page-specific code style */
+    code {
+      background: rgba(196, 248, 42, 0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      color: var(--accent-lime);
+    }
+
+    /* ═══════════════════
+   LAYOUT OVERRIDES
+   ═══════════════════ */
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    /* Landing page uses gradient section titles (unique to homepage) */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-lime);
+      background: var(--accent-green-dim);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-light), #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      line-height: 1.8;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ═══════════════════
+   ANIMATIONS
+   ═══════════════════ */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-12px)
+      }
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(163, 255, 18, 0.05)
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(163, 255, 18, 0.15)
+      }
+    }
+
+    @keyframes pulse-border {
+
+      0%,
+      100% {
+        border-color: rgba(163, 255, 18, 0.1)
+      }
+
+      50% {
+        border-color: rgba(163, 255, 18, 0.35)
+      }
+    }
+
+    @keyframes rotate-slow {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes dna-scroll {
+      from {
+        background-position: 0 0
+      }
+
+      to {
+        background-position: 0 200px
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+    }
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      14% {
+        transform: scale(1.05)
+      }
+
+      28% {
+        transform: scale(1)
+      }
+
+      42% {
+        transform: scale(1.05)
+      }
+
+      56% {
+        transform: scale(1)
+      }
+    }
+
+    @keyframes morph {
+
+      0%,
+      100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%
+      }
+
+      50% {
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%
+      }
+    }
+
+    @keyframes scan-line {
+      0% {
+        top: -2px
+      }
+
+      100% {
+        top: 100%
+      }
+    }
+
+    @keyframes gradient-shift {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    .reveal-delay-5 {
+      transition-delay: 0.5s;
+    }
+
+    /* Nav + btn styles provided by kit.css */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 100px;
+      background: var(--accent-lime);
+      color: #000;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(196, 248, 42, 0.3);
+      text-decoration: none;
+      color: #000;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 100px;
+      background: transparent;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-lime);
+      color: var(--accent-lime);
+      text-decoration: none;
+    }
+
+    /* ═══════════════════
+   HERO
+   ═══════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(163, 255, 18, 0.05) 40%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      animation: morph 20s ease-in-out infinite;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .hero-badge .icon {
+      font-size: 0.9rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 28px;
+      background: linear-gradient(135deg, #a3ff12, #7c3aed, #e879f9, #a3ff12);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-micro {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* DNA Particles */
+    .dna-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══════════════════
+   ORGANISM VISUAL (Hero bottom)
+   ═══════════════════ */
+    .organism-visual {
+      margin-top: 60px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .organism-core {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(163, 255, 18, 0.2), rgba(124, 58, 237, 0.15), transparent);
+      border: 2px solid rgba(163, 255, 18, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      animation: pulse-glow 4s ease-in-out infinite, float 6s ease-in-out infinite;
+      position: relative;
+    }
+
+    .organism-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed rgba(163, 255, 18, 0.15);
+      animation: rotate-slow 30s linear infinite;
+    }
+
+    .organism-ring:nth-child(2) {
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-duration: 25s;
+    }
+
+    .organism-ring:nth-child(3) {
+      width: 400px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-direction: reverse;
+      animation-duration: 35s;
+      border-color: rgba(124, 58, 237, 0.12);
+    }
+
+    .organism-ring:nth-child(4) {
+      width: 500px;
+      height: 500px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-duration: 45s;
+      border-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .orbit-node {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-card);
+    }
+
+    .orbit-node:nth-child(1) {
+      top: -18px;
+      left: 50%;
+      margin-left: -18px;
+    }
+
+    .orbit-node:nth-child(2) {
+      bottom: -18px;
+      left: 50%;
+      margin-left: -18px;
+    }
+
+    .orbit-node:nth-child(3) {
+      top: 50%;
+      left: -18px;
+      margin-top: -18px;
+    }
+
+    .orbit-node:nth-child(4) {
+      top: 50%;
+      right: -18px;
+      margin-top: -18px;
+    }
+
+    /* ═══════════════════
+   DIAGNOSIS CARDS
+   ═══════════════════ */
+    .diagnosis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .diagnosis-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diagnosis-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-red), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .diagnosis-card:hover {
+      border-color: rgba(239, 68, 68, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .diagnosis-card:hover::before {
+      opacity: 1;
+    }
+
+    .diagnosis-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .diagnosis-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--accent-red);
+    }
+
+    .diagnosis-latin {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .diagnosis-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════
+   SYMBIOSIS SECTION
+   ═══════════════════ */
+    .symbiosis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .sym-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sym-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(163, 255, 18, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .sym-card:hover::after {
+      opacity: 1;
+    }
+
+    .sym-card:hover {
+      border-color: var(--border-card-hover);
+      transform: translateY(-4px);
+    }
+
+    .sym-card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .sym-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .sym-card-desc {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .sym-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .sym-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: rgba(163, 255, 18, 0.08);
+      color: var(--accent-green);
+      border: 1px solid rgba(163, 255, 18, 0.12);
+    }
+
+    /* ═══════════════════
+   COMPARISON TABLE
+   ═══════════════════ */
+    .comparison-wrapper {
+      margin-top: 48px;
+      overflow-x: auto;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .comparison-table thead th {
+      background: rgba(124, 58, 237, 0.1);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .comparison-table thead th:first-child {
+      border-radius: var(--radius-md) 0 0 0;
+    }
+
+    .comparison-table thead th:last-child {
+      border-radius: 0 var(--radius-md) 0 0;
+    }
+
+    .comparison-table tbody td {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+    }
+
+    .comparison-table tbody tr:hover td {
+      background: var(--bg-card-hover);
+    }
+
+    .comparison-table tbody td:first-child {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .comparison-table .col-legacy {
+      color: var(--text-dim);
+    }
+
+    .comparison-table .col-cody {
+      color: var(--accent-green);
+    }
+
+    /* ═══════════════════
+   LIFECYCLE FLOW
+   ═══════════════════ */
+    .lifecycle-flow {
+      margin-top: 48px;
+      position: relative;
+    }
+
+    .lifecycle-track {
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-green), var(--accent-purple), var(--accent-green));
+      opacity: 0.3;
+    }
+
+    .lifecycle-step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      position: relative;
+      padding-left: 68px;
+    }
+
+    .lifecycle-node {
+      position: absolute;
+      left: 16px;
+      top: 4px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-green);
+      z-index: 2;
+    }
+
+    .lifecycle-step.active .lifecycle-node {
+      background: var(--accent-green);
+      color: #000;
+      box-shadow: 0 0 20px rgba(163, 255, 18, 0.3);
+    }
+
+    .lifecycle-content {
+      flex: 1;
+    }
+
+    .lifecycle-phase {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-green);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .lifecycle-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .lifecycle-desc {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .lifecycle-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    @media(max-width:768px) {
+      .lifecycle-step {
+        padding-left: 56px;
+      }
+
+      .lifecycle-track {
+        left: 22px;
+      }
+
+      .lifecycle-node {
+        left: 10px;
+      }
+    }
+
+    /* ═══════════════════
+   PAIN → POWER
+   ═══════════════════ */
+    .transform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .transform-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      transition: all 0.5s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .transform-card:hover {
+      border-color: var(--border-card-hover);
+    }
+
+    .transform-arrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .transform-arrow .from {
+      opacity: 0.5;
+    }
+
+    .transform-arrow .arrow {
+      color: var(--accent-green);
+      font-size: 1.2rem;
+      animation: pulse-glow 2s infinite;
+    }
+
+    .transform-arrow .to {}
+
+    .transform-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .transform-desc {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════
+   IMMUNE SYSTEM GATES
+   ═══════════════════ */
+    .gates-pipeline {
+      margin-top: 48px;
+    }
+
+    .gate-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 24px;
+      margin-bottom: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .gate-item:hover {
+      border-color: var(--border-card-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .gate-num {
+      min-width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(163, 255, 18, 0.1);
+      color: var(--accent-green);
+      border: 1px solid rgba(163, 255, 18, 0.2);
+    }
+
+    .gate-info {
+      flex: 1;
+    }
+
+    .gate-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .gate-role {
+      font-size: 0.8rem;
+      color: var(--accent-purple-light);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    .gate-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .gate-score-bar {
+      margin-top: 40px;
+    }
+
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .score-label {
+      min-width: 80px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .score-bar {
+      flex: 1;
+      height: 8px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .score-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .score-fill.pass {
+      background: var(--accent-green);
+    }
+
+    .score-fill.warn {
+      background: var(--accent-amber);
+    }
+
+    .score-fill.fail {
+      background: var(--accent-red);
+    }
+
+    .score-result {
+      min-width: 80px;
+      text-align: right;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    /* ═══════════════════
+   LEARNING SOURCES
+   ═══════════════════ */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .source-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: all 0.4s;
+    }
+
+    .source-card:hover {
+      border-color: var(--border-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .source-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .source-lesson {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .source-evolved {
+      color: var(--accent-green);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════
+   TOKEN METABOLISM
+   ═══════════════════ */
+    .token-bars {
+      margin-top: 48px;
+      max-width: 700px;
+    }
+
+    .token-row {
+      margin-bottom: 28px;
+    }
+
+    .token-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .token-label .name {
+      font-weight: 600;
+    }
+
+    .token-label .value {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .token-bar {
+      height: 16px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .token-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 2s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+    }
+
+    .token-fill.bad {
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-amber));
+    }
+
+    .token-fill.good {
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+    }
+
+    .token-fill.best {
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
+    }
+
+    .token-savings {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════
+   HOSTS GRID
+   ═══════════════════ */
+    .hosts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .host-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 24px 16px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .host-card:hover {
+      border-color: var(--border-card-hover);
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+    }
+
+    .host-icon {
+      font-size: 2rem;
+    }
+
+    .host-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* ═══════════════════
+   INSTALL SECTION
+   ═══════════════════ */
+    .install-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .terminal {
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 40px;
+      max-width: 750px;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .terminal-dot.red {
+      background: #ff5f57;
+    }
+
+    .terminal-dot.yellow {
+      background: #febc2e;
+    }
+
+    .terminal-dot.green {
+      background: #28c840;
+    }
+
+    .terminal-title {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+
+    .terminal-body {
+      padding: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 2;
+    }
+
+    .terminal-line {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .terminal-prompt {
+      color: var(--accent-green);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .terminal-cmd {
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    .terminal-output {
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .terminal-success {
+      color: var(--accent-green);
+    }
+
+    .terminal-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: var(--accent-green);
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+
+    .copy-btn {
+      margin-top: 16px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      background: rgba(163, 255, 18, 0.1);
+      border: 1px solid rgba(163, 255, 18, 0.2);
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(163, 255, 18, 0.2);
+    }
+
+    /* ═══════════════════
+   DEBUG FLOW
+   ═══════════════════ */
+    .debug-flow {
+      margin-top: 48px;
+      max-width: 700px;
+    }
+
+    .debug-step {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      position: relative;
+    }
+
+    .debug-step::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 50px;
+      bottom: -16px;
+      width: 2px;
+      background: rgba(163, 255, 18, 0.1);
+    }
+
+    .debug-step:last-child::before {
+      display: none;
+    }
+
+    .debug-icon {
+      min-width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      font-size: 1rem;
+      z-index: 1;
+    }
+
+    .debug-text {
+      flex: 1;
+    }
+
+    .debug-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .debug-desc {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+    }
+
+    /* ═══════════════════
+   AUDIENCE CARDS
+   ═══════════════════ */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .audience-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 28px 16px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .audience-card:hover {
+      border-color: var(--border-card-hover);
+      transform: translateY(-4px);
+      text-decoration: none;
+    }
+
+    .audience-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .audience-role {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .audience-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Footer styles provided by kit.css */
+
+    /* ═══════════════════
+   SEPARATOR
+   ═══════════════════ */
+    .section-sep {
+      height: 1px;
+      border: none;
+      margin: 0;
+      background: linear-gradient(90deg, transparent, var(--border-card), transparent);
+    }
+
+    /* ═══════════════════
+   RESPONSIVE
+   ═══════════════════ */
+    @media(max-width:768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .diagnosis-grid,
+      .symbiosis-grid,
+      .transform-grid,
+      .sources-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .organism-ring:nth-child(3),
+      .organism-ring:nth-child(4) {
+        display: none;
+      }
+    }
+
+    /* ═══════════════════
+   FLOATING PARTICLES (CSS Only)
+   ═══════════════════ */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(163, 255, 18, 0.3);
+      animation: float-particle linear infinite;
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* ═══════════════════
+   SCROLL PROGRESS
+   ═══════════════════ */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      z-index: 9999;
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-purple));
+      transition: width 0.1s linear;
+    }
+
+    /* ═══════════════════
+   COUNTER ANIMATION
+   ═══════════════════ */
+    .stat-number {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════
+   INTERACTIVE DESIGN PREVIEW
+   ═══════════════════ */
+    .design-demo {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .design-chat {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .chat-msg {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s;
+    }
+
+    .chat-msg.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .chat-avatar {
+      min-width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      background: var(--bg-secondary);
+    }
+
+    .chat-bubble {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px 12px 12px 4px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .chat-bubble.ai {
+      border-radius: 12px 12px 4px 12px;
+      border: 1px solid rgba(163, 255, 18, 0.1);
+    }
+
+    .chat-bubble .highlight {
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    .design-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      min-height: 360px;
+      position: relative;
+    }
+
+    .preview-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .preview-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .preview-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 300px;
+      transition: all 0.8s;
+    }
+
+    .preview-skeleton {
+      height: 16px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.03) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s ease-in-out infinite;
+    }
+
+    @keyframes skeleton-loading {
+      0% {
+        background-position: 200% 0
+      }
+
+      100% {
+        background-position: -200% 0
+      }
+    }
+
+    .preview-skeleton.w-full {
+      width: 100%;
+    }
+
+    .preview-skeleton.w-3-4 {
+      width: 75%;
+    }
+
+    .preview-skeleton.w-1-2 {
+      width: 50%;
+    }
+
+    .preview-skeleton.w-1-4 {
+      width: 25%;
+    }
+
+    .preview-skeleton.h-lg {
+      height: 48px;
+    }
+
+    .preview-skeleton.h-xl {
+      height: 80px;
+    }
+
+    .preview-skeleton.h-block {
+      height: 120px;
+    }
+
+    /* Design preview states */
+    .preview-body[data-state="designing"] .preview-skeleton {
+      background: linear-gradient(90deg, rgba(124, 58, 237, 0.1) 25%, rgba(163, 255, 18, 0.08) 50%, rgba(124, 58, 237, 0.1) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1s ease-in-out infinite;
+    }
+
+    .preview-body[data-state="done"] .preview-skeleton {
+      background: rgba(163, 255, 18, 0.08);
+      animation: none;
+    }
+
+    @media(max-width:768px) {
+      .design-demo {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ═══════════════════
+   QUOTE
+   ═══════════════════ */
+    .quote-block {
+      margin: 48px auto;
+      max-width: 700px;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+    }
+
+    .quote-block::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 6rem;
+      color: rgba(124, 58, 237, 0.15);
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .quote-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ═══════════╗ NAVIGATION ╔═══════════ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-icon">⚡</span>
+      <span>CodyMaster</span>
+    </a>
+
+    <ul class="nav__links" id="navLinks">
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.whyUs">Why Us</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="why-cody-master.html" class="nav-dropdown__item"><span class="lang-flag">💡</span> <span data-i18n="nav.whyCodyMaster">Why CodyMaster</span></a>
+          <a href="why-security.html" class="nav-dropdown__item"><span class="lang-flag">🛡️</span> <span data-i18n="nav.whySecurity">Why Security</span></a>
+          <a href="skills.html" class="nav-dropdown__item"><span class="lang-flag">🧠</span> <span data-i18n="nav.skills">Skills</span></a>
+          <a href="vs-scrum.html" class="nav-dropdown__item"><span class="lang-flag">🤺</span> <span data-i18n="nav.vsScrum">vs Scrum</span></a>
+          <a href="vs-others.html" class="nav-dropdown__item"><span class="lang-flag">🔄</span> <span data-i18n="nav.vsOthers">vs Others</span></a>
+          <a href="story.html" class="nav-dropdown__item"><span class="lang-flag">📖</span> <span data-i18n="nav.story">Our Story</span></a>
+        </div>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.how">How</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="vibe-coding.html" class="nav-dropdown__item"><span class="lang-flag">🎨</span> <span data-i18n="nav.vibeCoding">Vibe Coding</span></a>
+          <a href="playbook.html" class="nav-dropdown__item"><span class="lang-flag">📖</span> <span data-i18n="nav.useCases">Use Cases</span></a>
+          <a href="parallel-coding.html" class="nav-dropdown__item"><span class="lang-flag">⚡</span> <span data-i18n="nav.parallelCoding">Parallel Coding</span></a>
+          <a href="cli.html" class="nav-dropdown__item"><span class="lang-flag">⌨️</span> <span data-i18n="nav.cli">CLI</span></a>
+        </div>
+      </li>
+      <li><a href="/docs/" class="nav__link" data-i18n="nav.docs">Docs</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown__toggle">
+          <span data-i18n="nav.personas">For You</span>
+          <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="for-founders.html" class="nav-dropdown__item"><span class="lang-flag">🚀</span> <span data-i18n="personas.cards.0.title">For Founders</span></a>
+          <a href="for-cmos.html" class="nav-dropdown__item"><span class="lang-flag">📢</span> <span data-i18n="personas.cards.1.title">For CMOs</span></a>
+          <a href="for-pms.html" class="nav-dropdown__item"><span class="lang-flag">📋</span> <span data-i18n="personas.cards.2.title">For PMs</span></a>
+          <a href="for-tech-teams.html" class="nav-dropdown__item"><span class="lang-flag">💻</span> <span data-i18n="personas.cards.3.title">For Tech Teams</span></a>
+          <a href="for-designers.html" class="nav-dropdown__item"><span class="lang-flag">🎨</span> <span data-i18n="personas.cards.4.title">For Designers</span></a>
+          <a href="for-claw-family.html" class="nav-dropdown__item"><span class="lang-flag">🦞</span> <span data-i18n="personas.cards.5.title">For Claw Family</span></a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav__controls">
+        <div class="lang-switcher" id="lang-switcher">
+          <button class="lang-btn" id="lang-toggle" aria-label="Select language" aria-expanded="false">
+            <span class="lang-btn-icon">🌍</span>
+            <span class="lang-btn-text" id="lang-btn-text">VI</span>
+            <span class="lang-btn-caret">▾</span>
+          </button>
+          <div class="lang-menu" id="lang-menu">
+            <button class="lang-option" data-lang="en"><span class="lang-flag">🇬🇧</span> <span class="lang-name">English</span></button>
+            <button class="lang-option" data-lang="vi"><span class="lang-flag">🇻🇳</span> <span class="lang-name">Tiếng Việt</span></button>
+            <button class="lang-option" data-lang="zh"><span class="lang-flag">🇨🇳</span> <span class="lang-name">中文</span></button>
+            <button class="lang-option" data-lang="ru"><span class="lang-flag">🇷🇺</span> <span class="lang-name">Русский</span></button>
+            <button class="lang-option" data-lang="ko"><span class="lang-flag">🇰🇷</span> <span class="lang-name">한국어</span></button>
+            <button class="lang-option" data-lang="hi"><span class="lang-flag">🇮🇳</span> <span class="lang-name">हिन्दी</span></button>
+          </div>
+        </div>
+        <a href="start.html" class="nav__cta" data-i18n="nav.getStarted">Get Started</a>
+        <div class="nav__hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+      </div>
+  </nav>
+
+  <!-- ═══════════════════════════
+     HERO — The Symbiont Awakens
+     ═══════════════════════════ -->
+  <section class="hero" id="hero">
+    <canvas class="dna-canvas" id="dnaCanvas"></canvas>
+    <div class="container">
+      <div class="hero-badges reveal">
+        <span class="hero-badge"><span class="icon">🧬</span> v4.3.0</span>
+        <span class="hero-badge"><span class="icon">🧠</span> 60 Skills</span>
+        <span class="hero-badge"><span class="icon">⚡</span> 11+ Platforms</span>
+        <span class="hero-badge"><span class="icon">🌍</span> Open Source</span>
+      </div>
+      <h1 class="reveal reveal-delay-1" data-i18n="[html]home.v2.hero.title">Không thay thế AI của bạn.<br>Nó <em>nâng cấp</em> AI của bạn.</h1>
+      <p class="hero-sub reveal reveal-delay-2" data-i18n="[html]home.v2.hero.desc">
+        CodyMaster là một <strong>siêu trợ lý</strong> tích hợp thẳng vào AI coding agent của bạn.
+        Nó trao cho agent bộ nhớ 5 tầng, hệ thống bảo vệ 8 cổng, và 60 kỹ năng chuyên biệt.
+        Agent ngừng là junior bối rối — trở thành cộng sự tự sửa lỗi, tự tối ưu.
+      </p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="#install" class="btn-primary" data-i18n="home.v2.hero.cta1">🧬 Cộng sinh ngay — 60 giây</a>
+        <a href="https://github.com/tody-agent/codymaster" target="_blank" class="btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+          <span data-i18n="home.readme.ctaGithub">Xem trên GitHub</span>
+        </a>
+      </div>
+      <p class="hero-micro reveal reveal-delay-4" data-i18n="home.v2.hero.micro">Miễn phí · Mã nguồn mở · Tương thích Cursor, Claude Code, Gemini,
+        Windsurf, Kiro, Copilot & hơn nữa</p>
+
+      <!-- Organism Visual -->
+      <div class="organism-visual reveal reveal-delay-5">
+        <div class="organism-core">
+          🧬
+          <div class="organism-ring">
+            <span class="orbit-node">🧠</span>
+            <span class="orbit-node">🛡️</span>
+            <span class="orbit-node">⚡</span>
+            <span class="orbit-node">🎨</span>
+          </div>
+          <div class="organism-ring"></div>
+          <div class="organism-ring"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 2 — DIAGNOSIS
+     ═══════════════════════════ -->
+  <section class="section" id="diagnosis">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal" data-i18n="home.v2.diagnosis.label">🩺 Chẩn đoán</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1" style="max-width:800px;" data-i18n="[html]home.v2.diagnosis.title">AI Agent của bạn đang
+          bệnh.<br>Bạn chỉ chưa biết thôi.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2" data-i18n="home.v2.diagnosis.desc">Mọi AI coding agent — Cursor, Claude Code, Copilot,
+          Gemini — đều mắc những căn bệnh nan y giống nhau. Chúng thông minh nhưng đầy khiếm khuyết. Đây là chẩn đoán.
+        </p>
+      </div>
+
+      <div class="diagnosis-grid">
+        <div class="diagnosis-card reveal">
+          <span class="diagnosis-icon">🧠</span>
+          <div class="diagnosis-name">Amnesia</div>
+          <div class="diagnosis-latin" data-i18n="home.v2.diagnosis.cards.c1.title">Hội chứng Mất Trí Nhớ</div>
+          <div class="diagnosis-desc" data-i18n="home.v2.diagnosis.cards.c1.desc">Mỗi session là trang giấy trắng. Nó quên sạch context, lặp lại lỗi cũ, bạn phải giải thích lại từ đầu. Như làm việc với thực tập sinh mới mỗi buổi sáng — mỗi buổi sáng.</div>
+        </div>
+        <div class="diagnosis-card reveal reveal-delay-1">
+          <span class="diagnosis-icon">🎨</span>
+          <div class="diagnosis-name">Identity Disorder</div>
+          <div class="diagnosis-latin" data-i18n="home.v2.diagnosis.cards.c2.title">Rối loạn Nhận dạng Thương hiệu</div>
+          <div class="diagnosis-desc" data-i18n="home.v2.diagnosis.cards.c2.desc">Cùng 1 brand, nó thiết kế 3 phong cách hoàn toàn khác nhau. Khách hàng nhìn vào tưởng bạn là 3 công ty khác nhau. Không design system, không consistency.</div>
+        </div>
+        <div class="diagnosis-card reveal reveal-delay-2">
+          <span class="diagnosis-icon">🦠</span>
+          <div class="diagnosis-name">Autoimmune Collapse</div>
+          <div class="diagnosis-latin" data-i18n="home.v2.diagnosis.cards.c3.title">Suy sụp Tự miễn dịch</div>
+          <div class="diagnosis-desc" data-i18n="home.v2.diagnosis.cards.c3.desc">Fix 1 bug, âm thầm phá vỡ 5 chỗ khác. Không test, không gate, không review. Code tự tấn công chính nó. Mỗi "fix" là một canh bạc.</div>
+        </div>
+        <div class="diagnosis-card reveal reveal-delay-1">
+          <span class="diagnosis-icon">🔓</span>
+          <div class="diagnosis-name">Immune Deficiency</div>
+          <div class="diagnosis-latin" data-i18n="home.v2.diagnosis.cards.c4.title">Suy giảm Miễn dịch Bảo mật</div>
+          <div class="diagnosis-desc" data-i18n="home.v2.diagnosis.cards.c4.desc">Hardcode API key, push secret lên GitHub, không quét lỗ hổng. Không có cơ chế phòng vệ. Hoá đơn AWS 10.000$ vào sáng hôm sau — chuyện có thật.</div>
+        </div>
+        <div class="diagnosis-card reveal reveal-delay-2">
+          <span class="diagnosis-icon">📉</span>
+          <div class="diagnosis-name">Metabolic Failure</div>
+          <div class="diagnosis-latin" data-i18n="home.v2.diagnosis.cards.c5.title">Rối loạn Trao đổi chất Token</div>
+          <div class="diagnosis-desc" data-i18n="home.v2.diagnosis.cards.c5.desc">Đốt 140.000+ tokens mỗi lượt. Load toàn bộ skill dù chỉ cần 1. Chậm, đắt, lãng phí. Giống cơ thể không biết tiêu hoá — ăn nhiều mà không hấp thụ.</div>
+        </div>
+        <div class="diagnosis-card reveal reveal-delay-3">
+          <span class="diagnosis-icon">🎲</span>
+          <div class="diagnosis-name">Genetic Instability</div>
+          <div class="diagnosis-latin" data-i18n="home.v2.diagnosis.cards.c6.title">Bất ổn Di truyền Output</div>
+          <div class="diagnosis-desc" data-i18n="home.v2.diagnosis.cards.c6.desc">Cùng prompt, khác ngày, output hoàn toàn khác. Không chuẩn hoá, không pattern, không nhất quán. Deploy = nhắm mắt cầu nguyện.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 3 — SYMBIOSIS
+     ═══════════════════════════ -->
+  <section class="section" id="symbiosis">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🧬 Tích hợp sâu</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1" style="max-width:850px;">Khi CodyMaster đồng hành cùng
+          Agent,<br>mọi thứ thay đổi.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">CodyMaster không chạy độc lập. Nó <strong>tốc độ
+            gắn kết vào bên trong</strong> — đọc source code codebase, hiểu kiến trúc, học từ sai lầm, tự tối ưu mỗi ngày.
+          Trợ lý AI cơ bản trở thành một chuyên gia xuất sắc.</p>
+      </div>
+
+      <div class="symbiosis-grid">
+        <!-- Brain -->
+        <div class="sym-card reveal" onmousemove="moveGlow(event,this)">
+          <span class="sym-card-icon">🧠</span>
+          <div class="sym-card-title">THE BRAIN — Đọc & Hiểu Source Code</div>
+          <div class="sym-card-desc">Ngay khi bond, symbiont đọc toàn bộ source code — AST, dependency graph,
+            architecture patterns. Nó hiểu vật chủ sâu hơn bạn hiểu chính project của mình. 95% token compression qua
+            Structural Memory. Nó không đoán — nó <em>biết</em>.</div>
+          <div class="sym-tags">
+            <span class="sym-tag">cm-continuity</span>
+            <span class="sym-tag">cm-notebooklm</span>
+            <span class="sym-tag">CodeGraph/AST</span>
+          </div>
+        </div>
+
+        <!-- Immune System -->
+        <div class="sym-card reveal reveal-delay-1" onmousemove="moveGlow(event,this)">
+          <span class="sym-card-icon">🛡️</span>
+          <div class="sym-card-title">HỆ MIỄN DỊCH — Bảo vệ Đa tầng</div>
+          <div class="sym-card-desc">Giống hệ miễn dịch cơ thể người: nhiều lớp bảo vệ chồng chéo. 8 gate kiểm tra trước
+            deploy. Blind Review — reviewer không biết context. Anti-Sycophancy — Devil's Advocate săn lỗi ẩn. Secret
+            Shield quét pre-commit. Phát hiện threat → tự chặn, tự cách ly.</div>
+          <div class="sym-tags">
+            <span class="sym-tag">cm-quality-gate</span>
+            <span class="sym-tag">cm-secret-shield</span>
+            <span class="sym-tag">cm-safe-deploy</span>
+          </div>
+        </div>
+
+        <!-- Self-Evolution -->
+        <div class="sym-card reveal reveal-delay-2" onmousemove="moveGlow(event,this)">
+          <span class="sym-card-icon">🧬</span>
+          <div class="sym-card-title">TỰ TIẾN HOÁ — Học, Thích ứng, Không Lặp lại</div>
+          <div class="sym-card-desc">Mỗi bug fix trở thành kháng thể. Sai lầm ghi vào <code>learnings.json</code> với
+            Ebbinghaus decay curve — kiến thức quan trọng được củng cố, thứ không cần tự quên. Reinforced ≥2 lần →
+            promoted thành long-term. Nó không static — nó <em>tiến hoá mỗi ngày</em>.</div>
+          <div class="sym-tags">
+            <span class="sym-tag">learnings.json</span>
+            <span class="sym-tag">Ebbinghaus curve</span>
+            <span class="sym-tag">Self-healing</span>
+          </div>
+        </div>
+
+        <!-- Health Check -->
+        <div class="sym-card reveal" onmousemove="moveGlow(event,this)">
+          <span class="sym-card-icon">🔬</span>
+          <div class="sym-card-title">MINH BẠCH — Kiểm tra Sức khoẻ Real-time</div>
+          <div class="sym-card-desc">Dashboard cho bạn thấy: task nào đang chạy, gate nào đã pass, score bao nhiêu,
+            learning nào mới. Judge Agent đánh giá sức khoẻ toàn bộ project. Không black box — mọi quyết định đều có
+            evidence, mọi deploy đều có audit trail.</div>
+          <div class="sym-tags">
+            <span class="sym-tag">Judge Agent</span>
+            <span class="sym-tag">Gate Scoring</span>
+            <span class="sym-tag">Dashboard API</span>
+          </div>
+        </div>
+
+        <!-- Skill Mastery -->
+        <div class="sym-card reveal reveal-delay-1" onmousemove="moveGlow(event,this)">
+          <span class="sym-card-icon">💡</span>
+          <div class="sym-card-title">HỌC HỎI PHI THƯỜNG — Không biết? Nó học.</div>
+          <div class="sym-card-desc">Gặp skill chưa biết? Tự phát hiện gap qua Skill Gap Detector, tự nghiên cứu từ
+            phương pháp sáng tạo (Design Thinking, TRIZ 9 Windows, JTBD), tự bổ sung. 60 skills được chưng cất từ hàng
+            chục open-source repo và methodology hàng đầu thế giới.</div>
+          <div class="sym-tags">
+            <span class="sym-tag">cm-skill-mastery</span>
+            <span class="sym-tag">TRIZ</span>
+            <span class="sym-tag">Design Thinking</span>
+            <span class="sym-tag">JTBD</span>
+          </div>
+        </div>
+
+        <!-- Design -->
+        <div class="sym-card reveal reveal-delay-2" onmousemove="moveGlow(event,this)">
+          <span class="sym-card-icon">🎨</span>
+          <div class="sym-card-title">VẼ TRƯỚC MẶT BẠN — Duyệt rồi nó làm</div>
+          <div class="sym-card-desc">Áp dụng 48 UX Laws, scan brand hiện tại, extract design tokens, tạo design system.
+            Show preview cho bạn — bạn approve — nó code pixel-perfect. Không cần Figma. Không cần designer. Bạn chỉ
+            đạo, nó thực thi.</div>
+          <div class="sym-tags">
+            <span class="sym-tag">cm-design-system</span>
+            <span class="sym-tag">cm-ux-master</span>
+            <span class="sym-tag">cm-ui-preview</span>
+            <span class="sym-tag">48 UX Laws</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 4 — COMPARISON
+     ═══════════════════════════ -->
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🔄 Kiến trúc mới</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Kiến trúc Lỗi thời Đã Chết.<br>Đây là Kiến trúc Tích hợp.
+        </h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">Tool cũ chạy riêng lẻ, không nhớ, không học, không
+          liên kết. CodyMaster hoạt động trong lòng agent — biến mọi agent thành một hệ thống thông minh thực sự.</p>
+      </div>
+
+      <div class="comparison-wrapper reveal reveal-delay-3">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width:30%">Khả năng</th>
+              <th style="width:35%" class="col-legacy">😵 Tool Rời rạc</th>
+              <th style="width:35%" class="col-cody">🧬 CodyMaster (Tích hợp sâu)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kiến trúc</td>
+              <td class="col-legacy">Standalone, cô lập</td>
+              <td class="col-cody">Tích hợp thẳng — hoạt động cùng agent</td>
+            </tr>
+            <tr>
+              <td>Trí nhớ</td>
+              <td class="col-legacy">Cá vàng — quên sạch</td>
+              <td class="col-cody">Não 5 tầng khoa học thần kinh</td>
+            </tr>
+            <tr>
+              <td>Học hỏi</td>
+              <td class="col-legacy">Static — không bao giờ tiến bộ</td>
+              <td class="col-cody">Tự tiến hoá — học từ mỗi bug</td>
+            </tr>
+            <tr>
+              <td>Phòng thủ</td>
+              <td class="col-legacy">YOLO deploy, cầu nguyện</td>
+              <td class="col-cody">Hệ miễn dịch 8 cổng</td>
+            </tr>
+            <tr>
+              <td>Thiếu skill</td>
+              <td class="col-legacy">Bạn tự cài, tự config</td>
+              <td class="col-cody">Tự phát hiện gap, tự học skill mới</td>
+            </tr>
+            <tr>
+              <td>Token</td>
+              <td class="col-legacy">140K tokens/lượt</td>
+              <td class="col-cody">~6.300 tokens/lượt (tiết kiệm 95.5%)</td>
+            </tr>
+            <tr>
+              <td>Platform</td>
+              <td class="col-legacy">Khoá vào 1 IDE</td>
+              <td class="col-cody">Tương thích với 11+ nền tảng nền</td>
+            </tr>
+            <tr>
+              <td>Thiết kế</td>
+              <td class="col-legacy">Ngẫu nhiên mỗi lần</td>
+              <td class="col-cody">48 UX Laws + brand extraction</td>
+            </tr>
+            <tr>
+              <td>Phạm vi</td>
+              <td class="col-legacy">Chỉ code</td>
+              <td class="col-cody">Toàn trình: Ý tưởng → Deploy → Docs → Marketing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row reveal">
+        <div class="stat-item">
+          <div class="stat-number" data-target="60">0</div>
+          <div class="stat-label">Skills chuyên biệt</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="8">0</div>
+          <div class="stat-label">Cổng miễn dịch</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="95">0</div>
+          <div class="stat-label">% Token tiết kiệm</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="11">0</div>
+          <div class="stat-label">Vật chủ tương thích</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 5 — PAIN → POWER
+     ═══════════════════════════ -->
+  <section class="section" id="evolution">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">⚡ Tiến hoá</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Mỗi Bug bạn fix<br>khiến nó mạnh hơn.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">Tool thường hỏng và nằm im. Symbiont của CodyMaster
+          biến mọi thất bại thành nhiên liệu. Bug trở thành kháng thể. Crash trở thành sự bền bỉ. Nỗi đau trở thành sức
+          mạnh.</p>
+      </div>
+
+      <div class="transform-grid">
+        <div class="transform-card reveal">
+          <div class="transform-arrow">
+            <span class="from">🐛</span>
+            <span class="arrow">→</span>
+            <span class="to">🛡️</span>
+          </div>
+          <div class="transform-title">Bug → Kháng thể</div>
+          <div class="transform-desc">Bug xuất hiện → Root cause analysis (không đoán, điều tra) → Fix với TDD →
+            Learning được capture vào <code>learnings.json</code> → Lần sau gặp pattern tương tự → tự phòng ngừa. Bug đó
+            không bao giờ xuất hiện lần thứ 3.</div>
+        </div>
+        <div class="transform-card reveal reveal-delay-1">
+          <div class="transform-arrow">
+            <span class="from">💥</span>
+            <span class="arrow">→</span>
+            <span class="to">🧠</span>
+          </div>
+          <div class="transform-title">Crash → Trí tuệ</div>
+          <div class="transform-desc">Deploy fail → Rollback tự động → Post-mortem captured → Architecture decision
+            documented → Kiến thức được promote qua Ebbinghaus reinforcement → Next deploy an toàn hơn. Mỗi crash là một
+            bài học vĩnh viễn.</div>
+        </div>
+        <div class="transform-card reveal reveal-delay-2">
+          <div class="transform-arrow">
+            <span class="from">😵</span>
+            <span class="arrow">→</span>
+            <span class="to">🔬</span>
+          </div>
+          <div class="transform-title">Hỗn loạn → Hệ thống</div>
+          <div class="transform-desc">Code spaghetti → <code>cm-design-system</code> scan toàn bộ → Extract patterns →
+            Build design system → Enforce consistency. Từ hỗn loạn sinh ra trật tự. Từ legacy code sinh ra kiến trúc
+            sạch.</div>
+        </div>
+      </div>
+
+      <div class="quote-block reveal">
+        <p class="quote-text">Vấn đề gặp 2 lần thì không được phép gặp lần thứ 3. Đó là triết lý của kẻ lười biếng thông
+          minh — và cũng là cách CodyMaster tự tiến hoá.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 6 — IMMUNE SYSTEM
+     ═══════════════════════════ -->
+  <section class="section" id="immune">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🛡️ Hệ Miễn dịch</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">8 Cổng Miễn dịch.<br>Không gì lọt qua.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">Giống hệ miễn dịch cơ thể người — da, chất nhầy, bạch
+          cầu, kháng thể — CodyMaster bảo vệ codebase bằng 8 cổng tuần tự. Mỗi cổng là một loại tế bào miễn dịch khác
+          nhau.</p>
+      </div>
+
+      <div class="gates-pipeline">
+        <div class="gate-item reveal">
+          <div class="gate-num">G1</div>
+          <div class="gate-info">
+            <div class="gate-name">🔬 Static Analysis</div>
+            <div class="gate-role">Hàng rào Da — Lớp bảo vệ đầu tiên</div>
+            <div class="gate-desc">Bắt lỗi syntax, lint, type errors. Không qua được lớp này thì đừng mơ vào sâu hơn.
+            </div>
+          </div>
+        </div>
+        <div class="gate-item reveal reveal-delay-1">
+          <div class="gate-num">G2</div>
+          <div class="gate-info">
+            <div class="gate-name">🧪 Test Suite</div>
+            <div class="gate-role">Bạch cầu — TDD enforcement</div>
+            <div class="gate-desc">Mọi test phải pass. Viết test trước, code sau. RED → GREEN → REFACTOR. Không ngoại
+              lệ.</div>
+          </div>
+        </div>
+        <div class="gate-item reveal reveal-delay-2">
+          <div class="gate-num">G3</div>
+          <div class="gate-info">
+            <div class="gate-name">👁️ Blind Review</div>
+            <div class="gate-role">Tế bào NK — Đánh giá không thiên vị</div>
+            <div class="gate-desc">Reviewer chỉ thấy diff — không task description, không implementation context. Buộc
+              phải review khách quan thực sự.</div>
+          </div>
+        </div>
+        <div class="gate-item reveal">
+          <div class="gate-num">G4</div>
+          <div class="gate-info">
+            <div class="gate-name">😈 Anti-Sycophancy</div>
+            <div class="gate-role">Tế bào T — Devil's Advocate</div>
+            <div class="gate-desc">Nếu Gate 3 nói "mọi thứ ổn", Gate 4 chủ động săn tìm vấn đề ẩn. Không cho phép tự
+              mãn. Không nịnh hót.</div>
+          </div>
+        </div>
+        <div class="gate-item reveal reveal-delay-1">
+          <div class="gate-num">G5</div>
+          <div class="gate-info">
+            <div class="gate-name">🔒 Security Scan</div>
+            <div class="gate-role">Kháng thể — Quét lỗ hổng liên tục</div>
+            <div class="gate-desc">Secret detection pre-commit, Snyk Code SAST, vulnerability scanning. Quét liên tục,
+              ngăn ngừa lỗ hổng. Không secret nào lọt qua.</div>
+          </div>
+        </div>
+        <div class="gate-item reveal reveal-delay-2">
+          <div class="gate-num">G6</div>
+          <div class="gate-info">
+            <div class="gate-name">🌐 i18n Check</div>
+            <div class="gate-role">Tính toàn vẹn màng tế bào</div>
+            <div class="gate-desc">Mọi string đều được extract, không hardcode text. Đảm bảo tính nhất quán đa ngôn ngữ.
+            </div>
+          </div>
+        </div>
+        <div class="gate-item reveal">
+          <div class="gate-num">G7</div>
+          <div class="gate-info">
+            <div class="gate-name">🏗️ Build Verification</div>
+            <div class="gate-role">Kiểm tra cơ quan nội tạng</div>
+            <div class="gate-desc">Production build phải thành công. Bundle size check, dependency audit, dead code
+              elimination.</div>
+          </div>
+        </div>
+        <div class="gate-item reveal reveal-delay-1">
+          <div class="gate-num">G8</div>
+          <div class="gate-info">
+            <div class="gate-name">💚 Health Check</div>
+            <div class="gate-role">Dấu hiệu sinh tồn — Khám sức khoẻ post-deploy</div>
+            <div class="gate-desc">Smoke test + uptime verification sau deploy. Nếu fail → auto-rollback ngay lập tức.
+              Không bao giờ để hệ thống chết.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score Bars -->
+      <div class="gate-score-bar reveal" style="max-width:600px; margin: 0 auto;">
+        <div class="score-row">
+          <div class="score-label" style="color:var(--accent-green)">≥ 80</div>
+          <div class="score-bar">
+            <div class="score-fill pass" data-width="100" style="width:0%"></div>
+          </div>
+          <div class="score-result" style="color:var(--accent-green)">✅ SHIP</div>
+        </div>
+        <div class="score-row">
+          <div class="score-label" style="color:var(--accent-amber)">60-79</div>
+          <div class="score-bar">
+            <div class="score-fill warn" data-width="75" style="width:0%"></div>
+          </div>
+          <div class="score-result" style="color:var(--accent-amber)">⚠️ REVIEW</div>
+        </div>
+        <div class="score-row">
+          <div class="score-label" style="color:var(--accent-red)">
+            < 60</div>
+              <div class="score-bar">
+                <div class="score-fill fail" data-width="45" style="width:0%"></div>
+              </div>
+              <div class="score-result" style="color:var(--accent-red)">❌ BLOCK</div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 7 — FULL LIFECYCLE
+     ═══════════════════════════ -->
+  <section class="section" id="lifecycle">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🏭 Toàn trình</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Một Sinh vật.<br>Thay thế cả Công ty Phần mềm.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">PM, Designer, Frontend Dev, Backend Dev, QA, DevOps,
+          Technical Writer, Security Engineer, Marketing — CodyMaster bao phủ tất cả. Không bằng tool riêng lẻ. Bằng một
+          cơ thể thống nhất.</p>
+      </div>
+
+      <div class="lifecycle-flow">
+        <div class="lifecycle-track"></div>
+
+        <div class="lifecycle-step reveal">
+          <div class="lifecycle-node">1</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">🥚 Conception — Thai nghén</div>
+            <div class="lifecycle-title">Ý tưởng → Phân tích Chiến lược</div>
+            <div class="lifecycle-desc">Phân tích ý tưởng bằng Design Thinking + TRIZ 9 Windows. Đánh giá cơ hội, rủi
+              ro, và Jobs-to-be-Done trước khi viết 1 dòng code.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-brainstorm-idea</span>
+              <span class="sym-tag">cm-jtbd</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle-step reveal">
+          <div class="lifecycle-node">2</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">🧠 Planning — Lập kế hoạch</div>
+            <div class="lifecycle-title">Kế hoạch Chi tiết + Requirement Tracing</div>
+            <div class="lifecycle-desc">Tạo implementation plan chi tiết với FR/NFR IDs, project level detection
+              (L0-L3), và chia task thông minh. Giống PM senior lên plan.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-planning</span>
+              <span class="sym-tag">cm-start</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle-step reveal">
+          <div class="lifecycle-node">3</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">🎨 Design — Thiết kế</div>
+            <div class="lifecycle-title">48 UX Laws + Brand Extraction + Preview</div>
+            <div class="lifecycle-desc">Scan brand hiện tại, extract design tokens, áp dụng 48 quy tắc UX, tạo preview.
+              Bạn duyệt, nó code. Không cần Figma.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-design-system</span>
+              <span class="sym-tag">cm-ux-master</span>
+              <span class="sym-tag">cm-ui-preview</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle-step active reveal">
+          <div class="lifecycle-node">4</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">💻 Build — Xây dựng</div>
+            <div class="lifecycle-title">Code TDD + Auto Debug + Skill Chain</div>
+            <div class="lifecycle-desc">Viết code test-first, tự debug khi gặp lỗi, chain nhiều skill tự động. Nếu có
+              lỗi, nó tự phát hiện, tự fix, tự verify — không để hệ thống bị phá vỡ.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-execution</span>
+              <span class="sym-tag">cm-tdd</span>
+              <span class="sym-tag">cm-debugging</span>
+              <span class="sym-tag">cm-skill-chain</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle-step reveal">
+          <div class="lifecycle-node">5</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">🛡️ Defense — Phòng thủ</div>
+            <div class="lifecycle-title">8-Gate Quality Pipeline + Security Scan</div>
+            <div class="lifecycle-desc">Mọi thay đổi đi qua 8 cổng miễn dịch. Blind review, anti-sycophancy, secret
+              scanning, vulnerability audit. Quét liên tục ngăn ngừa lỗ hổng.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-quality-gate</span>
+              <span class="sym-tag">cm-code-review</span>
+              <span class="sym-tag">cm-secret-shield</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle-step reveal">
+          <div class="lifecycle-node">6</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">🚀 Deploy — Triển khai</div>
+            <div class="lifecycle-title">Safe Deploy + Auto Rollback + Health Check</div>
+            <div class="lifecycle-desc">Deploy qua 8-gate pipeline. Tự generate docs, i18n, changelog. Health check
+              post-deploy. Nếu fail → auto-rollback ngay lập tức.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-safe-deploy</span>
+              <span class="sym-tag">cm-dockit</span>
+              <span class="sym-tag">cm-safe-i18n</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle-step reveal">
+          <div class="lifecycle-node">7</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">📚 Knowledge — Tri thức</div>
+            <div class="lifecycle-title">Auto Docs + Content Factory + Marketing</div>
+            <div class="lifecycle-desc">Tự generate tài liệu kỹ thuật, SOP, API reference, user guide. Content Factory
+              tạo marketing assets. CRO tracking + ads integration.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-content-factory</span>
+              <span class="sym-tag">cm-ads-tracker</span>
+              <span class="sym-tag">cm-cro-methodology</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lifecycle-step reveal">
+          <div class="lifecycle-node">∞</div>
+          <div class="lifecycle-content">
+            <div class="lifecycle-phase">🔄 Evolution — Tiến hoá</div>
+            <div class="lifecycle-title">Học hỏi Liên tục + Smart Forgetting</div>
+            <div class="lifecycle-desc">Mỗi iteration, symbiont học thêm, quên bớt thứ không cần (Ebbinghaus decay), và
+              promote kiến thức quan trọng. Vòng lặp vô hạn — càng dùng càng giỏi.</div>
+            <div class="lifecycle-skills">
+              <span class="sym-tag">cm-continuity</span>
+              <span class="sym-tag">learnings.json</span>
+              <span class="sym-tag">Ebbinghaus curve</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 8 — DESIGN PREVIEW (Interactive)
+     ═══════════════════════════ -->
+  <section class="section" id="design">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🎨 Thiết kế Trực quan</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Nó vẽ trước mặt bạn.<br>Bạn duyệt. Nó làm còn lại.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">Không cần Figma. Không cần wireframe tool. CodyMaster
+          scan brand, áp dụng 48 UX Laws, generate preview. Bạn chỉ đạo, nó thực thi.</p>
+      </div>
+
+      <div class="design-demo reveal">
+        <!-- Chat side -->
+        <div class="design-chat" id="designChat">
+          <div class="chat-msg show" id="msg1">
+            <div class="chat-avatar">👤</div>
+            <div class="chat-bubble">Tạo landing page cho quán cà phê <span class="highlight">Morning Brew</span>. Tone
+              ấm, màu nâu + kem. Cần hero, menu, gallery, và nút đặt bàn.</div>
+          </div>
+          <div class="chat-msg" id="msg2">
+            <div class="chat-avatar">🧬</div>
+            <div class="chat-bubble ai">Đã hiểu! Đang <span class="highlight">scan brand</span> → extract tokens → áp
+              dụng <span class="highlight">48 UX Laws</span> → tạo preview cho bạn duyệt...</div>
+          </div>
+          <div class="chat-msg" id="msg3">
+            <div class="chat-avatar">🧬</div>
+            <div class="chat-bubble ai">✅ Preview sẵn sàng! Design system: <span class="highlight">#6F4E37</span>
+              (Coffee Brown), <span class="highlight">#F5F0E8</span> (Cream). 4 sections. Bạn duyệt nhé →</div>
+          </div>
+          <div class="chat-msg" id="msg4">
+            <div class="chat-avatar">👤</div>
+            <div class="chat-bubble">Đẹp! Nhưng <span class="highlight">CTA to hơn</span>, thêm <span
+                class="highlight">section testimonials</span>.</div>
+          </div>
+          <div class="chat-msg" id="msg5">
+            <div class="chat-avatar">🧬</div>
+            <div class="chat-bubble ai">Đã cập nhật! CTA tăng 150%, thêm testimonials section. Deploying... <span
+                class="highlight">✅ Live!</span></div>
+          </div>
+        </div>
+
+        <!-- Preview side -->
+        <div class="design-preview" id="designPreview">
+          <div class="preview-header">
+            <span class="preview-dot" style="background:#ff5f57"></span>
+            <span class="preview-dot" style="background:#febc2e"></span>
+            <span class="preview-dot" style="background:#28c840"></span>
+            <span
+              style="margin-left:auto; font-size:0.7rem; color:var(--text-dim); font-family:var(--font-mono)">cm-ui-preview</span>
+          </div>
+          <div class="preview-body" id="previewBody" data-state="idle">
+            <div class="preview-skeleton h-lg w-1-2" style="margin:0 auto"></div>
+            <div class="preview-skeleton w-3-4" style="margin:0 auto"></div>
+            <div class="preview-skeleton h-xl w-full" style="border-radius:12px"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+              <div class="preview-skeleton h-block"></div>
+              <div class="preview-skeleton h-block"></div>
+              <div class="preview-skeleton h-block"></div>
+            </div>
+            <div class="preview-skeleton h-lg w-1-4" style="margin:0 auto; border-radius:100px"></div>
+            <div class="preview-skeleton w-full"></div>
+            <div class="preview-skeleton w-3-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 9 — SELF DEBUG
+     ═══════════════════════════ -->
+  <section class="section" id="debug">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🔧 Tự sửa chữa</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Bug không sống sót.<br>Sinh vật tự sửa chữa.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">Khi có gì đó hỏng, CodyMaster không đoán. Nó điều tra
+          như bác sĩ — phân tích gốc rễ có hệ thống, không bao giờ chữa triệu chứng.</p>
+      </div>
+
+      <div class="debug-flow mx-auto reveal">
+        <div class="debug-step">
+          <div class="debug-icon">🐛</div>
+          <div class="debug-text">
+            <div class="debug-title">Bug Detected — Phát hiện lỗi</div>
+            <div class="debug-desc">Hệ thống phát hiện anomaly qua test suite hoặc runtime monitoring.</div>
+          </div>
+        </div>
+        <div class="debug-step">
+          <div class="debug-icon">🔬</div>
+          <div class="debug-text">
+            <div class="debug-title">Root Cause Analysis — Điều tra gốc rễ</div>
+            <div class="debug-desc"><code>cm-debugging</code> phân tích có hệ thống. Không đoán, không thử random. Tìm
+              nguyên nhân thật sự.</div>
+          </div>
+        </div>
+        <div class="debug-step">
+          <div class="debug-icon">🧪</div>
+          <div class="debug-text">
+            <div class="debug-title">Reproduce Test — Tái hiện bằng test</div>
+            <div class="debug-desc"><code>cm-tdd</code> viết test MÀ TÁI HIỆN bug trước. Red test = chứng minh bug tồn
+              tại.</div>
+          </div>
+        </div>
+        <div class="debug-step">
+          <div class="debug-icon">💊</div>
+          <div class="debug-text">
+            <div class="debug-title">Fix — Chữa trị</div>
+            <div class="debug-desc">Sửa code cho test chuyển từ RED → GREEN. Refactor nếu cần.</div>
+          </div>
+        </div>
+        <div class="debug-step">
+          <div class="debug-icon">🛡️</div>
+          <div class="debug-text">
+            <div class="debug-title">8-Gate Verify — Kiểm tra toàn bộ</div>
+            <div class="debug-desc">Chạy toàn bộ 8 gate để đảm bảo fix KHÔNG phá vỡ bất cứ thứ gì khác. Phân tích tổng
+              thể.</div>
+          </div>
+        </div>
+        <div class="debug-step">
+          <div class="debug-icon">🧠</div>
+          <div class="debug-text">
+            <div class="debug-title">Capture Learning — Ghi nhớ vĩnh viễn</div>
+            <div class="debug-desc"><code>cm-continuity</code> lưu pattern lỗi này thành kháng thể. PRE-ACT ATTENTION
+              kiểm tra trước MỌI hành động tương lai: "Đã gặp pattern này chưa?" → Tự phòng ngừa.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block reveal">
+        <p class="quote-text">Max 3 lần thử mỗi task. Sau 3 lần thất bại → BLOCKED + ESCALATE cho con người. Không lặp
+          vô hạn. Không phá hệ thống. Luôn phân tích tổng thể trước khi hành động.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 10 — TOKEN METABOLISM
+     ═══════════════════════════ -->
+  <section class="section" id="metabolism">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🧬 Trao đổi chất</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Tiết kiệm 95.5% Token.<br>Qua Trao đổi chất Tiến hoá.
+        </h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">Tool khác load tất cả. CodyMaster tiến hoá Progressive
+          Disclosure — chỉ load cái cần, lúc cần. Kỹ thuật này được học hỏi và phát triển qua quá trình sử dụng thực tế.
+        </p>
+      </div>
+
+      <div class="token-bars mx-auto reveal">
+        <div class="token-row">
+          <div class="token-label">
+            <span class="name">❌ Load toàn bộ 60 skills</span>
+            <span class="value">~140,000 tokens</span>
+          </div>
+          <div class="token-bar">
+            <div class="token-fill bad" data-width="100" style="width:0%"></div>
+          </div>
+          <div class="token-savings" style="color:var(--text-dim)">0% tiết kiệm</div>
+        </div>
+        <div class="token-row">
+          <div class="token-label">
+            <span class="name">✅ Progressive Disclosure</span>
+            <span class="value">~6,300 tokens</span>
+          </div>
+          <div class="token-bar">
+            <div class="token-fill good" data-width="4.5" style="width:0%"></div>
+          </div>
+          <div class="token-savings">Tiết kiệm 95.5%</div>
+        </div>
+        <div class="token-row">
+          <div class="token-label">
+            <span class="name">✅ Skeleton Index (codebase)</span>
+            <span class="value">~5,000 tokens</span>
+          </div>
+          <div class="token-bar">
+            <div class="token-fill best" data-width="3.6" style="width:0%"></div>
+          </div>
+          <div class="token-savings">Tiết kiệm 97.9%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 11 — LEARNING SOURCES
+     ═══════════════════════════ -->
+  <section class="section" id="learning">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">📚 Nguồn tri thức</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Nó học từ những người giỏi nhất.<br>Rồi tiến hoá vượt
+          qua họ.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">60 skills không được phát minh trong chân không. Chúng
+          được chưng cất từ việc nghiên cứu, thích ứng, và tiến hoá insights từ cộng đồng open-source và các phương pháp
+          luận sáng tạo hàng đầu.</p>
+      </div>
+
+      <div class="sources-grid">
+        <div class="source-card reveal">
+          <div class="source-name">🎨 UI/UX Pro Max <span
+              style="color:var(--text-dim);font-weight:400;font-size:0.8rem">Open Source</span></div>
+          <div class="source-lesson">UX phải là công dân hạng nhất trong AI coding, không phải thứ nghĩ sau cùng.</div>
+          <div class="source-evolved">→ Tiến hoá thành <code>cm-ux-master</code> — 48 UX Laws + Harvester v5</div>
+        </div>
+        <div class="source-card reveal reveal-delay-1">
+          <div class="source-name">⚡ Superpower <span
+              style="color:var(--text-dim);font-weight:400;font-size:0.8rem">GitHub</span></div>
+          <div class="source-lesson">Hệ thống có cấu trúc luôn đánh bại prompt ngẫu hứng.</div>
+          <div class="source-evolved">→ Tiến hoá thành 60 file SKILL.md có cấu trúc</div>
+        </div>
+        <div class="source-card reveal reveal-delay-2">
+          <div class="source-name">🧠 Loki Mode <span
+              style="color:var(--text-dim);font-weight:400;font-size:0.8rem">GitHub</span></div>
+          <div class="source-lesson">Context persistence là bắt buộc, không phải tuỳ chọn.</div>
+          <div class="source-evolved">→ Tiến hoá thành bộ nhớ 5 tầng khoa học thần kinh</div>
+        </div>
+        <div class="source-card reveal">
+          <div class="source-name">💡 Design Thinking <span
+              style="color:var(--text-dim);font-weight:400;font-size:0.8rem">Methodology</span></div>
+          <div class="source-lesson">Giải quyết vấn đề lấy con người làm trung tâm.</div>
+          <div class="source-evolved">→ Tích hợp vào <code>cm-brainstorm-idea</code></div>
+        </div>
+        <div class="source-card reveal reveal-delay-1">
+          <div class="source-name">🔧 TRIZ (9 Windows) <span
+              style="color:var(--text-dim);font-weight:400;font-size:0.8rem">Methodology</span></div>
+          <div class="source-lesson">Phương pháp giải quyết vấn đề sáng tạo có hệ thống.</div>
+          <div class="source-evolved">→ Tích hợp vào cổng phân tích chiến lược</div>
+        </div>
+        <div class="source-card reveal reveal-delay-2">
+          <div class="source-name">🎯 JTBD Framework <span
+              style="color:var(--text-dim);font-weight:400;font-size:0.8rem">Methodology</span></div>
+          <div class="source-lesson">Jobs-to-be-Done thay vì feature list.</div>
+          <div class="source-evolved">→ Tiến hoá thành <code>cm-jtbd</code> planning skill</div>
+        </div>
+      </div>
+
+      <div class="quote-block reveal">
+        <p class="quote-text">Đứng trên vai những người khổng lồ. Rồi tiến hoá vượt qua họ.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 12 — MULTI-HOST
+     ═══════════════════════════ -->
+  <section class="section" id="hosts">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🌐 Đa vật chủ</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Một Symbiont. 11+ Vật chủ.<br>Thích ứng Phổ quát.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">CodyMaster không quan tâm bạn dùng agent nào. Nó ký
+          sinh vào bất kỳ thứ gì. Một lệnh cài đặt — tự phát hiện tất cả — bond đồng thời.</p>
+      </div>
+
+      <div class="hosts-grid reveal">
+        <div class="host-card">
+          <div class="host-icon">✦</div>
+          <div class="host-name">Google Antigravity (Gemini)</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">🟣</div>
+          <div class="host-name">Claude Code</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">⬡</div>
+          <div class="host-name">Cursor</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">🌊</div>
+          <div class="host-name">Windsurf</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">🔶</div>
+          <div class="host-name">Cline / RooCode</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">📦</div>
+          <div class="host-name">OpenCode</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">🪁</div>
+          <div class="host-name">Kiro</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">🤖</div>
+          <div class="host-name">GitHub Copilot</div>
+        </div>
+        <div class="host-card">
+          <div class="host-icon">🔧</div>
+          <div class="host-name">CLI / Others</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 13 — FOR YOU
+     ═══════════════════════════ -->
+  <section class="section" id="audience">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🎯 Cho bạn</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">Symbiont thích ứng<br>với mọi Vật chủ.</h2>
+      </div>
+
+      <div class="audience-grid reveal">
+        <a href="for-founders.html" class="audience-card">
+          <div class="audience-icon">🚀</div>
+          <div class="audience-role">Cho Founders</div>
+          <div class="audience-desc">Ship sản phẩm, không chỉ code</div>
+        </a>
+        <a href="for-cmos.html" class="audience-card">
+          <div class="audience-icon">📢</div>
+          <div class="audience-role">Cho CMOs</div>
+          <div class="audience-desc">Conversion tracking & ROI</div>
+        </a>
+        <a href="for-pms.html" class="audience-card">
+          <div class="audience-icon">📋</div>
+          <div class="audience-role">Cho PMs</div>
+          <div class="audience-desc">JTBD & agile planning</div>
+        </a>
+        <a href="for-tech-teams.html" class="audience-card">
+          <div class="audience-icon">💻</div>
+          <div class="audience-role">Cho Tech Teams</div>
+          <div class="audience-desc">TDD, architecture & DevOps</div>
+        </a>
+        <a href="for-designers.html" class="audience-card">
+          <div class="audience-icon">🎨</div>
+          <div class="audience-role">Cho Designers</div>
+          <div class="audience-desc">UX heuristics & UI preview</div>
+        </a>
+        <a href="vibe-coding.html" class="audience-card">
+          <div class="audience-icon">💬</div>
+          <div class="audience-role">Không biết Code</div>
+          <div class="audience-desc">Vibe coding — nói là có</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════
+     SECTION 14 — INSTALL
+     ═══════════════════════════ -->
+  <section class="section install-section" id="install">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal">🧬 Bắt đầu Cộng sinh</span>
+        <h2 class="section-title mx-auto reveal reveal-delay-1">60 Giây. Một Lệnh.<br>Symbiont Thức tỉnh.</h2>
+        <p class="section-subtitle mx-auto reveal reveal-delay-2">Tự phát hiện agents của bạn. Tự bond. Tự tiến hoá từ
+          giây phút đầu tiên.</p>
+      </div>
+
+      <div class="b3d-panel b3d-panel--center reveal" style="max-width: 720px; margin: 40px auto 0;">
+        <div class="b3d-cta">
+          <!-- INSTALL TABS (Segmented Control style) -->
+          <div class="b3d-tabs-wrapper">
+            <div class="b3d-tabs">
+              <button class="b3d-tab active" data-target="global" data-i18n="install.tabGlobal">Cài đặt Toàn cục</button>
+              <button class="b3d-tab" data-target="manual" data-i18n="install.tabManual">Thiết lập Thủ công</button>
+              <div class="b3d-tab-glider"></div>
+            </div>
+          </div>
+
+          <!-- GLOBAL INSTALL -->
+          <div class="home-install-content active" id="install-global">
+            <div class="b3d-code-box">
+              <div class="b3d-code-header">
+                <div class="b3d-code-dots"><span></span><span></span><span></span></div>
+                <span class="b3d-code-label">Terminal</span>
+              </div>
+              <div class="b3d-code-body">
+                <code>bash &lt;(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all</code>
+                <button class="b3d-copy-btn" onclick="navigator.clipboard.writeText('bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all')" title="Copy Command">
+                  <i data-lucide="copy"></i>
+                </button>
+              </div>
+            </div>
+            <p class="b3d-install-note" data-i18n="install.globalDesc">Tự động kết nối CodyMaster với mọi IDE và CLI agent được phát hiện.</p>
+          </div>
+
+          <!-- MANUAL SETUP -->
+          <div class="home-install-content" id="install-manual">
+            <div class="b3d-ide-grid">
+              <div class="b3d-ide-card" data-ide="Antigravity"><i data-lucide="rocket"></i><span>Antigravity</span></div>
+              <div class="b3d-ide-card" data-ide="Cursor"><i data-lucide="terminal-square"></i><span>Cursor</span></div>
+              <div class="b3d-ide-card" data-ide="OpenCode"><i data-lucide="code-xml"></i><span>OpenCode</span></div>
+              <div class="b3d-ide-card" data-ide="RooCode"><i data-lucide="zap"></i><span>RooCode</span></div>
+              <div class="b3d-ide-card" data-ide="Claude"><i data-lucide="bot"></i><span>Claude</span></div>
+              <div class="b3d-ide-card" data-ide="Windsurf"><i data-lucide="code-2"></i><span>Windsurf</span></div>
+              <div class="b3d-ide-card" data-ide="CLI"><i data-lucide="command"></i><span>CLI</span></div>
+            </div>
+            <div id="ide-instructions-container"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:40px">
+        <a href="start.html" class="btn-primary" style="font-size:1.1rem;padding:14px 40px;">🧬 Bắt đầu Cộng sinh — Miễn
+          phí</a>
+        <p style="margin-top:12px;font-size:0.8rem;color:var(--text-dim)">Miễn phí · Mã nguồn mở · Không cần đăng ký ·
+          Không cần thẻ tín dụng</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════
+     FOOTER
+     ═══════════════════════════ -->
+  <footer class="footer" id="siteFooter">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">⚡ CodyMaster Kit</span>
+        <p class="footer__tagline" data-i18n="footer.tagline">Turn Ideas into Products 10x Faster</p>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.product">Product</h4>
+        <a href="brain.html" data-i18n="nav.brain">Brain</a>
+        <a href="skills.html" data-i18n="nav.skills">Skills</a>
+        <a href="playbook.html" data-i18n="nav.useCases">Playbook</a>
+        <a href="start.html" data-i18n="nav.getStarted">Get Started</a>
+        <a href="/docs/" data-i18n="nav.docs">Docs</a>
+        <a href="faq.html" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.whyUs">Why Us</h4>
+        <a href="why-cody-master.html" data-i18n="nav.whyCodyMaster">Why CodyMaster</a>
+        <a href="why-security.html" data-i18n="nav.whySecurity">Why Security</a>
+        <a href="vs-others.html" data-i18n="nav.vsOthers">vs Others</a>
+        <a href="story.html" data-i18n="nav.story">Our Story</a>
+        <a href="cli.html" data-i18n="nav.cli">CLI</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__col-title" data-i18n="footer.community">Community</h4>
+        <a href="https://github.com/tody-agent/codymaster" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Discord</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p data-i18n="footer.copy">© 2026 CodyMaster Kit. Free & Open Source.</p>
+      <p class="footer__made" data-i18n="footer.madeWith">Made with ❤️ and AI</p>
+    </div>
+  </footer>
+
+  <script src="/js/sanitize.js"></script>
+  <script src="/js/kit.js"></script>
+  <script>
+    // ═══════════════════════════
+    // PAGE-SPECIFIC: Landing Page Animations
+    // Nav, scroll reveal, hamburger, lang switcher handled by kit.js
+    // ═══════════════════════════
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+
+      // ── Scroll Progress Bar ──
+      const progressBar = document.getElementById('scrollProgress');
+      if (progressBar) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = document.documentElement.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          progressBar.style.width = (scrollTop / scrollHeight) * 100 + '%';
+        });
+      }
+
+      // ── Card Glow Follow Mouse ──
+      window.moveGlow = function(e, el) {
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width) * 100 + '%');
+        el.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height) * 100 + '%');
+      };
+
+      // ── Counter Animation ──
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target);
+            let current = 0;
+            const increment = target / 40;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) { current = target; clearInterval(timer); }
+              el.textContent = Math.floor(current) + (target > 10 ? '+' : '');
+            }, 30);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
+
+      // ── Score Bar + Token Bar Animation ──
+      const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('[data-width]').forEach(fill => {
+              setTimeout(() => { fill.style.width = fill.dataset.width + '%'; }, 300);
+            });
+            barObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      document.querySelectorAll('.gate-score-bar, .token-bars').forEach(el => barObserver.observe(el));
+
+      // ── Design Chat Animation ──
+      const designChat = document.getElementById('designChat');
+      if (designChat) {
+        const chatObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const messages = ['msg2', 'msg3', 'msg4', 'msg5'];
+              const previewBody = document.getElementById('previewBody');
+              messages.forEach((id, i) => {
+                setTimeout(() => {
+                  const msgEl = document.getElementById(id);
+                  if (msgEl) msgEl.classList.add('show');
+                  if (i === 0 && previewBody) previewBody.dataset.state = 'designing';
+                  if (i === 1 && previewBody) previewBody.dataset.state = 'done';
+                }, (i + 1) * 1200);
+              });
+              chatObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        chatObserver.observe(designChat);
+      }
+
+      // ── Copy Install Command ──
+      window.copyInstall = function() {
+        const cmd = 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all';
+        navigator.clipboard.writeText(cmd).then(() => {
+          const btn = document.querySelector('.copy-btn');
+          if (!btn) return;
+          const original = btn.textContent;
+          btn.textContent = '✅ Đã copy!';
+          setTimeout(() => btn.textContent = original, 2000);
+        });
+      };
+
+      // ── Floating Particles ──
+      (function createParticles() {
+        const container = document.getElementById('particles');
+        if (!container) return;
+        const count = window.innerWidth < 768 ? 15 : 30;
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement('div');
+          p.className = 'particle';
+          p.style.left = Math.random() * 100 + '%';
+          p.style.animationDuration = (8 + Math.random() * 15) + 's';
+          p.style.animationDelay = (Math.random() * 10) + 's';
+          p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+          if (Math.random() > 0.6) p.style.background = 'rgba(124,58,237,0.3)';
+          container.appendChild(p);
+        }
+      })();
+
+      // ── DNA Helix Canvas (Hero background) ──
+      (function drawDNA() {
+        const canvas = document.getElementById('dnaCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let w, h, time = 0;
+
+        function resize() {
+          w = canvas.width = canvas.parentElement.offsetWidth;
+          h = canvas.height = canvas.parentElement.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        function draw() {
+          ctx.clearRect(0, 0, w, h);
+          const centerX = w / 2;
+          const amp = Math.min(120, w * 0.15);
+          const step = 12;
+
+          for (let y = -20; y < h + 20; y += step) {
+            const offset = (y + time * 40) * 0.02;
+            const x1 = centerX + Math.sin(offset) * amp;
+            const x2 = centerX - Math.sin(offset) * amp;
+            const alpha = 0.04 + 0.03 * Math.sin(offset * 0.5);
+
+            ctx.beginPath();
+            ctx.arc(x1, y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(196, 248, 42, ${alpha})`;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(x2, y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(124, 58, 237, ${alpha})`;
+            ctx.fill();
+
+            if (y % (step * 3) < step) {
+              ctx.beginPath();
+              ctx.moveTo(x1, y);
+              ctx.lineTo(x2, y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.4})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+
+          time += 0.01;
+          requestAnimationFrame(draw);
+        }
+        draw();
+      })();
+    });
+
+    // ── Tab & Glider Logic ──
+    const tabs = document.querySelectorAll('.b3d-tab');
+    const glider = document.querySelector('.b3d-tab-glider');
+    const contents = document.querySelectorAll('.home-install-content');
+
+    function updateGlider(tab) {
+      if (!glider || !tab) return;
+      glider.style.width = tab.offsetWidth + 'px';
+      glider.style.left = tab.offsetLeft + 'px';
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        updateGlider(tab);
+
+        const target = tab.dataset.target;
+        contents.forEach(c => {
+          c.classList.remove('active');
+          if (c.id === `install-${target}`) c.classList.add('active');
+        });
+      });
+    });
+
+    const initialTab = document.querySelector('.b3d-tab.active');
+    if (initialTab) setTimeout(() => updateGlider(initialTab), 300);
+
+    // ── IDE Instructions ──
+    const ideData = {
+      'Antigravity': {
+        title: '🚀 Antigravity / Gemini CLI',
+        steps: [
+          { label: 'Cài đặt dưới dạng kỹ năng', code: 'antigravity skill add ~/.cody-master/skills/cm-skill-index' },
+          { label: 'Chạy cài đặt tự động', code: 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --antigravity' }
+        ]
+      },
+      'Cursor': {
+        title: '🖥️ Cursor IDE',
+        steps: [
+          { label: 'Copy thư mục skills', code: 'cp -r ~/.cody-master/skills .cursor/skills/' },
+          { label: 'Thiết lập rule', code: 'cp ~/.cody-master/.cursorrules .cursorrules' }
+        ]
+      },
+      'Claude': {
+        title: '🤖 Claude Code',
+        steps: [
+          { label: 'Đăng ký như web skill', code: 'claude plugin marketplace add tody-agent/codymaster' },
+          { label: 'Cài đặt toàn cục', code: 'claude plugin install cm@codymaster --scope user' }
+        ]
+      },
+      'Windsurf': {
+        title: '🌊 Windsurf',
+        steps: [
+          { label: 'Cài đặt toàn cục', code: 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all' }
+        ]
+      },
+      'RooCode': {
+        title: '🔶 RooCode',
+        steps: [
+          { label: 'Thiết lập MCP server', code: 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all' }
+        ]
+      },
+      'OpenCode': {
+        title: '📦 OpenCode',
+        steps: [
+          { label: 'Cài đặt toàn cục', code: 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all' }
+        ]
+      },
+      'CLI': {
+        title: '⌨️ CLI (Global)',
+        steps: [
+          { label: 'Cài đặt toàn cục', code: 'bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all' }
+        ]
+      }
+    };
+
+    const ideCards = document.querySelectorAll('.b3d-ide-card');
+    const containerIde = document.getElementById('ide-instructions-container');
+
+    ideCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.ide;
+        const info = ideData[id] || ideData['CLI'];
+
+        ideCards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+
+        let html = `
+          <div class="b3d-instruction-panel reveal visible" style="margin-top:24px; text-align:left;">
+            <h3 style="margin-bottom:16px; color:var(--text-primary); font-size:1.2rem;">${info.title}</h3>
+            <div class="b3d-steps" style="display:grid; gap:16px;">
+        `;
+
+        info.steps.forEach((s, i) => {
+          html += `
+            <div class="b3d-step" style="display:flex; gap:12px;">
+              <span style="background:var(--accent-purple); color:white; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:11px; font-weight:bold;">${i + 1}</span>
+              <div style="flex:1;">
+                <p style="font-size:13px; margin-bottom:6px; opacity:0.8;">${s.label}</p>
+                <div style="position:relative;">
+                  <code style="background:rgba(0,0,0,0.4); padding:10px 14px; border-radius:8px; display:block; font-size:12px; border:1px solid rgba(255,255,255,0.1); white-space:pre-wrap; word-break:break-all;">${s.code}</code>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        html += `</div></div>`;
+        containerIde.innerHTML = html;
+      });
+    });
+    // Auto click first IDE to show default instructions
+    if (ideCards.length > 0) {
+      ideCards[0].click();
+    }
+  </script>
+  <script src="/js/ga-events.js"></script>
+
+</body>
+
+</html>
