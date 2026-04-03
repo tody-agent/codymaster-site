@@ -16,21 +16,26 @@ robots: "index, follow"
 
 ## Installation
 
-### 1. Recommended: Unified Skills Installer (Bash)
+### 1. Recommended: Zero-Touch Installer (Bash)
 
-This is the primary way to get the 35 AI skills into your agent's environment.
-
-```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all
-```
-
-### 2. Optional: Dashboard & CLI (NPM)
-
-Install the global CLI for localized task management and the Mission Control UI.
+This is the primary way to get the 68+ AI skills into your agent's environment and natively configure the OS-level semantic memory daemon.
 
 ```bash
+# Interactive setup (installs skills + CLI + OpenViking via pip3)
 bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all
+
+# Non-interactive zero-touch setup
+bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --auto
 ```
+
+### 2. Dashboard & CLI (NPM)
+
+Install the global CLI for localized task management, context bus, and Mission Control UI.
+
+```bash
+npm install -g codymaster
+```
+> **Note**: As of v4.7.0, the NPM `postinstall.js` hook securely manages `pip/pip3` commands in the background to set up your OpenViking engine automatically.
 
 After installation, the following commands are available:
 - `cm` — primary CLI command
@@ -41,13 +46,14 @@ After installation, the following commands are available:
 ### Project Initialization
 
 ```bash
-# Initialize a new Cody Master project
+# Initialize a new Cody Master project Context Backbone
 cm init
 
 # This creates a .cm/ directory with:
-# .cm/CONTINUITY.md     - Working memory
-# .cm/config.yaml       - RARV settings
-# .cm/memory/           - Learnings & decisions
+# .cm/CONTINUITY.md        - Working memory
+# .cm/config.yaml          - Backend configs (sqlite vs viking)
+# .cm/context.db           - SQLite FTS5 database (if sqlite backend)
+# .cm/token-budget.json    - Token limits per chunk
 ```
 
 ### Default Settings

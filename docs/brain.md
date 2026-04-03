@@ -17,15 +17,19 @@ Temporary information within one command execution: "file X has 200 lines." Disc
 Just as humans can only hold about 7 items in short-term memory, CodyMaster maintains strict working memory limits. Managed by the **[`cm-continuity`](/skills/cm-continuity)** skill, this layer tracks the active task, recent context, mistakes made, and immediate goals via `CONTINUITY.md`.
 * **When to use:** Automatically loaded at session start, saved at session end.
 
-### Tier 3: Long-Term Memory (`learnings.json`)
-*Experience-based learnings — TTL 30–180 days.*
+### Tier 3: Long-Term Memory (Context Backbone v5)
+*Experience-based learnings — `StorageBackend` abstraction (SQLite/OpenViking).*
 
-When bugs are fixed or patterns discovered, key insights are synthesized into `learnings.json` with scope tags. Learnings follow the **Ebbinghaus Forgetting Curve**: used once → 30d TTL, reinforced 2× → 60d, reinforced 5×+ → 180d (near-permanent). Only learnings relevant to the current module are loaded per task via **scope filtering**.
+When bugs are fixed or patterns discovered, key insights are pushed to the **Context Backbone v5**. Depending on your `.cm/config.yaml`, this abstracts over two engines:
+1. **SqliteBackend**: Local WAL-mode SQLite database using FTS5 for lightning-fast localized text searches.
+2. **VikingBackend**: A robust REST-based semantic vector memory powered by the **OpenViking** daemon (`http://localhost:1933`). 
 
-### Tier 4: Semantic Memory (`cm-deep-search`)
-*Deep document retrieval — permanent, local vector search.*
+Both engines support **Token Budget Enforcement**—pre-allocating a precise max tokens budget limit for learnings per prompt. Only learnings relevant to the current module are loaded per task via progressive indexing (L0/L1/L2) and semantic filtering.
 
-When context exceeds working memory capacity, **[`cm-deep-search`](/skills/cm-deep-search)** uses BM25/vector search (powered by `qmd`) to retrieve relevant knowledge from massive codebases and documentation without token limits. Like a photographic reading memory — finds patterns hidden in text.
+### Tier 4: Semantic Memory (OpenViking)
+*Deep document retrieval — permanent, true vector search.*
+
+When context exceeds working memory capacity, CodyMaster interacts with the **OpenViking** daemon `/search` and `/abstract` endpoints (or `qmd` as a local fallback). This yields true **vector similarity** across massive codebases and documentation—even when query terms don't match exactly (e.g. "async timeout" matches "network latency spike"). Like a photographic reading memory — it finds patterns hidden in deep codebase semantics.
 
 ### Tier 5: Structural Memory (`cm-codeintell`)
 *Real-time code architecture understanding — AST/CodeGraph.*
@@ -62,13 +66,13 @@ The **[`cm-notebooklm`](/skills/cm-notebooklm)** skill orchestrates this cloud s
 CodyMaster Brain implements dynamic mechanisms to manage the lifecycle of information.
 
 ### Smart Decay (The Forgetting Curve)
-Standard AI systems hold onto outdated knowledge forever, leading to bugs when dependencies change. CodyMaster Brain implements a decay mechanism inspired by the *Ebbinghaus Forgetting Curve*. Outdated libraries, old refactored code patterns, and obsolete learnings literally "decay" and expire mathematically, keeping your active context clean and highly relevant.
+Standard AI systems hold onto outdated knowledge forever, leading to bugs when dependencies change. CodyMaster Brain implements a decay mechanism inspired by the *Ebbinghaus Forgetting Curve*. Old refactored code patterns and obsolete learnings literally "decay" and expire, keeping your active context clean and highly relevant.
 
 ### Self-Healing Feedback Loops
-When a bug leads to an infinite loop or a hallucination, CodyMaster Brain recognizes the pattern and "heals" its memory. It records the failure path as a negative constraint, ensuring the exact same mistake is never repeated in future sessions.
+When a bug leads to an infinite loop or a hallucination, CodyMaster Brain recognizes the pattern and "heals" its memory. The new **Self-Healing AI Pipeline** (`cm-skill-health`, `cm-skill-evolution`) continuously monitors success rates and auto-patches failing skills using a version DAG. 
 
-### Scope Filtering
-Instead of loading a massive `memory.txt` file on every request, the Brain only loads what is strictly relevant to the current `module` or `file`. If there are 50 recorded global learnings, the system uses semantic filtering to load only the 2 or 3 learnings applicable to the current task, saving thousands of tokens per request.
+### Progressive Loading & Budget Constraints
+Instead of loading a massive data file on every request, the Context Backbone heavily relies on **cm:// URIs** and **L0/L1/L2 progressive loading**. For example, an initial hit fetches an L0 index (saving up to 96% of tokens), and only escalates to a full file read if deeper understanding is necessary. Combined with **Token Budget Enforcement**, this prevents context window overflow.
 
 ---
 

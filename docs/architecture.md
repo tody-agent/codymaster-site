@@ -10,7 +10,7 @@ robots: "index, follow"
 > **Quick Reference**
 > - **Pattern**: Modular Monolith (CLI + REST API in single process)
 > - **Runtime**: Node.js with TypeScript
-> - **Storage**: File-based JSON (zero external DB)
+> - **Storage Backend**: SQLite (Context Backbone v5) or OpenViking (Vector Memory)
 > - **API**: Express REST API (dashboard)
 > - **CLI**: Commander.js
 
@@ -43,8 +43,10 @@ graph TB
         ARCH_DIAG["Architecture<br/>.cm/architecture.mmd"]
     end
 
-    subgraph "Data Layer"
-        STORE["JSON Store<br/>src/data.ts"]
+    subgraph "Data Layer (Context Backbone v5)"
+        STORE["StorageBackend Factory<br/>src/storage-backend.ts"]
+        SQLITE["SQLite + FTS5<br/>.cm/context.db"]
+        VIKING["OpenViking Backend<br/>(Semantic Vector DB)"]
         FILE_SYS["File System<br/>.cm/ directory"]
     end
 
@@ -62,8 +64,10 @@ graph TB
     API --> DISPATCH
 
     JUDGE --> STORE
-    CONT --> FILE_SYS
+    CONT --> STORE
     CHAIN --> STORE
+    STORE --> SQLITE
+    STORE -.->|"Optional"| VIKING
     DISPATCH --> SKILLS_DIR
     DISPATCH --> STORE
 
@@ -73,7 +77,7 @@ graph TB
     AI_AGENT -->|"reads skeleton"| SKELETON
 ```
 
-*Developers interact via CLI or Dashboard. AI agents read skills directly from filesystem and interact with the REST API. Code Intelligence provides pre-indexed structural understanding. All data persists to JSON files.*
+*Developers interact via CLI or Dashboard. AI agents read skills directly from filesystem and interact with the REST API. Code Intelligence provides pre-indexed structural understanding. The Context Backbone v5 automatically routes memory to either local SQLite or OpenViking.*
 
 ## Code Intelligence (v3.5)
 
@@ -99,8 +103,8 @@ To achieve infinite scaling without AI context collapse, CodyMaster implements a
 ```
 Tier 1: SENSORY        → Temporary session variables
 Tier 2: WORKING        → CONTINUITY.md (~500 words)
-Tier 3: LONG-TERM      → learnings.json, decisions.json
-Tier 4: SEMANTIC TEXT   → qmd (BM25 + vector over docs)
+Tier 3: LONG-TERM      → StorageBackend (SQLite / OpenViking)
+Tier 4: SEMANTIC TEXT   → OpenViking / qmd (BM25 + vector over docs)
 Tier 5: STRUCTURAL     → CodeGraph + Skeleton Index
 ```
 
@@ -141,12 +145,13 @@ Autonomous task health evaluator:
 
 ### Working Memory (`src/continuity.ts`)
 
-Persistent context system — inspired by Loki Mode:
+Persistent context system — inspired by Loki Mode. In v4.5.0+, this is powered by the **Context Backbone v5**:
 
-- **CONTINUITY.md** — current session state, active goal, next actions
-- **learnings.json** — captured error patterns (persists across sessions)
-- **decisions.json** — architecture decisions (persists across projects)
-- **config.yaml** — RARV cycle settings
+- **CONTINUITY.md** — current session state, active goal, next actions.
+- **StorageBackend** — Learnings and decisions are persisted via `SqliteBackend` (FTS5 search) or `VikingBackend` (Semantic Vector search).
+- **cm:// URIs** — Unified content addressing (e.g. `cm://memory/learnings`).
+- **Context Bus** — `.cm/context-bus.json` tracks output payloads across skill chains.
+- **MCP Context Server** — Exposes `/cm_query`, `/cm_resolve`, and token budget tooling directly to Claude Desktop.
 
 ### Skill Chain (`src/skill-chain.ts`)
 
@@ -193,13 +198,13 @@ Auto-detected by `cm-start` based on task description and codebase analysis.
 
 ## Design Decisions
 
-### Why File-based JSON Storage?
+### Why Context Backbone v5 (StorageBackend)?
 
 | Decision | Rationale |
 |----------|-----------|
-| JSON files over database | Zero setup overhead. `cm init` works immediately. No Docker, no PostgreSQL, no SQLite drivers. |
-| Single data file | Atomic read/write. No migration scripts. Easy backup (just copy the file). |
-| `.cm/` directory per project | Keeps working memory alongside code. Version-controllable context. |
+| SQLite + FTS5 over JSON | Flat JSON scans became too slow for massive codebases. SQLite WAL-mode + FTS5 virtual tables offer lightning-fastBM25 ranking. |
+| OpenViking Integration | By introducing the `StorageBackend` interface in v4.5.5, CodyMaster seamlessly plugs into the OpenViking daemon, unlocking true semantic vector search via HTTP out-of-the-box. |
+| Token Budget Enforcement | Pre-allocating context budget across categories (Limits total tokens per prompt). |
 
 ### Why Modular Monolith?
 

@@ -8,9 +8,9 @@ robots: "index, follow"
 # Cody Master Documentation
 
 > **Quick Reference**
-> - **Version**: 4.3.0
+> - **Version**: 4.7.0
 > - **Type**: Universal AI Agent Skills Framework
-> - **Skills**: 35 skills in 6 domains
+> - **Skills**: 68+ skills in 6 domains (Powered by OpenViking)
 > - **Platforms**: Claude Code, Gemini/Antigravity, Cursor, Windsurf, Cline, Aider, Continue, Amazon Q, Amp, and more
 
 ## What is Cody Master?
@@ -33,7 +33,7 @@ Your Idea → Cody Master Skills → Production-Ready Code
 ::: code-group
 
 ```bash [Bash (Universal)]
-# Fastest & Interactive setup
+# Fastest & Interactive setup (auto-installs OpenViking semantic engine)
 bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --all
 ```
 
@@ -43,7 +43,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/i
 ```
 
 ```bash [Gemini CLI]
-# Auto-install for Antigravity/Gemini
+# Auto-install for Antigravity/Gemini (native support)
 bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/install.sh) --antigravity
 ```
 
@@ -53,6 +53,8 @@ bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/i
 ```
 
 :::
+
+> **Note**: Both NPM package updates and the standard bash installer securely setup the OpenViking daemon in the background (`pip3 install openviking`) to unlock true structural memory for your agents.
 
 ## Documentation Structure
 
@@ -87,19 +89,22 @@ bash <(curl -fsSL https://raw.githubusercontent.com/tody-agent/codymaster/main/i
 
 ```mermaid
 graph TB
-    CM["🧠 Cody Master<br/>35 Skills"]
+    CM["🧠 Cody Master<br/>68+ Skills"]
+    VIKING[("🛡️ OpenViking<br/>Backend")]
+    
+    CM -.->|"Semantic Memory"| VIKING
     CM --> E["🔧 Engineering"]
     CM --> O["⚙️ Operations"]
     CM --> P["🎨 Product"]
     CM --> G["📈 Growth"]
     CM --> R["🎯 Orchestration"]
-    CM --> W["🖥️ Workflow"]
+    CM --> H["💊 Self-Healing"]
 
     E --> E1["cm-tdd"]
     E --> E2["cm-debugging"]
-    E --> E3["cm-quality-gate"]
+    E --> E3["cm-frappe-agent"]
     E --> E4["cm-test-gate"]
-    E --> E5["cm-code-review"]
+    E --> E5["cm-clean-code"]
     E --> E6["cm-codeintell"]
 
     O --> O1["cm-safe-deploy"]
@@ -113,27 +118,27 @@ graph TB
     P --> P2["cm-brainstorm-idea"]
     P --> P3["cm-ux-master"]
     P --> P4["cm-ui-preview"]
-    P --> P5["cm-dockit"]
+    P --> P5["cm-reactor"]
     P --> P6["cm-project-bootstrap"]
-    P --> P7["cm-readit"]
-    P --> P8["cm-jtbd"]
+    P --> P7["cm-jtbd"]
 
     G --> G1["cm-content-factory"]
     G --> G2["cm-ads-tracker"]
-    G --> G3["cm-cro-methodology"]
+    G --> G3["cm-growth-hacking"]
+    G --> G4["cm-cro-methodology"]
+    G --> G5["cm-auto-publisher"]
 
     R --> R1["cm-execution"]
     R --> R2["cm-continuity"]
     R --> R3["cm-skill-chain"]
-    R --> R4["cm-skill-index"]
-    R --> R5["cm-skill-mastery"]
-    R --> R6["cm-deep-search"]
-    R --> R7["cm-how-it-work"]
-    R --> R8["cm-notebooklm"]
+    R --> R4["cm-deep-search"]
+    R --> R5["cm-notebooklm"]
 
-    W --> W1["cm-start"]
-    W --> W2["cm-dashboard"]
-    W --> W3["cm-status"]
+    H --> H1["cm-skill-health"]
+    H --> H2["cm-skill-evolution"]
+    H --> H3["cm-skill-search"]
+    H --> H4["cm-skill-share"]
+    H --> H5["cm-skill-mastery"]
 ```
 
 Browse the full skill library with complete documentation: **[Skills Library →](./skills/)**
